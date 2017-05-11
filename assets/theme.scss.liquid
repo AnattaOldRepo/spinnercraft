@@ -323,7 +323,7 @@ $transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 $color-body: {{ settings.color_body_bg }};
 $color-bg: {{ settings.color_body_bg }};
 $color-drawer-background: rgba(0, 0, 0, 0.6);
-$color-header-bg: #dae3e8;
+$color-header-bg: #EBEBEB;
 
 // Overlays
 $color-overlay-title-text: {{ settings.color_image_overlay_text }};
@@ -358,7 +358,7 @@ $color-pinterest: #cb2027;
 
 /*================ Sizing Variables ================*/
 $width-site: 1200px;
-$gutter-site: 55px;
+$gutter-site: 25px;
 $gutter-site-mobile: 22px;
 $section-spacing: 55px;
 $section-spacing-small: 35px;
@@ -920,6 +920,12 @@ $grid-breakpoints: (
 
   &[class*="--push"] {
     position: relative;
+  }
+}
+
+.grid__item--logo {
+  @include media-query($large-up) {
+    width: 40%
   }
 }
 
@@ -3669,36 +3675,24 @@ h1.product-single__title {
     line-height: 1;
   }
 
+  .logo--left & {
+    top: 2px;
+    left: 12px;
+    border-radius: 9px;
+    min-width: 16px;
+    height: 16px;
+  }
+
   @include media-query($medium-up) {
     .logo--center & {
       right: -2px;
-    }
-
-    .logo--left & {
-      left: 12px;
-      top: 4px;
-    }
-  }
-}
-
-@include media-query($small) {
-  .site-header__cart-count {
-    top: 14px;
-    left: 22px;
-    border-radius: 11px;
-    min-width: 19px;
-    height: 19px;
-
-    span {
-      padding: 4px 6px;
-      font-size: 12px;
     }
   }
 }
 
 .site-header__account,
 .site-header__search-toggle{
-  font-size: 15px;
+  font-size: em(14);
   margin-right: 15px;
   min-height: 30px;
   display: none;
@@ -3731,6 +3725,7 @@ h1.product-single__title {
   text-align: left;
   z-index: $z-index-notification-bar;
   display: none;
+  font-size: em(16);
 }
 
 @include media-query($large-up) {

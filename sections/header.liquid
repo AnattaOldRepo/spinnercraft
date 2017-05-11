@@ -84,7 +84,7 @@
           {% endif %}
         </div>
 
-        <div class="grid__item small-up--one-third text-center">
+        <div class="grid__item small-up--one-third grid__item--logo text-center">
           <div>
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
@@ -126,7 +126,7 @@
               </a>
             {% else %}
               <a href="/account/login" class="site-header__account">
-                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+                <span class="icon__fallback-text">Login</span>
               </a>
             {% endif %}
           {% endif %}
@@ -137,7 +137,6 @@
             {% if cart.item_count > 0 %}
               <div id="CartCount" class="site-header__cart-count">
                 <span>{{ cart.item_count }}</span>
-                <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
               </div>
             {% endif %}
           </a>
@@ -165,7 +164,7 @@
 
     <div class="site-header__row site-header__row--nobg site-header__row--smallVisible">
       {% if section.settings.message %}
-        <div class="notification-bar notification-bar--smallVisible text-center">
+        <div class="notification-bar notification-bar--smallVisible text-site-header__cart-count text-center">
           {% if section.settings.message %}
             {% if section.settings.message_link != blank %}
               <a href="{{ section.settings.message_link }}" class="notification-bar__message">
