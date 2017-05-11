@@ -3543,10 +3543,25 @@ h1.product-single__title {
   }
 }
 
-.site-header__row-nobg{
+.site-header__row--nobg{
   background-color: transparent;
 }
 
+.site-header__row--smallVisible{
+  display: block;
+
+  @include media-query($large-up) {
+    display: none;
+  }
+}
+
+.site-header__row--largeVisible{
+  display: none;
+
+  @include media-query($large-up) {
+    display: block;
+  }
+}
 
 .site-header__logo {
   margin: 15px 0;
@@ -3720,6 +3735,15 @@ h1.product-single__title {
 
 @include media-query($large-up) {
   .notification-bar { display: block; }
+}
+
+.notification-bar--smallVisible{
+  display: block;
+  padding: 15px;
+
+  @include media-query($large-up) {
+    display: none;
+  }
 }
 
 .notification-bar__message {

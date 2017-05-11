@@ -145,7 +145,7 @@
       </div>
     </div>
 
-    <div class="site-header__row site-header__row-nobg">
+    <div class="site-header__row site-header__row--nobg site-header__row--largeVisible">
       <div class="grid grid--no-gutters grid--table">
         {% if section.settings.align_logo == 'center' %}
           <div class="grid__item small--hide medium-up--one-quarter">
@@ -161,6 +161,22 @@
           </nav>
         {% endif %}
       </div>   
+    </div>
+
+    <div class="site-header__row site-header__row--nobg site-header__row--smallVisible">
+      {% if section.settings.message %}
+        <div class="notification-bar notification-bar--smallVisible text-center">
+          {% if section.settings.message %}
+            {% if section.settings.message_link != blank %}
+              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+                {{ section.settings.message_text | escape }}
+              </a>
+            {% else %}
+              <span class="notification-bar__message">{{ section.settings.message_text | escape }}</span>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
 
   </header>
