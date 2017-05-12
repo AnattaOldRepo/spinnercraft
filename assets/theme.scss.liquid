@@ -925,8 +925,12 @@ $grid-breakpoints: (
 }
 
 .grid__item--logo {
+  width: 170%;
+  @include media-query($medium-up) {
+    width: 100%;
+  }
   @include media-query($large-up) {
-    width: 40%
+    width: 40%;
   }
 }
 
