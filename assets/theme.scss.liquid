@@ -4883,9 +4883,10 @@ $toolbar-height-small: 46px;
 .site-footer__newsletter {
   @include media-query($medium-up) {
       float: left;
-      max-width: 480px; 
+      max-width: 400px; 
       margin-top: 0;
       margin-bottom: $section-spacing-small;
+      margin-left: 9%;
   }
 
   @include media-query($large-up) {
@@ -4893,6 +4894,7 @@ $toolbar-height-small: 46px;
     max-width: none;
     margin-top: $section-spacing-small;
     margin-bottom: 0;
+    margin-left: 0;
   }
 }
 
@@ -4904,11 +4906,13 @@ $toolbar-height-small: 46px;
       float: right;
       margin-top: 45px;
       margin-bottom: 0;
+      margin-right: 12%;
   }
 
   @include media-query($large-up) {
     float: none;
     margin-top: 20px;
+    margin-right: 0;
   }
 }
 

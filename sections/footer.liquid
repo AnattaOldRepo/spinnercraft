@@ -21,7 +21,7 @@
       <div class="grid grid--uniform grid--view-items" style="overflow: inherit;">
         <div class="grid__item small--one-whole medium--one-half large-up--seven-twelfths">
             <ul class="site-footer__linklist site-footer__linklist--center">
-              <li class="site-footer__linklist-item"><h5>Shop</h5></li>
+              <li class="site-footer__linklist-item"><h5><a href="/collections">Shop</a></h5></li>
               {% for link in linklists.footer-shop.links %}
                 <li class="site-footer__linklist-item">
                   <a href="{{ link.url }}">{{ link.title }}</a>
@@ -29,7 +29,7 @@
               {% endfor %}
             </ul>
             <ul class="site-footer__linklist site-footer__linklist--center">
-              <li class="site-footer__linklist-item"><h5>About</h5></li>
+              <li class="site-footer__linklist-item"><h5><a href="/pages/about">About</a></li>
               {% for link in linklists.footer-about.links %}
                 <li class="site-footer__linklist-item">
                   <a href="{{ link.url }}">{{ link.title }}</a>
@@ -158,7 +158,7 @@
 
     <div class="site-footer__copyright--nav">
       <a href="/pages/privacy">Privacy</a>
-      <a href="/pages/terms">terms</a>
+      <a href="/pages/terms">Terms</a>
     </div>
   </div>
 </footer>
