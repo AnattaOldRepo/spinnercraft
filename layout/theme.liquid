@@ -131,7 +131,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 <!-- RetentionScience end -->
 </head>
 
-<body class="template-{{ template | split: '.' | first }}">
+<body id="{{ page_title | handle }}" class="template-{{ template | split: '.' | first }} {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -153,23 +153,78 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
     </div>
   </div>
 
+  <div id="CartDrawer" class="cartdrawer drawer--right">
+    <div class="grid grid--no-gutters grid--table cartdrawer__header">
+      <div class="grid__item">
+        <button type="button" class="btn--link cartdrawer__cart-close js-drawer-close">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 37 40"><path d="M21.3 23l11-11c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0l-11 11-11-11c-.8-.8-2-.8-2.8 0-.8.8-.8 2 0 2.8l11 11-11 11c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11-11 11 11c.4.4.9.6 1.4.6s1-.2 1.4-.6c.8-.8.8-2 0-2.8l-11-11z"></path></svg>
+        </button>
+      </div>
+      <div class="grid__item text-center">
+        <h6 class="cartdrawer__cart-title">{{ 'cart.general.title' | t }} (<span id="CartCountD"></span>)</h6>
+      </div>
+      <div class="grid__item text-right">
+          <a class="cartdrawer__cart-icon js-drawer-close">
+            {% include 'icon-cart' %}
+          </a>
+      </div>
+    </div>
+    <div id="CartContainer"></div>
+    <!--div class="ajaxcartContent">
+      <div class="ajaxcartContent__head">
+        Returns + Exchnages
+      </div>
+      <div class="ajaxcartContent__head">
+        Shipping
+      </div>
+    </div-->
+  </div>
+
   {% section 'header' %}
 
   <div class="page-container" id="PageContainer">
 
     <main class="main-content" id="MainContent" role="main">
       {% include 'mlveda-currencies-switcher' %}
-{{ content_for_layout }}
+      {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}
-
   </div>
-{% include 'mlveda-currencies' %}
 
+{% include 'mlveda-currencies' %}
 {% include 'special-offers' %}
+
+{{ 'fastclick.min.js' | asset_url | script_tag }}
+{{ 'timber.js' | asset_url | script_tag }}
+
+{{ 'handlebars.min.js' | asset_url | script_tag }}
+{% include 'ajax-cart-template' %}
+{{ 'ajax-cart.js' | asset_url | script_tag }}
+
+<script>
+
+  jQuery(function($) {
+
+    console.log(timber);
+
+    ajaxCart.init({
+      cartContainer: '#CartContainer',
+      addToCartSelector: '#AddToCart-product-template',
+      cartCountSelector: '#CartCount, #CartCountD',
+      cartCostSelector: '#CartCost',
+      moneyFormat: {{ shop.money_format | json }}
+    });
+  });
+
+  jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
+    // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+    timber.RightDrawer.open();
+  });
+</script>
 
 <!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END --><script src="//www.codeblackbelt.com/js/modules/shipping-rates-calculator-plus/main.min.js?shop=spinnercraft.myshopify.com"></script>
 <script src="//www.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=spinnercraft.myshopify.com"></script>
+
 </body>
 </html>
