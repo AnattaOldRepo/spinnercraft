@@ -218,7 +218,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
   });
 
   jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
-    // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+     _rs_ajax.updateCart();
     timber.RightDrawer.open();
   });
 </script>
