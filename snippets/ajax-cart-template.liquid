@@ -97,7 +97,7 @@
           {{/if}}
         </div>
         <p class="text-center">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
-        <div class="ajaxcart__note">FREE SHIPPING over $40 within USA!</div>
+        <div id="freeShippingCounter" class="ajaxcart__note">{{{shippingPrice}}}</div>
         <button type="submit" class="btn product-form__cart-submit" name="checkout">
           {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %} &rarr;
         </button>

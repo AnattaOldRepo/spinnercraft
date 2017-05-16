@@ -193,7 +193,7 @@ var ajaxCart = (function(module, $) {
       cartCostSelector   : null,
       moneyFormat        : '${{amount}}',
       disableAjaxCart    : false,
-      enableQtySelectors : true
+      enableQtySelectors : true,
     };
 
     // Override defaults with arguments
@@ -328,6 +328,7 @@ var ajaxCart = (function(module, $) {
         itemMinus: cartItem.quantity - 1,
         itemQty: cartItem.quantity,
         price: Shopify.formatMoney(cartItem.price, settings.moneyFormat),
+        shippingPrice: 4000 - cart.total_price,
         vendor: cartItem.vendor,
         linePrice: Shopify.formatMoney(cartItem.line_price, settings.moneyFormat),
         originalLinePrice: Shopify.formatMoney(cartItem.original_line_price, settings.moneyFormat),
@@ -343,6 +344,7 @@ var ajaxCart = (function(module, $) {
       items: items,
       note: cart.note,
       totalPrice: Shopify.formatMoney(cart.total_price, settings.moneyFormat),
+      shippingPrice: (item.shippingPrice <= 0) ? 'FREE SHIPPING' : ' You’re ' + Shopify.formatMoney(item.shippingPrice, settings.moneyFormat) + ' away from FREE SHIPPING ',
       totalCartDiscount: cart.total_discount === 0 ? 0 : {{ 'cart.general.savings_html' | t: price: '[savings]' | json }}.replace('[savings]', Shopify.formatMoney(cart.total_discount, settings.moneyFormat)),
       totalCartDiscountApplied: cart.total_discount === 0 ? false : true
     }
