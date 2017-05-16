@@ -344,7 +344,7 @@ var ajaxCart = (function(module, $) {
       items: items,
       note: cart.note,
       totalPrice: Shopify.formatMoney(cart.total_price, settings.moneyFormat),
-      shippingPrice: (item.shippingPrice <= 0) ? 'FREE SHIPPING' : ' You’re ' + Shopify.formatMoney(item.shippingPrice, settings.moneyFormat) + ' away from FREE SHIPPING ',
+      shippingPrice: (item.shippingPrice <= 0) ? '<div class="ajaxcart__note ajaxcart__note--animate"><div> You’ve unlocked FREE SHIPPING! </div></div>' : '<div class="ajaxcart__note"> You’re ' + Shopify.formatMoney(item.shippingPrice, settings.moneyFormat) + ' away from FREE SHIPPING </div>',
       totalCartDiscount: cart.total_discount === 0 ? 0 : {{ 'cart.general.savings_html' | t: price: '[savings]' | json }}.replace('[savings]', Shopify.formatMoney(cart.total_discount, settings.moneyFormat)),
       totalCartDiscountApplied: cart.total_discount === 0 ? false : true
     }

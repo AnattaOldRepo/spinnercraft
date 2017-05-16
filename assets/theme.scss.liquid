@@ -5638,6 +5638,70 @@ $toolbar-height-small: 46px;
   font-size: em(14px);
   padding: 10px;
   margin-top: 60px;
+  font-weight: 600;
+}
+
+
+.ajaxcart__note--animate{
+   -webkit-animation: mymove 700ms ease-in-out; /* Safari 4.0 - 8.0 */
+    animation: mymove 700ms ease-in-out;
+}
+
+.ajaxcart__note--animate div{
+   -webkit-animation: mymoves 600ms ease; /* Safari 4.0 - 8.0 */
+  animation: mymoves 600ms ease;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    0% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: #f6f9d5;
+    }
+    0% {
+      background-color: transparent;
+    }
+}
+
+@keyframes mymove {
+    0% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: #f6f9d5;
+    }
+    0% {
+      background-color: transparent;
+    }
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymoves {
+    0% {
+      @include transform(scale(0));
+    }
+    50% {
+      @include transform(scale(1.2));
+    }
+    100% {
+      @include transform(scale(1));
+    }
+}
+
+@keyframes mymoves {
+    0% {
+      @include transform(scale(0));
+    }
+    50% {
+      @include transform(scale(1.2));
+    }
+    100% {
+      @include transform(scale(1));
+    }
 }
 
 
