@@ -195,6 +195,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 {% include 'mlveda-currencies' %}
 {% include 'special-offers' %}
 
+<!--Ajax cart-->
 {{ 'fastclick.min.js' | asset_url | script_tag }}
 {{ 'timber.js' | asset_url | script_tag }}
 
@@ -205,9 +206,6 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 <script>
 
   jQuery(function($) {
-
-    console.log(timber);
-
     ajaxCart.init({
       cartContainer: '#CartContainer',
       addToCartSelector: '#AddToCart-product-template',
@@ -216,12 +214,33 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       moneyFormat: {{ shop.money_format | json }}
     });
   });
-
   jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
-    // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+     _rs_ajax.updateCart();
     timber.RightDrawer.open();
   });
+
 </script>
+<!--Ajax cart end-->
+
+<!--Retention email tracking-->
+<script>
+
+  // email validation regex copied from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript#answer-46181
+  function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+  }
+  jQuery(document).ready(function($) {
+    jQuery('#CustomerEmail, #Email').on('change', function() {
+      if(validateEmail(jQuery(this).val())) {
+        _rsq.push(['_setUserEmail', jQuery(this).val()]);
+        _rsq.push(['_setAction', 'email_entered']);
+        _rsq.push(['_track']);
+      }
+    });
+  });
+</script>
+<!--Retention email tracking end-->
 
 <!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END --><script src="//www.codeblackbelt.com/js/modules/shipping-rates-calculator-plus/main.min.js?shop=spinnercraft.myshopify.com"></script>
 <script src="//www.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=spinnercraft.myshopify.com"></script>
