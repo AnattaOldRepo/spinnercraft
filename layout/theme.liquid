@@ -231,9 +231,9 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       return re.test(email);
   }
   jQuery(document).ready(function($) {
-    $('#CustomerEmail, #Email').on('change', function() {
-      if(validateEmail($(this).val())) {
-        _rsq.push(['_setUserEmail', $(this).val()]);
+    jQuery('#CustomerEmail, #Email').on('change', function() {
+      if(validateEmail(jQuery(this).val())) {
+        _rsq.push(['_setUserEmail', jQuery(this).val()]);
         _rsq.push(['_setAction', 'email_entered']);
         _rsq.push(['_track']);
       }
