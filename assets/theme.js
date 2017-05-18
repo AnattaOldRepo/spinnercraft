@@ -2708,6 +2708,12 @@ $(document).ready(function() {
   sections.register('map', theme.Maps);
   sections.register('slideshow-section', theme.SlideshowSection);
   sections.register('quotes', theme.Quotes);
+
+  $('.category-mobile-head').on('click', function() {
+    $('.category-mobile-content').slideToggle();
+  });
+
+
 });
 
 theme.init = function() {
