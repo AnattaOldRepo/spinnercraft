@@ -1,14 +1,63 @@
 <div class="page-width">
   <header class="section-header text-center">
-    <h1>{{ page_title }}</h1>
+    <h1>Shop</h1>
   </header>
-
-  <div class="grid grid--uniform">
-    {% for collection in collections %}
-      <div class="grid__item small--one-half medium-up--one-third">
-        {% include 'collection-grid-item' %}
+  <div class="grid grid--uniform grid--view-items">
+    <div class="grid__item medium-up--two-tenths _mb">
+      <div class="category-mobile-head">
+        Types
       </div>
-    {% endfor %}
+      <div class="category-mobile-content">
+        <ul class="category-list">
+          <li><h5 class="category-list__head">Metal Spinners</h5></li>
+          {% for link in linklists.metal-spinners.links %}
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="category-list">
+          <li><h5 class="category-list__head">Plastic Spinners</h5></li>
+          {% for link in linklists.plastic-spinners.links %}
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="category-list">
+          <li><h5 class="category-list__head">Accessories</h5></li>
+          {% for link in linklists.accessories.links %}
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="grid__item medium-up--eight-tenths">
+      <div class="grid grid--uniform grid--view-items">
+        <!-- list of categories  -->
+        {% for collection in collections %}
+        {% if collection.handle == 'fidget-spinner-full-collection' %}
+          {% for product in collection.products %}
+            {% for variant in product.variants %}
+              <div class="grid__item small--one-half medium-up--one-third">
+                <div class="grid-view-item">
+                  {% if variant.image.src %}
+                    <a href="{{ variant.url }}"><img src="{{ variant.image.src |  img_url: '345x550' }}" alt=""></a>
+                  {% else %}
+                    <a href="{{ product.url }}"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
+                  {% endif %}
+                  {% if variant.title == 'Default Title' %}
+                    <h5 class="grid-view-item__title">{{ product.title }}</h5>
+                  {% else %}
+                    <h5 class="grid-view-item__title">{{ product.title }}: {{ variant.title  }}</h5>
+                  {% endif %}
+                  <div class="product-price__price">{{ variant.price | money }} {% if variant.available == false %} - Sold Out {% endif %}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+        {% endfor %}
+        <!-- end list of categories  -->
+      </div>
+    </div>
   </div>
 </div>
+<br/><br/><br/><br/><br/><br/>
 
