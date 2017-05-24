@@ -1,6 +1,10 @@
+ {% if current_tags.size %}
+      {% assign current_tag = current_tags.first | handleize %}
+{% endif %}
+
 <div class="page-width">
   <header class="section-header text-center">
-    <h1>{{collection.title}}</h1>
+    <h1>{{current_tag | replace: '-', ' ' | capitalize }}</h1>
   </header>
   <div class="grid grid--uniform grid--view-items">  
     <div class="grid__item medium-up--two-tenths _mb">
@@ -8,10 +12,7 @@
         Types
       </div>
       <div class="category-mobile-content">
-        {% if current_tags.size %}
-            {% assign current_tag = current_tags.first | handleize %}
-        {% endif %}
-
+ 
         <ul class="category-list">
           <li><h5 class="category-list__head">Metal Spinners</h5></li>
           {% for link in linklists.metal-spinners.links %}
