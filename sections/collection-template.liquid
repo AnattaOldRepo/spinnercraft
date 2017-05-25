@@ -16,7 +16,7 @@
       </div>
       <div class="category-mobile-content js-mobile-content" data-filter-content="type-content">
         <ul class="category-list">
-          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/sale-kits-up-to-45-off">Memorial day 45% Off</a></h6></li>
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/sale-kits-up-to-45-off">BIG SALE: up to 45% off</a></h6></li>
           {% for link in linklists.memorial-day-sale.links %}
             <li class="category-list__item"><a href="{{ link.url }}" class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}">{{ link.title }}</a></li>
           {% endfor %}
