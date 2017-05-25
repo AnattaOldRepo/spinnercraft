@@ -52,7 +52,7 @@
             <div class="grid-view-item">
               <a href="{{ product.url }}"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
               <h5 class="grid-view-item__title">{{ product.title }}</h5>
-              <div class="product-price__price"><s>{{ product.compare_at_price | money }}</s> {{ product.price | money }} {% if product.available == false %} - Sold Out {% endif %}</div>
+              <div class="product-price__price"><s style="color: #bf2033">{{ product.compare_at_price | money }}</s> <span style="color: #212f64">{{ product.price | money }}</span> {% if product.available == false %} - Sold Out {% endif %}</div>
             </div>
            </div>
           {% else %}
