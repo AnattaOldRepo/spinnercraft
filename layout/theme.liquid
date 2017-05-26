@@ -215,7 +215,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
   jQuery(function($) {
     ajaxCart.init({
       cartContainer: '#CartContainer',
-      addToCartSelector: '#AddToCart-product-template',
+      addToCartSelector: '#AddToCart-product-template, .quick-add-to-cart',
       cartCountSelector: '#CartCount, #CartCountD',
       cartCostSelector: '#CartCost',
       moneyFormat: {{ shop.money_format | json }}
