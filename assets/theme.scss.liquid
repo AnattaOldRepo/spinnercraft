@@ -6000,10 +6000,61 @@ $toolbar-height-small: 46px;
     width: 32.7%;
     padding-left: 30px;
   }
+
+  @include media-query($small) {
+    .grid-view-item__title{
+      font-size: 13px;
+    }
+    .product-price__price{
+      font-size: 13px;
+    }
+  }
+}
+
+.quick-add-to-cart{
+  @include media-query($medium-up) {
+    max-width: 160px;
+    margin: 0px auto;
+  }
 }
 
 .no-hover-opactiy{
   &:hover{
     opacity: 1;
+  }
+}
+
+.quick-add-to-cart{
+  margin-bottom: 20px;
+  &:hover{
+    background-color: #E5751A;
+  }
+}
+
+.product-grid .grid-view-item{
+  position: relative;
+}
+
+.product-overlay{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @include media-query($medium-up) {
+    position: absolute;
+    left: 0;
+    top: 65%;
+    width: 100%;
+    display: none;
+    margin: 0;
+  }
+}
+
+.product-grid .grid-view-item{
+  &:hover{
+    img {
+      opacity: .7;
+    }
+    .product-overlay{
+      display: block;
+    }
   }
 }
