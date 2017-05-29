@@ -35,9 +35,9 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
-  
+
   <script  src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-   
+
   <script>
     var theme = {
       strings: {
@@ -238,7 +238,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       return re.test(email);
   }
   jQuery(document).ready(function($) {
-    jQuery('#CustomerEmail, #Email').on('change', function() {
+    jQuery('#CustomerEmail, #Email, .privy-email-input').on('change', function() {
       if(validateEmail(jQuery(this).val())) {
         _rsq.push(['_setUserEmail', jQuery(this).val()]);
         _rsq.push(['_setAction', 'email_entered']);
