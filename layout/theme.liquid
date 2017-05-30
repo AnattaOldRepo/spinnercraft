@@ -35,9 +35,9 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
-  
+
   <script  src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-   
+
   <script>
     var theme = {
       strings: {
@@ -185,13 +185,6 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
   <div class="page-container" id="PageContainer">
 
     <main class="main-content" id="MainContent" role="main">
-
-      {% if template contains 'index' %}
-      <div class="page-width">
-        <a class="no-hover-opactiy" href="/collections/sale-kits-up-to-45-off"><img src="{{ 'memorialsalehomebanner.jpg' | asset_img_url: '1200x425' }}" alt="Red"></a>
-      </div>
-      {% endif %}
-
       {% include 'mlveda-currencies-switcher' %}
       {{ content_for_layout }}
     </main>
@@ -238,7 +231,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       return re.test(email);
   }
   jQuery(document).ready(function($) {
-    jQuery('#CustomerEmail, #Email').on('change', function() {
+    jQuery('#CustomerEmail, #Email, .privy-email-input').on('change', function() {
       if(validateEmail(jQuery(this).val())) {
         _rsq.push(['_setUserEmail', jQuery(this).val()]);
         _rsq.push(['_setAction', 'email_entered']);

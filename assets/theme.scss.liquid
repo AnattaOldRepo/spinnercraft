@@ -3629,6 +3629,7 @@ h1.product-single__title {
 .site-header__cart{
   margin-left: 25px;
   cursor: pointer;
+  padding-right: 90px;
 }
 
 .site-header__icons {
@@ -4883,7 +4884,7 @@ $toolbar-height-small: 46px;
 .site-footer__newsletter {
   @include media-query($medium-up) {
       float: left;
-      max-width: 400px; 
+      max-width: 400px;
       margin-top: 0;
       margin-bottom: $section-spacing-small;
       margin-left: 9%;
@@ -5534,10 +5535,6 @@ $toolbar-height-small: 46px;
   text-align: right;
 }
 
-#privy-inner-container{
-  display: none
-}
-
 /*================ Ajax cart ================*/
 
 .cartdrawer{
@@ -5609,7 +5606,7 @@ $toolbar-height-small: 46px;
 
   .text-center{
     display: none;
-  } 
+  }
 
   .two-thirds{
     padding-left: 0;
@@ -5872,13 +5869,13 @@ $toolbar-height-small: 46px;
 
   &:after{
     content: '';
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #3d4246;
     position: absolute;
-    top: 20px; 
+    top: 20px;
     right: 20px;
   }
 
@@ -6016,6 +6013,9 @@ $toolbar-height-small: 46px;
     max-width: 160px;
     margin: 0px auto;
   }
+  @include media-query ($small) {
+    font-size: 12px;
+  }
 }
 
 .no-hover-opactiy{
@@ -6056,5 +6056,30 @@ $toolbar-height-small: 46px;
     .product-overlay{
       display: block;
     }
+  }
+}
+
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-right{
+  @include media-query($small) {
+    margin-top: -120px!important;
+    margin-right: -120px !important;
+  }
+}
+
+#privy-container #privy-inner-container .privy-tab-container div.privy-tab{
+  @include media-query($small) {
+    font-size: 10px!important;
+  }
+}
+
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top .privy-caret{
+  @include media-query($small) {
+    bottom: 7px !important;
+  }
+}
+
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top .privy-tab-text{
+  @include media-query($small) {
+    display: none !important;
   }
 }

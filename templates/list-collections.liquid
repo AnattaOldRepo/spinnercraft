@@ -1,5 +1,4 @@
 <div class="page-width">
-  <a class="no-hover-opactiy" href="/collections/sale-kits-up-to-45-off"><img src="{{ 'memorialsalecollectionbanner.jpg' | asset_img_url: '1200x425' }}" alt="Red" style="margin-bottom: 40px"></a>
   <div class="grid grid--uniform grid--view-items">
     <div class="grid__item medium-up--two-tenths _mb">
       <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content">
@@ -10,12 +9,6 @@
       </div>
       <div class="category-mobile-content js-mobile-content" data-filter-content="type-content">
         <h4 class="shop-title">Shop Spinners</h4>
-        <ul class="category-list">
-          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/sale-kits-up-to-45-off">BIG SALE: up to 45% off</a></h6></li>
-          {% for link in linklists.memorial-day-sale.links %}
-            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
         <ul class="category-list">
           <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/metal-spinners">Metal Spinners</a></h6></li>
           {% for link in linklists.metal-spinners.links %}
@@ -40,7 +33,7 @@
         <div class="color-filters">
           <a href="#" data-color-filter="red" title="Red"><img src="{{ 'red.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
           <a href="#" data-color-filter="black" title="Black"><img src="{{ 'black.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
-          <a href="#" data-color-filter="purple" title="Rurple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>  
+          <a href="#" data-color-filter="purple" title="Rurple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>
           <a href="#" data-color-filter="green" title="Green"><img src="{{ 'green.jpg' | asset_img_url: '18x' }}" alt="Green" /></a>
           <a href="#" data-color-filter="yellow" title="Yellow"><img src="{{ 'yellow.jpg' | asset_img_url: '18x' }}" alt="Yellow"></a>
           <a href="#" data-color-filter="white" title="White"><img src="{{ 'white.jpg' | asset_img_url: '18x' }}" alt="White"></a>
@@ -63,7 +56,7 @@
         <div class="price-filters">
           <a href="#" data-price-filter="1500">Under $15</a>
           <a href="#" data-price-filter="3000">Under $30</a>
-          <a href="#" data-price-filter="5000">Under $50</a> 
+          <a href="#" data-price-filter="5000">Under $50</a>
         </div>
       </div>
     </div>
@@ -74,7 +67,7 @@
           <div class="color-filters">
             <a href="#" data-color-filter="red" title="Red"><img src="{{ 'red.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
             <a href="#" data-color-filter="black" title="Black"><img src="{{ 'black.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
-            <a href="#" data-color-filter="purple" title="Purple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>  
+            <a href="#" data-color-filter="purple" title="Purple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>
             <a href="#" data-color-filter="green" title="Green"><img src="{{ 'green.jpg' | asset_img_url: '18x' }}" alt="Green" /></a>
             <a href="#" data-color-filter="yellow" title="Yellow"><img src="{{ 'yellow.jpg' | asset_img_url: '18x' }}" alt="Yellow"></a>
             <a href="#" data-color-filter="white" title="White"><img src="{{ 'white.jpg' | asset_img_url: '18x' }}" alt="White"></a>
@@ -91,7 +84,7 @@
           <div class="price-filters">
             <a href="#" data-price-filter="1500">Under $15</a>
             <a href="#" data-price-filter="3000">Under $30</a>
-            <a href="#" data-price-filter="5000">Under $50</a> 
+            <a href="#" data-price-filter="5000">Under $50</a>
           </div>
         </div>
       </div>
@@ -140,7 +133,7 @@
     $('.color-filters a').removeClass('is-active');
     $('.price-filters a').removeClass('is-active');
     $(this).addClass('is-active');
-    var id = $(this).attr('data-color-filter'); 
+    var id = $(this).attr('data-color-filter');
     $(".filter-item").each(function(){
         $(this).hide();
         if($(this).attr('data-color') == id) {
@@ -154,7 +147,7 @@ $('.price-filters a').on( "click", function(e) {
     $('.price-filters a').removeClass('is-active');
     $('.color-filters a').removeClass('is-active');
     $(this).addClass('is-active');
-    var id = $(this).attr('data-price-filter'); 
+    var id = $(this).attr('data-price-filter');
     $(".filter-item").each(function(){
         $(this).hide();
         if($(this).attr('data-price') <= id) {
@@ -167,7 +160,7 @@ $('.js-mobile-filter').on( "click", function(e) {
     e.preventDefault();
     $('.js-mobile-filter').removeClass('is-active');
     $(this).addClass('is-active');
-    var id = $(this).attr('data-filter-tab'); 
+    var id = $(this).attr('data-filter-tab');
     $(".js-mobile-content").each(function(){
         $(this).hide();
         if($(this).attr('data-filter-content') == id) {
@@ -181,4 +174,3 @@ $('.js-mobile-filter').on( "click", function(e) {
 
 </script>
 <br/><br/><br/><br/><br/><br/>
-
