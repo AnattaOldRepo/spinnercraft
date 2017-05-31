@@ -197,3 +197,30 @@ window.sasoDocCookies={getItem:function(a){return a?decodeURIComponent(document.
 {% include 'special-offers-templates' %}
 {{ 'special-offers.js' | asset_url | script_tag }}
 {% endif %}
+
+{% if template != 'cart' %}
+        <script>
+          jQuery(function(){
+            jQuery(document).on('click', "input[name='checkout']:not(.saso-ignore), input[value='Checkout']:not(.saso-ignore), button[name='checkout']:not(.saso-ignore), [href$='checkout']:not(.saso-ignore), button[value='Checkout']:not(.saso-ignore)", function(e){
+              e.preventDefault();
+
+              if (typeof sasoCheckout != "function") {
+              	window.location = "/checkout";
+              }
+
+              jQuery.ajax({
+                          cache: false,
+                          contentType: "application/json; charset=utf-8",
+                          dataType: "json",
+                          type: "GET",
+                          url: '/cart.js',
+                          success: function(res) {
+                            window.saso.cart = res
+                            sasoCheckout()
+                          }
+                        })
+
+            });
+          });
+        </script>
+{% endif %}
