@@ -107,13 +107,13 @@
                     <h5 class="grid-view-item__title">{{ product.title }}: {{ variant.title  }}</h5>
                   {% endif %}
                   <div class="product-price__price">{{ variant.price | money }} {% if variant.available == false %} - Sold Out {% endif %}</div>
-                  <div class="product-overlay">
+                  <!--div class="product-overlay">
                     <form action="/cart/add" method="post" >
                       <input class="quick-add-to-cart btn product-form__cart-submit no-hover-opactiy" type="submit" name="" value="{% if variant.available == false %} Sold Out {% else %} + Quick Add {% endif %}" {% if variant.available == false %}disabled{% endif %}  />
                       <input type="hidden" name="quantity" id="quantity" value="1" placeholder="">
                       <input type="hidden" name="id" id="{{ variant.id }}" value="{{ variant.id }}" placeholder="">
                     </form>
-                  </div>
+                  </div-->
                 </div>
               </div>
             {% endfor %}
