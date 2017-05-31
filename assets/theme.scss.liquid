@@ -327,7 +327,7 @@ $color-header-bg: #EBEBEB;
 $color-footer-bgdark: #e2e2e2;
 
 // Overlays
-$color-overlay-title-text: {{ settings.color_image_overlay_text }};
+$color-overlay-title-text: black;
 $color-image-overlay: {{ settings.color_image_overlay }};
 $opacity-image-overlay: {{ settings.image_overlay_opacity }};
 
@@ -384,7 +384,7 @@ $color-text-hero-button: #000;
 
 /*================ Hero Slider ================*/
 $color-slideshow-arrows: #000;
-$color-slideshow-dots: #fff;
+$color-slideshow-dots: #000;
 
 $transition-text-slideshow: all 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
@@ -605,24 +605,25 @@ $slick-opacity-not-active: 0.25;
   transform: translate(0, -50%);
   padding: 0;
   border: none;
+  z-index: 999;
+  outline: none;
   &:hover, &:focus {
     background: transparent;
     color: transparent;
+    outline: none;
     &:before {
       opacity: $slick-opacity-on-hover;
     }
   }
-  &.slick-disabled:before {
-    opacity: $slick-opacity-not-active;
-  }
   &:before {
-    font-family: $slick-font-family;
-    font-size: 20px;
-    line-height: 1;
-    color: $slick-arrow-color;
-    opacity: $slick-opacity-default;
+    content: '';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 30px;
+    height: 30px;
+    background: url('arrow.png') no-repeat 0 0;
+    background-size: 100%;
+    display: block;
   }
 }
 
@@ -633,10 +634,7 @@ $slick-opacity-not-active: 0.25;
     right: -25px;
   }
   &:before {
-    content: $slick-prev-character;
-    [dir="rtl"] & {
-      content: $slick-next-character;
-    }
+
   }
 }
 
@@ -647,10 +645,9 @@ $slick-opacity-not-active: 0.25;
     right: auto;
   }
   &:before {
-    content: $slick-next-character;
-    [dir="rtl"] & {
-      content: $slick-prev-character;
-    }
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
 }
 
@@ -1472,7 +1469,7 @@ li {
 .mega-subtitle {
   @include media-query($medium-up) {
     font-size: em($font-size-base + 4);
-    margin: 0 auto;
+    //margin: 0 auto;
     max-width: 75%;
   }
 
@@ -2745,7 +2742,7 @@ $slick-dot-size-small: 10px;
 
 /*================ Slick dots and prev/next pagination ================*/
 .slick-slider .slick-dots {
-  margin: 0;
+  margin: 0 ;
   width: auto;
 
   li {
@@ -2822,6 +2819,10 @@ $slick-dot-size-small: 10px;
   &:last-child {
     padding-bottom: 0;
   }
+}
+
+.index-section--no-top-padd{
+  padding-top: 0;
 }
 
 .index-section--flush + .index-section--flush {
@@ -4279,7 +4280,7 @@ $mobile-nav-button-padding: 15px;
   Extends default slick slider styles.
   Extra specificity in selectors is used to override defaults.
 ==============================================================================*/
-$slideshow-height-small: 475px;
+$slideshow-height-small: auto;
 $slideshow-height-medium: 650px;
 $slideshow-height-large: 775px;
 $slideshow-loader: #fff;
@@ -4295,8 +4296,8 @@ $color-slideshow-close-text: #000;
 }
 
 .slideshow {
-  overflow: hidden;
-  height: $slideshow-height-small - 150;
+  //overflow: hidden;
+  //height: $slideshow-height-small - 150;
   margin-bottom: 0;
 
   &.slideshow--medium {
@@ -4328,18 +4329,17 @@ $color-slideshow-close-text: #000;
 
   .slick-prev,
   .slick-next {
-    top: 0;
     height: 100%;
     margin-top: 0;
     width: 40px;
   }
 
   .slick-prev {
-    left: 0;
+    left: -40px;
   }
 
   .slick-next {
-    right: 0;
+    right: -40px;
   }
 
   .slick-dots {
@@ -4347,6 +4347,7 @@ $color-slideshow-close-text: #000;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
+    margin-left: 92px;
 
     // sass-lint:disable SelectorDepth
     li button::before {
@@ -4397,20 +4398,6 @@ $color-slideshow-close-text: #000;
 .slideshow__slide {
   position: relative;
   overflow: hidden;
-}
-
-.slideshow__link {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  &:active,
-  &:focus {
-    opacity: 1;
-  }
 }
 
 .slideshow__overlay {
@@ -6058,6 +6045,46 @@ $toolbar-height-small: 46px;
     }
   }
 }
+
+/*================ home slider  ================*/
+
+.slideshow__title{
+  font-weight: normal;
+}
+
+.feature-row__text--slidercopy{
+  @include media-query($medium-up) {
+    padding-left: 75px;
+  }
+
+  .btn{
+    margin-top: 40px;
+  }
+}
+
+.slideshow__subtitle{
+  font-size: em(15px);
+  margin-top: 15px;
+}
+
+/*================ Single line module  ================*/
+
+.single-line-module{
+  border-top: 1px solid #e8e9eb;
+  border-bottom: 1px solid #e8e9eb;
+  font-size: em(15px);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+  a{
+    text-decoration: underline;
+  }
+}
+
+
+
+
+/*================ privy's app shit  ================*/
 
 #privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-right{
   @include media-query($small) {

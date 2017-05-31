@@ -1,7 +1,7 @@
-<div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
+<div data-section-id="{{ section.id }}" data-section-type="slideshow-section" class="index-section">
 
   {% if section.blocks.size > 0 %}
-    <div class="slideshow-wrapper">
+    <div class="page-width feature-row">
       <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">
         <span class="slideshow__pause-stop">
           {% include 'icon-pause' %}
@@ -13,93 +13,30 @@
         </span>
       </button>
 
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
-        {% for block in section.blocks %}
-          {%- assign is_background_video = false -%}
-          {% if block.type == 'video' %}
-            {% if block.settings.video_type == 'background' or block.settings.video_type =='background-chrome' %}
-              {%- assign is_background_video = true -%}
-            {% endif %}
-          {% endif %}
+      <div class="slideshow slideshow--{{ section.settings.slideshow_height }} feature-row" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
 
-          <div class="slideshow__slide slideshow__slide--{{ block.id }}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
-            {% if block.settings.link != blank %}
-              <a href="{{ block.settings.link }}" class="slideshow__link">
-            {% endif %}
-
-            {% if block.settings.image != blank %}
-              <style>
-                .slideshow__image--{{ block.id }} {
-                  background-position: center {{ block.settings.alignment }};
-                }
-
-                @media screen and (max-width: 150px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '150x' }}');
-                  }
-                }
-
-                @media screen and (min-width: 151px) and (max-width: 300px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '300x' }}');
-                  }
-                }
-
-                @media screen and (min-width: 301px) and (max-width: 600px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '600x' }}');
-                  }
-                }
-
-                @media screen and (min-width: 601px) and (max-width: 800px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '800x' }}');
-                  }
-                }
-
-                @media screen and (min-width: 801px) and (max-width: 1000px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '1000x' }}');
-                  }
-                }
-
-                @media screen and (min-width: 1001px) {
-                  .slideshow__image--{{ block.id }} {
-                    background-image: url('{{ block.settings.image | img_url: '2000x' }}');
-                  }
-                }
-              </style>
-            {% endif %}
-
+          {% for block in section.blocks %}
+            {%- assign is_background_video = false -%}
             {% if block.type == 'video' %}
-              {% if block.settings.video_id != blank %}
-                <div class="video-loader"></div>
-              {% endif %}
-              {% unless block.settings.video_type == 'background' %}
-                <button type="button" class="text-link slideshow__video-control slideshow__video-control--close" data-controls="SlideshowVideo-{{ block.id }}">
-                  {% include 'icon-close' %}
-                  <span class="icon__fallback-text">{{ 'sections.slideshow.close_video' | t }}</span>
-                </button>
-              {% endunless %}
-              {% if block.settings.video_id != blank %}
-                <div id="SlideshowVideo-{{ block.id }}" class="slideshow__video {% if is_background_video %}slideshow__video--background{% endif %} slideshow__video--{{ block.settings.video_type }}"
-                  data-id="{{ block.settings.video_id }}"
-                  data-type="{{ block.settings.video_type }}"
-                  data-slideshow="Slideshow-{{ section.id }}"></div>
+              {% if block.settings.video_type == 'background' or block.settings.video_type =='background-chrome' %}
+                {%- assign is_background_video = true -%}
               {% endif %}
             {% endif %}
 
-            <div class="slideshow__image slideshow__image--{{ block.id }}">
-              {% if block.settings.image == blank %}
-                <div class="placeholder-background">
-                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
-                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            <div class="slideshow__slide slideshow__slide--{{ block.id }}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
+              <div class="feature-row">
+                <div class="feature-row__item">
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="slideshow__link">
+                  {% endif %}
+                  {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | img_url: '1000x' }}" alt="">
+                  {% endif %}
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
                 </div>
-              {% endif %}
-            </div>
-            <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %}">
-              <div class="slideshow__text-content">
-                <div class="page-width">
+                <div class="feature-row__item feature-row__text feature-row__text--left feature-row__text--slidercopy">
                   {% unless block.settings.title == blank %}
                     <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                       {{ block.settings.title | escape }}
@@ -110,6 +47,10 @@
                       {{ block.settings.subheading | escape }}
                     </span>
                   {% endunless %}
+                  {% unless block.settings.link == blank %}
+                    <a href="{{ block.settings.link | escape }}" class="btn">{{ block.settings.buttontext | escape }}</a>
+                  {% endunless %}
+
                   {% if block.type == 'video' %}
                     {% unless block.settings.video_type == 'background' %}
                       <div class="slideshow__video-control--play-wrapper{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__video-control--play-wrapper--push{% endif %}">
@@ -123,13 +64,8 @@
                 </div>
               </div>
             </div>
+          {% endfor %}
 
-            {% if block.settings.link != blank %}
-              </a>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
     </div>
   {% endif %}
 
@@ -138,12 +74,15 @@
       {{ 'homepage.onboarding.no_content' | t }}
     </div>
   {% endif %}
+
+</div>
+<div class="single-line-module text-center">
+  <p>Home to the largest spinner community - over 50,000 people  <a href="#">Join us</a></p>
 </div>
 
 {% schema %}
   {
     "name": "Slideshow",
-    "class": "index-section index-section--flush",
     "max_blocks": 4,
     "settings": [
       {
@@ -244,6 +183,12 @@
             "id": "subheading",
             "label": "Subheading",
             "default": "Tell your brand's story through video and images"
+          },
+          {
+            "type": "text",
+            "id": "buttontext",
+            "label": "buttontext",
+            "default": "Shop Now"
           },
           {
             "type": "url",

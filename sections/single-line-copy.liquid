@@ -1,0 +1,33 @@
+<div id="shopify-section-[id]">
+{{ section.settings.title }}
+</div>
+
+{% schema %}
+  {
+    "name": "Single line Module",
+    "blocks": [
+      {
+        "type": "text_line",
+        "name": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "link",
+            "label": "enter text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Single line Module",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text_line"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
