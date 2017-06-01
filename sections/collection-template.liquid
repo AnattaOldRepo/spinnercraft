@@ -5,9 +5,10 @@
 <div class="page-width">
   <header class="section-header text-center">
   {% if current_tag == blank %}
-    <h1>{{ collection.title }}</h1>
+    <h1>{{ collection.title | capitalize  }}</h1>
   {% endif %}
     <h1>{{current_tag | replace: '-', ' ' | capitalize }}</h1>
+    asdds
   </header>
   <div class="grid grid--uniform grid--view-items">
     <div class="grid__item medium-up--two-tenths _mb">

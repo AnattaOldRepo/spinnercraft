@@ -1,0 +1,52 @@
+{% if section.blocks.size > 0 %}
+<div class="page-width">
+  <div class="text-center grid grid--uniform grid--view-items">
+    {% for block in section.blocks %}
+      <div class="grid__item small--one-half medium-up--one-third">
+          <i class="icon">{{ block.settings.svg }}</i><br/>
+          <p>{{ block.settings.subheading }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Three column content",
+    "class": "features-list index-section",
+    "blocks": [
+      {
+        "type": "column",
+        "name": "column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "heading"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "subheading"
+          },
+          {
+            "type": "html",
+            "id": "svg",
+            "label": "svg code"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Three column content",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
