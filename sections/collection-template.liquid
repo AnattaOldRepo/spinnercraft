@@ -16,6 +16,12 @@
       </div>
       <div class="category-mobile-content js-mobile-content" data-filter-content="type-content">
         <ul class="category-list">
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/bundles-up-to-40-off">Bundles</a></h6></li>
+          {% for link in linklists.bundles.links %}
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="category-list">
           <li><h5 class="category-list__head"><a class="no-hover-opactiy" href="/collections/metal-spinners">Metal Spinners</a></h5></li>
           {% for link in linklists.metal-spinners.links %}
             <li class="category-list__item"><a class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}" href="{{ link.url }}">{{ link.title }}</a></li>
@@ -41,7 +47,7 @@
         <!-- list of categories  -->
 
         {% for product in collection.products %}
-          {% if collection.handle == 'sale-kits-up-to-45-off' %}
+          {% if collection.handle == 'bundles-up-to-40-off' %}
            <div class="grid__item small--one-half medium-up--one-third product-grid">
             <div class="grid-view-item">
               <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
