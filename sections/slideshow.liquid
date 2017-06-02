@@ -1,7 +1,7 @@
 <div data-section-id="{{ section.id }}" data-section-type="slideshow-section" class="index-section index-section--no-bottom-padd">
 
   {% if section.blocks.size > 0 %}
-    <div class="feature-row">
+    <div class="feature-slider">
       <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">
         <span class="slideshow__pause-stop">
           {% include 'icon-pause' %}
@@ -13,7 +13,7 @@
         </span>
       </button>
 
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }} feature-row" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+      <div class="slideshow slideshow--{{ section.settings.slideshow_height }} feature-slider" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
 
           {% for block in section.blocks %}
             {%- assign is_background_video = false -%}
@@ -24,8 +24,8 @@
             {% endif %}
 
             <div class="slideshow__slide slideshow__slide--{{ block.id }}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }} style="background-color: {{ block.settings.color}} ">
-              <div class="feature-row">
-                <div class="feature-row__item">
+              <div class="feature-slider">
+                <div class="feature-slider__item">
                   {% if block.type == 'video' %}
                     {% if block.settings.video_id != blank %}
                       <div class="video-loader"></div>
@@ -56,7 +56,7 @@
                     </a>
                   {% endif %}
                 </div>
-                <div class="feature-row__item feature-row__text feature-row__text--left feature-row__text--slidercopy">
+                <div class="feature-slider__item feature-slider__text feature-slider__text--left feature-slider__text--slidercopy">
                   {% unless block.settings.title == blank %}
                     <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                       {{ block.settings.title | escape }}

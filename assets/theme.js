@@ -1246,6 +1246,7 @@ theme.Slideshow = (function() {
       fade: true,
       draggable: true,
       touchThreshold: 20,
+      adaptiveHeight: true,
       autoplay: this.$slideshow.data('autoplay'),
       autoplaySpeed: this.$slideshow.data('speed')
     };

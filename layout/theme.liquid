@@ -239,12 +239,18 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       return re.test(email);
   }
   jQuery(document).ready(function($) {
+
     jQuery('#CustomerEmail, #Email, .privy-email-input').on('change', function() {
       if(validateEmail(jQuery(this).val())) {
         _rsq.push(['_setUserEmail', jQuery(this).val()]);
         _rsq.push(['_setAction', 'email_entered']);
         _rsq.push(['_track']);
       }
+    });
+
+    jQuery('.js-modal').on("click", function(event){
+      event.preventDefault();
+      jQuery(".privy-tab").trigger("click");
     });
   });
 </script>

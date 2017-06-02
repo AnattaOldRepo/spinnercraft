@@ -1,10 +1,12 @@
 {% if section.blocks.size > 0 %}
-  <div class="two-column text-center">
-    <h3>Testimonials</h3>
-    <div class="two-column_row text-center grid grid--uniform grid--view-items">
-      {% for block in section.blocks %}
-        <div class="two-column-col grid__item small--one-half medium-up--one-half">{{ block.settings.html }}</div>
-      {% endfor %}
+  <div class="page-width">
+    <div class="two-column text-center video-testimonails">
+      <h3>Testimonials</h3>
+      <div class="two-column_row text-center grid grid--uniform grid--view-items">
+        {% for block in section.blocks %}
+          <div class="two-column-col grid__item small--one-full medium-up--one-half">{{ block.settings.html }}</div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endif %}
@@ -14,8 +16,8 @@
     "class": "index-section",
     "blocks": [
       {
-        "type": "testimonial",
-        "name": "testimonial",
+        "type": "videotestimonial",
+        "name": "videotestimonial",
         "settings": [
           {
             "type": "html",
@@ -31,7 +33,7 @@
         "category": "Text",
         "blocks": [
           {
-            "type": "testimonial"
+            "type": "videotestimonial"
           }
         ]
       }
