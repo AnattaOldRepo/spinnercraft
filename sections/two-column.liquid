@@ -1,0 +1,70 @@
+{% if section.blocks.size > 0 %}
+  <div class="two-column text-center">
+    <div class="two-column_row text-center grid grid--uniform grid--view-items">
+      {% for block in section.blocks %}
+        <div class="two-column-col grid__item small--one-full medium-up--one-half" style="background-image: url('{{ block.settings.image | img_url: '500x' }}')">
+          <div class="two-column-content">
+            <h3>{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.subheading }}</p>
+            <a href="{{ block.settings.ctalink | escape }}" class="btn btn--tertiary {{ block.settings.class }}">{{ block.settings.ctatext | escape }}</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Two column content",
+    "class": "index-section index-section--no-top-padd",
+    "blocks": [
+      {
+        "type": "column",
+        "name": "column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "heading"
+          },
+          {
+            "type": "html",
+            "id": "subheading",
+            "label": "subheading"
+          },
+          {
+            "type": "text",
+            "id": "ctatext",
+            "label": "Button text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "background image"
+          },
+          {
+            "type": "url",
+            "id": "ctalink",
+            "label": "Button link"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Custom css class"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Two column content",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

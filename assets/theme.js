@@ -1241,11 +1241,12 @@ theme.Slideshow = (function() {
 
     this.settings = {
       accessibility: true,
-      arrows: false,
+      arrows: true,
       dots: true,
       fade: true,
       draggable: true,
       touchThreshold: 20,
+      adaptiveHeight: true,
       autoplay: this.$slideshow.data('autoplay'),
       autoplaySpeed: this.$slideshow.data('speed')
     };

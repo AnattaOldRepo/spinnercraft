@@ -135,61 +135,69 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  <div id="SearchDrawer" class="search-bar drawer drawer--top">
-    <div class="search-bar__table">
-      <div class="search-bar__table-cell search-bar__form-wrapper">
-        <form class="search search-bar__form" action="/search" method="get" role="search">
-          <button class="search-bar__submit search__submit btn--link" type="submit">
-            {% include 'icon-search' %}
+  <div class="full-page">
+
+    <div id="SearchDrawer" class="search-bar drawer drawer--top">
+      <div class="search-bar__table">
+        <div class="search-bar__table-cell search-bar__form-wrapper">
+          <form class="search search-bar__form" action="/search" method="get" role="search">
+            <button class="search-bar__submit search__submit btn--link" type="submit">
+              {% include 'icon-search' %}
+            </button>
+            <input class="search__input search-bar__input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+          </form>
+        </div>
+        <div class="search-bar__table-cell text-right">
+          <button type="button" class="btn--link search-bar__close js-drawer-close">
+            {% include 'icon-close' %}
           </button>
-          <input class="search__input search-bar__input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
-        </form>
-      </div>
-      <div class="search-bar__table-cell text-right">
-        <button type="button" class="btn--link search-bar__close js-drawer-close">
-          {% include 'icon-close' %}
-        </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="CartDrawer" class="cartdrawer drawer--right">
-    <div class="grid grid--no-gutters grid--table cartdrawer__header">
-      <div class="grid__item">
-        <button type="button" class="btn--link cartdrawer__cart-close js-drawer-close">
-          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 37 40"><path d="M21.3 23l11-11c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0l-11 11-11-11c-.8-.8-2-.8-2.8 0-.8.8-.8 2 0 2.8l11 11-11 11c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11-11 11 11c.4.4.9.6 1.4.6s1-.2 1.4-.6c.8-.8.8-2 0-2.8l-11-11z"></path></svg>
-        </button>
+    <div id="CartDrawer" class="cartdrawer drawer--right">
+      <div class="grid grid--no-gutters grid--table cartdrawer__header">
+        <div class="grid__item">
+          <button type="button" class="btn--link cartdrawer__cart-close js-drawer-close">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 37 40"><path d="M21.3 23l11-11c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0l-11 11-11-11c-.8-.8-2-.8-2.8 0-.8.8-.8 2 0 2.8l11 11-11 11c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11-11 11 11c.4.4.9.6 1.4.6s1-.2 1.4-.6c.8-.8.8-2 0-2.8l-11-11z"></path></svg>
+          </button>
+        </div>
+        <div class="grid__item text-center">
+          <h6 class="cartdrawer__cart-title">{{ 'cart.general.title' | t }} (<span id="CartCountD"></span>)</h6>
+        </div>
+        <div class="grid__item text-right">
+            <a class="cartdrawer__cart-icon js-drawer-close">
+              {% include 'icon-cart' %}
+            </a>
+        </div>
       </div>
-      <div class="grid__item text-center">
-        <h6 class="cartdrawer__cart-title">{{ 'cart.general.title' | t }} (<span id="CartCountD"></span>)</h6>
-      </div>
-      <div class="grid__item text-right">
-          <a class="cartdrawer__cart-icon js-drawer-close">
-            {% include 'icon-cart' %}
-          </a>
-      </div>
+      <div id="CartContainer"></div>
+      <!--div class="ajaxcartContent">
+        <div class="ajaxcartContent__head">
+          Returns + Exchnages
+        </div>
+        <div class="ajaxcartContent__head">
+          Shipping
+        </div>
+      </div-->
     </div>
-    <div id="CartContainer"></div>
-    <!--div class="ajaxcartContent">
-      <div class="ajaxcartContent__head">
-        Returns + Exchnages
-      </div>
-      <div class="ajaxcartContent__head">
-        Shipping
-      </div>
-    </div-->
-  </div>
 
-  {% section 'header' %}
+    {% section 'header' %}
 
-  <div class="page-container" id="PageContainer">
+    <div class="page-container" id="PageContainer">
 
-    <main class="main-content" id="MainContent" role="main">
-      {% include 'mlveda-currencies-switcher' %}
-      {{ content_for_layout }}
-    </main>
+      <main class="main-content" id="MainContent" role="main">
 
-    {% section 'footer' %}
+        {% include 'mlveda-currencies-switcher' %}
+
+        {{ content_for_layout }}
+
+      </main>
+
+      {% section 'footer' %}
+
+    </div>
+
   </div>
 
 {% include 'mlveda-currencies' %}
@@ -231,12 +239,18 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       return re.test(email);
   }
   jQuery(document).ready(function($) {
+
     jQuery('#CustomerEmail, #Email, .privy-email-input').on('change', function() {
       if(validateEmail(jQuery(this).val())) {
         _rsq.push(['_setUserEmail', jQuery(this).val()]);
         _rsq.push(['_setAction', 'email_entered']);
         _rsq.push(['_track']);
       }
+    });
+
+    jQuery('.js-modal').on("click", function(event){
+      event.preventDefault();
+      jQuery(".privy-tab").trigger("click");
     });
   });
 </script>

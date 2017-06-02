@@ -1,7 +1,7 @@
 <div class="page-width">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
+      <h3>{{ section.settings.title | escape }}</h3>
     </div>
   {% endif %}
 
@@ -26,7 +26,7 @@
 
   <div class="grid grid--uniform grid--view-items">
     {% for product in collection.products limit: product_limit %}
-    
+
 {% include 'bold-product' with product, hide_action: 'skip' %}
       <div class="grid__item {{ grid_item_width }}">
         {% include 'product-card-grid', grid_image_width: image_size %}

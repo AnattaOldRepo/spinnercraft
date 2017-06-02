@@ -1,0 +1,37 @@
+{% if section.blocks.size > 0 %}
+<div class="single-line-module text-center">
+  {% for block in section.blocks %}
+      {{ block.settings.content }}
+  {% endfor %}
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Single line",
+    "class": "index-section index-section--no-top-padd",
+    "blocks": [
+      {
+        "type": "line",
+        "name": "line",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Single line",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "line"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
