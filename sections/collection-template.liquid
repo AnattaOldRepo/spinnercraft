@@ -17,6 +17,12 @@
       </div>
       <div class="category-mobile-content js-mobile-content" data-filter-content="type-content">
         <ul class="category-list">
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/bundles-up-to-40-off">Bundles</a></h6></li>
+          {% for link in linklists.bundles.links %}
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="category-list">
           <li><h5 class="category-list__head"><a class="no-hover-opactiy" href="/collections/metal-spinners">Metal Spinners</a></h5></li>
           {% for link in linklists.metal-spinners.links %}
             <li class="category-list__item"><a class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}" href="{{ link.url }}">{{ link.title }}</a></li>
@@ -42,19 +48,19 @@
         <!-- list of categories  -->
 
         {% for product in collection.products %}
-          {% if collection.handle == 'sale-kits-up-to-45-off' %}
+          {% if collection.handle == 'bundles-up-to-40-off' %}
            <div class="grid__item small--one-half medium-up--one-third product-grid">
             <div class="grid-view-item">
               <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
               <h5 class="grid-view-item__title">{{ product.title }}</h5>
               <div class="product-price__price"><s style="color: #bf2033">{{ product.compare_at_price | money }}</s> <span style="color: #212f64">{{ product.price | money }}</span> {% if product.available == false %} - Sold Out {% endif %}</div>
-              <div class="product-overlay">
+              <!--div class="product-overlay">
                 <form action="/cart/add" method="post" >
                 <input class="quick-add-to-cart btn product-form__cart-submit no-hover-opactiy" type="submit" name="" value="{% if variant.available == false %} Sold Out {% else %} + Quick Add {% endif %}" {% if variant.available == false %}disabled{% endif %}  />
                 <input type="hidden" name="quantity" id="quantity" value="1" placeholder="">
                 <input type="hidden" name="id" id="{{ product.variants[0].id }}" value="{{ product.variants[0].id }}" placeholder="">
                 </form>
-              </div>
+              </div-->
             </div>
            </div>
           {% else %}
@@ -72,13 +78,13 @@
                   <h5 class="grid-view-item__title">{{ product.title }}: {{ variant.title  }}</h5>
                 {% endif %}
                 <div class="product-price__price">{{ variant.price | money }} {% if variant.available == false %} - Sold Out {% endif %}</div>
-                  <div class="product-overlay">
+                  <!--div class="product-overlay">
                     <form action="/cart/add" method="post" >
                       <input class="quick-add-to-cart btn product-form__cart-submit no-hover-opactiy" type="submit" name="" value="{% if variant.available == false %} Sold Out {% else %} + Quick Add {% endif %}" {% if variant.available == false %}disabled{% endif %}  />
                       <input type="hidden" name="quantity" id="quantity" value="1" placeholder="">
                       <input type="hidden" name="id" id="{{ variant.id }}" value="{{ variant.id }}" placeholder="">
                     </form>
-                  </div>
+                  </div-->
               </div>
             </div>
           {% endfor %}
