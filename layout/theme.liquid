@@ -248,10 +248,26 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       }
     });
 
-    jQuery('.js-modal').on("click", function(event){
-      event.preventDefault();
-      jQuery(".privy-tab").trigger("click");
-    });
+    
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+     
+        jQuery('.js-modal').on("click touchstart", function(){
+          event.preventDefault();
+          setTimeout(function() {
+            jQuery(".privy-tab").trigger( "click" );
+      
+           }, 10);
+        });
+      
+    } else {
+      
+      jQuery('.js-modal').on("click", function(){
+        event.preventDefault();
+        jQuery(".privy-tab").trigger( "click" );
+      });
+
+    }
+    
   });
 </script>
 <!--Retention email tracking end-->
