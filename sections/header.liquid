@@ -21,7 +21,7 @@
               {{ link.title }}
               <div class="mobile-nav__icon">
                 {% include 'icon-chevron-right' %}
-                <span class="icon__fallback-text">{{ 'layout.navigation.expand' | t }}</span>
+                <span class="icon__fallback-text"></span>
               </div>
             </button>
             <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
@@ -62,7 +62,7 @@
 
     <div class="site-header__row">
       <div class="grid grid--no-gutters grid--table">
-        <div class="grid__item small-up--one-third"> 
+        <div class="grid__item small-up--one-third">
           {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
               {% include 'icon-hamburger' %}
@@ -159,7 +159,7 @@
             {% include 'site-nav' %}
           </nav>
         {% endif %}
-      </div>   
+      </div>
     </div>
 
     <div class="site-header__row site-header__row--nobg site-header__row--smallVisible">

@@ -1,51 +1,14 @@
 <div data-section-id="{{ section.id }}" data-section-type="slideshow-section" class="index-section index-section--no-bottom-padd">
 
   {% if section.blocks.size > 0 %}
-    <div class="feature-slider">
-      <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">
-        <span class="slideshow__pause-stop">
-          {% include 'icon-pause' %}
-          <span class="icon__fallback-text">{{ 'sections.slideshow.pause_slideshow' | t }}</span>
-        </span>
-        <span class="slideshow__pause-play">
-          {% include 'icon-play' %}
-          <span class="icon__fallback-text">{{ 'sections.slideshow.play_slideshow' | t }}</span>
-        </span>
-      </button>
-
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }} feature-slider" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+    <div>
 
           {% for block in section.blocks %}
             {%- assign is_background_video = false -%}
-            {% if block.type == 'video' %}
-              {% if block.settings.video_type == 'background' or block.settings.video_type =='background-chrome' %}
-                {%- assign is_background_video = true -%}
-              {% endif %}
-            {% endif %}
 
-            <div class="slideshow__slide slideshow__slide--{{ block.id }}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }} style="background-color: {{ block.settings.color}} ">
+            <div class="hero_slide" style="background-color: {{ block.settings.color}} ">
               <div class="feature-slider">
                 <div class="feature-slider__item">
-                  {% if block.type == 'video' %}
-                    {% if block.settings.video_id != blank %}
-                      <div class="video-loader"></div>
-                    {% endif %}
-                    {% if block.settings.video_id != blank %}
-                      <div id="SlideshowVideo-{{ block.id }}" class="slideshow__video {% if is_background_video %}slideshow__video--background{% endif %} slideshow__video--{{ block.settings.video_type }}"
-                        data-id="{{ block.settings.video_id }}"
-                        data-type="{{ block.settings.video_type }}"
-                        data-slideshow="Slideshow-{{ section.id }}"></div>
-                    {% endif %}
-                  {% endif %}
-                  {% if block.type == 'video' %}
-                    {% unless block.settings.video_type == 'background' %}
-                      <div class="slideshow__video-control--play-wrapper{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__video-control--play-wrapper--push{% endif %}">
-                        <button type="button" class="text-link slideshow__video-control slideshow__video-control--play" data-controls="SlideshowVideo-{{ block.id }}">
-                          {% include 'icon-play-video' %}
-                        </button>
-                      </div>
-                    {% endunless %}
-                  {% endif %}
                   {% if block.settings.link != blank %}
                     <a href="{{ block.settings.link }}" class="slideshow__link">
                   {% endif %}
@@ -82,8 +45,6 @@
               </div>
             </div>
           {% endfor %}
-
-    </div>
   {% endif %}
 
   {% if section.blocks.size == 0 %}
