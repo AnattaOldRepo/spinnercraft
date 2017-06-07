@@ -118,6 +118,23 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       _rsq.push(['_track']);
     });
   };
+  var privy_func_timer = 100;
+  var privy_popup_func = function() {
+    if(jQuery('#privy-container').length) {
+      jQuery('#privy-container').on('change', '.privy-email-input', function(e){
+        var email = jQuery(e.target).val();
+        if(validateEmail(email)) {
+          _rsq.push(['_setUserEmail', email]);
+          _rsq.push(['_setAction', 'email_entered']);
+          _rsq.push(['_track']);
+        }
+      });
+    } else {
+      privy_func_timer += 100;
+      setTimeout(privy_popup_func, privy_func_timer);
+    }
+  };
+  setTimeout(privy_popup_func, privy_func_timer);
   /*** END FUNCTION FOR AJAX TRACKING ***/
 
   (function() {
@@ -248,26 +265,26 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       }
     });
 
-    
+
     if (window.matchMedia('(max-width: 1024px)').matches) {
-     
+
         jQuery('.js-modal').on("click touchstart", function(){
           event.preventDefault();
           setTimeout(function() {
             jQuery(".privy-tab").trigger( "click" );
-      
+
            }, 10);
         });
-      
+
     } else {
-      
+
       jQuery('.js-modal').on("click", function(){
         event.preventDefault();
         jQuery(".privy-tab").trigger( "click" );
       });
 
     }
-    
+
   });
 </script>
 <!--Retention email tracking end-->
