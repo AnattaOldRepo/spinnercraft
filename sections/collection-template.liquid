@@ -11,7 +11,11 @@
   </header>
   <div class="grid grid--uniform grid--view-items">
     <div class="grid__item medium-up--two-tenths _mb">
-      <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content">
+      {% if collection.handle == 'bundles-up-to-40-off' or collection.handle == 'spinner-accessories'  %}
+      <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content" style="width: 100%">
+      {% else %}
+      <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content" asdas>
+      {% endif %}
         Types
       </div>
       {% if collection.handle != 'bundles-up-to-40-off' and collection.handle != 'spinner-accessories'  %}
@@ -197,7 +201,6 @@ $('.js-mobile-filter').on( "click", function(e) {
     $('.js-mobile-filter').removeClass('is-active');
     $(this).addClass('is-active');
     var id = $(this).attr('data-filter-tab');
-    var check = 1;
     $(".js-mobile-content").each(function(){
         $(this).hide();
         if($(this).attr('data-filter-content') == id) {
