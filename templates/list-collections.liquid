@@ -158,7 +158,7 @@
         }
     });
     if ( $("[data-color]:visible").length === 0) {
-      $('.filter-bar').after("<div class='no-color text-center'> <h5>This color is not available. Please choose another! </h5><div>");
+      $('.filter-bar').after("<div class='no-color text-center'> <h6>Please choose another color. The product you have selected does not come in "+ id +" at this time.</h6><div>");
     }
 });
 $('.price-filters a').on( "click", function(e) {
