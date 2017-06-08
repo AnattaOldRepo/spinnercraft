@@ -6081,7 +6081,7 @@ $toolbar-height-small: 46px;
 }
 
 .feature-slider__text {
-  padding: 22px 22px 40px 22px;
+  padding: 22px 22px 0 22px;
   text-align: center;
   @include media-query($medium-up) {
     text-align: left;
@@ -6325,4 +6325,36 @@ $toolbar-height-small: 46px;
 
 #shopify-section-1496394571638 .two-column-col{
   padding: 35px 22px;
+}
+
+.cap{
+  text-transform: capitalize;
+}
+
+.slider-desktop{
+  display: block;
+  @include media-query($small) {
+    display: none;
+  }
+}
+
+.slider-mobile{
+  display: none;
+  @include media-query($small) {
+    display: block;
+  }
+}
+
+.hero_slide{
+  width: 100%;
+  margin-bottom: 15px;
+
+  @include media-query($small) {
+    background-color: transparent!important;
+  }
+}
+
+.no-color h6{
+  font-weight: normal;
+  font-size: 13px;
 }

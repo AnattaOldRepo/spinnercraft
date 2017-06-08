@@ -5,9 +5,9 @@
 <div class="page-width">
   <header class="section-header text-center">
   {% if current_tag == blank %}
-    <h1>{{ collection.title | capitalize  }}</h1>
+    <h1 class="cap">{{ collection.title | capitalize  }}</h1>
   {% endif %}
-    <h1>{{current_tag | replace: '-', ' ' | capitalize }}</h1>
+    <h1 class="cap">{{current_tag | replace: '-', ' ' | capitalize }}</h1>
   </header>
   <div class="grid grid--uniform grid--view-items">
     <div class="grid__item medium-up--two-tenths _mb">
@@ -41,52 +41,75 @@
         </ul>
       </div>
     </div>
-
     <div class="grid__item medium-up--eight-tenths">
-      <div class="grid grid--uniform grid--view-items">
+      {% if collection.handle != 'bundles-up-to-40-off' and collection.handle != 'spinner-accessories'  %}
+      <div class="filter-bar grid grid--uniform">
+        <div class="grid__item medium-up--one-half">
+          <h5 class="filter-bar__title">By color</h5>
+          <div class="color-filters">
+            <a href="#" data-color-filter="red" title="Red"><img src="{{ 'red.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
+            <a href="#" data-color-filter="black" title="Black"><img src="{{ 'black.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
+            <a href="#" data-color-filter="purple" title="Purple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>
+            <a href="#" data-color-filter="green" title="Green"><img src="{{ 'green.jpg' | asset_img_url: '18x' }}" alt="Green" /></a>
+            <a href="#" data-color-filter="yellow" title="Yellow"><img src="{{ 'yellow.jpg' | asset_img_url: '18x' }}" alt="Yellow"></a>
+            <a href="#" data-color-filter="white" title="White"><img src="{{ 'white.jpg' | asset_img_url: '18x' }}" alt="White"></a>
+            <a href="#" data-color-filter="blue" title="Blue"><img src="{{ 'blue.jpg' | asset_img_url: '18x' }}" alt="blue"></a>
+            <a href="#" data-color-filter="grey" title="Grey"><img src="{{ 'silver.jpg' | asset_img_url: '18x' }}" alt="Grey"></a>
+            <a href="#" data-color-filter="brass" title="Brass"><img src="{{ 'brass.jpg' | asset_img_url: '18x' }}" alt="Brass"></a>
+            <a href="#" data-color-filter="rainbow" title="Rainbow"><img src="{{ 'rainbow.jpg' | asset_img_url: '18x' }}" alt="Rainbow"></a>
+            <a href="#" data-color-filter="gold" title="Gold"><img src="{{ 'gold.jpg' | asset_img_url: '18x' }}" alt="Gold" /></a>
+            <a href="#" data-color-filter="orange" title="Oragne"><img src="{{ 'orange.jpg' | asset_img_url: '18x' }}" alt="Orange" /></a>
+          </div>
+        </div>
+        <div class="grid__item medium-up--one-half">
+          <h5 class="filter-bar__title">By price</h5>
+          <div class="price-filters">
+            <a href="#" data-price-filter="1500">Under $15</a>
+            <a href="#" data-price-filter="3000">Under $30</a>
+            <a href="#" data-price-filter="5000">Under $50</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="grid grid--uniform">
         <!-- list of categories  -->
-
-        {% for product in collection.products %}
+        {% for product in collection.products reversed %}
           {% if collection.handle == 'bundles-up-to-40-off' %}
            <div class="grid__item small--one-half medium-up--one-third product-grid">
             <div class="grid-view-item">
               <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
               <h5 class="grid-view-item__title">{{ product.title }}</h5>
               <div class="product-price__price"><s style="color: #bf2033">{{ product.compare_at_price | money }}</s> <span style="color: #212f64">{{ product.price | money }}</span> {% if product.available == false %} - Sold Out {% endif %}</div>
-              <!--div class="product-overlay">
-                <form action="/cart/add" method="post" >
-                <input class="quick-add-to-cart btn product-form__cart-submit no-hover-opactiy" type="submit" name="" value="{% if variant.available == false %} Sold Out {% else %} + Quick Add {% endif %}" {% if variant.available == false %}disabled{% endif %}  />
-                <input type="hidden" name="quantity" id="quantity" value="1" placeholder="">
-                <input type="hidden" name="id" id="{{ product.variants[0].id }}" value="{{ product.variants[0].id }}" placeholder="">
-                </form>
-              </div-->
             </div>
            </div>
           {% else %}
-          {% for variant in product.variants %}
-            <div class="grid__item small--one-half medium-up--one-third product-grid">
-              <div class="grid-view-item">
-                {% if variant.image.src %}
-                  <a href="{{ variant.url }}" class="no-hover-opactiy"><img src="{{ variant.image.src |  img_url: '345x550' }}" alt=""></a>
-                {% else %}
-                  <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
-                {% endif %}
-                {% if variant.title == 'Default Title' %}
-                  <h5 class="grid-view-item__title">{{ product.title }}</h5>
-                {% else %}
-                  <h5 class="grid-view-item__title">{{ product.title }}: {{ variant.title  }}</h5>
-                {% endif %}
-                <div class="product-price__price">{{ variant.price | money }} {% if variant.available == false %} - Sold Out {% endif %}</div>
-                  <!--div class="product-overlay">
-                    <form action="/cart/add" method="post" >
-                      <input class="quick-add-to-cart btn product-form__cart-submit no-hover-opactiy" type="submit" name="" value="{% if variant.available == false %} Sold Out {% else %} + Quick Add {% endif %}" {% if variant.available == false %}disabled{% endif %}  />
-                      <input type="hidden" name="quantity" id="quantity" value="1" placeholder="">
-                      <input type="hidden" name="id" id="{{ variant.id }}" value="{{ variant.id }}" placeholder="">
-                    </form>
-                  </div-->
-              </div>
+            {% if product.handle contains "bundle"  %}
+            <div class="filter-item product-grid">
+             <div class="grid-view-item">
+               <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
+               <h5 class="grid-view-item__title">{{ product.title }}</h5>
+               <div class="product-price__price"><s style="color: #bf2033">{{ product.compare_at_price | money }}</s> <span style="color: #212f64">{{ product.price | money }}</span> {% if product.available == false %} - Sold Out {% endif %}</div>
+             </div>
             </div>
-          {% endfor %}
+              {% else %}
+                {% for variant in product.variants %}
+                  <div class="filter-item product-grid" data-color="{{ variant.barcode | handleize | lowercase }}" data-price="{{ variant.price }}">
+                    <div class="grid-view-item">
+                      {% if variant.image.src %}
+                        <a href="{{ variant.url }}" class="no-hover-opactiy"><img src="{{ variant.image.src |  img_url: '345x550' }}" alt=""></a>
+                      {% else %}
+                        <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
+                      {% endif %}
+                      {% if variant.title == 'Default Title' %}
+                        <h5 class="grid-view-item__title">{{ product.title }} </h5>
+                      {% else %}
+                        <h5 class="grid-view-item__title">{{ product.title }}: {{ variant.title  }}</h5>
+                      {% endif %}
+                      <div class="product-price__price">{{ variant.price | money }} {% if variant.available == false %} - Sold Out {% endif %}</div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
           {% endif %}
         {% endfor %}
         <!-- end list of categories  -->
@@ -96,9 +119,41 @@
 </div>
 
 <script>
+  $('.color-filters a').on( "click", function(e) {
+    e.preventDefault();
+    $('.color-filters a').removeClass('is-active');
+    $('.price-filters a').removeClass('is-active');
+    $('.no-color').remove();
 
+    $(this).addClass('is-active');
+    var id = $(this).attr('data-color-filter');
+    $(".filter-item").each(function(){
+        $(this).hide();
+        if($(this).attr('data-color') == id) {
+            $(this).show();
+        }
+    });
+    if ( $("[data-color]:visible").length === 0) {
+      $('.filter-bar').after("<div class='no-color text-center'> <h6>Please choose another color. The product you have selected does not come in "+ id +" at this time.</h6><div>");
+    }
+});
+$('.price-filters a').on( "click", function(e) {
+    e.preventDefault();
+    $('.price-filters a').removeClass('is-active');
+    $('.color-filters a').removeClass('is-active');
+    $('.no-color').remove();
+    $(this).addClass('is-active');
+    var id = $(this).attr('data-price-filter');
+    $(".filter-item").each(function(){
+        $(this).hide();
+        if($(this).attr('data-price') <= id) {
+            $(this).show();
+        }
+    });
+});
 $('.js-mobile-filter').on( "click", function(e) {
     e.preventDefault();
+    $('.no-color').remove();
     $('.js-mobile-filter').removeClass('is-active');
     $(this).addClass('is-active');
     var id = $(this).attr('data-filter-tab');
@@ -109,8 +164,5 @@ $('.js-mobile-filter').on( "click", function(e) {
         }
     });
 });
-
 </script>
-
-
 <br/><br/><br/><br/><br/><br/>
