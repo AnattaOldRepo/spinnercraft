@@ -11,10 +11,16 @@
   </header>
   <div class="grid grid--uniform grid--view-items">
     <div class="grid__item medium-up--two-tenths _mb">
-      <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content" style="width: 100%;">
+      <div class="category-mobile-head js-mobile-filter" data-filter-tab="type-content">
         Types
       </div>
+      {% if collection.handle != 'bundles-up-to-40-off' and collection.handle != 'spinner-accessories'  %}
+      <div class="category-mobile-head js-mobile-filter" data-filter-tab="colors-content">
+        Colors
+      </div>
+      {% endif %}
       <div class="category-mobile-content js-mobile-content" data-filter-content="type-content">
+        <h4 class="shop-title">Shop Spinners</h4>
         <ul class="category-list">
           <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/bundles-up-to-40-off">Bundles</a></h6></li>
           {% for link in linklists.bundles.links %}
@@ -22,24 +28,57 @@
           {% endfor %}
         </ul>
         <ul class="category-list">
-          <li><h5 class="category-list__head"><a class="no-hover-opactiy" href="/collections/metal-spinners">Metal Spinners</a></h5></li>
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/metal-spinners">Metal Spinners</a></h6></li>
           {% for link in linklists.metal-spinners.links %}
-            <li class="category-list__item"><a class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}" href="{{ link.url }}">{{ link.title }}</a></li>
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="category-list">
-          <li><h5 class="category-list__head"><a class="no-hover-opactiy" href="/collections/plastic-spinners">Plastic Spinners</a></h5></li>
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/plastic-spinners">Plastic Spinners</a></h6></li>
           {% for link in linklists.plastic-spinners.links %}
-            <li class="category-list__item"><a class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}" href="{{ link.url }}">{{ link.title }}</a></li>
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="category-list">
-          <li><h5 class="category-list__head"><a class="no-hover-opactiy" href="/collections/spinner-accessories">Accessories</a></h5></li>
+          <li><h6 class="category-list__head"><a class="no-hover-opactiy" href="/collections/spinner-accessories">Accessories</a></h6></li>
           {% for link in linklists.accessories.links %}
-            <li class="category-list__item"><a class="{%if current_tag == link.handle %}is-active{% endif %}" data--current-tag="{{current_tag}}" data-link-handle="{{link.handle}}" href="{{ link.url }}">{{ link.title }}</a></li>
+            <li class="category-list__item"><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
+      {% if collection.handle != 'bundles-up-to-40-off' and collection.handle != 'spinner-accessories'  %}
+      <div class="filters-bar-mobile js-mobile-content" data-filter-content="colors-content">
+        <h5 class="filter-bar__title">By color</h5>
+        <div class="color-filters">
+          <a href="#" data-color-filter="red" title="Red"><img src="{{ 'red.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
+          <a href="#" data-color-filter="black" title="Black"><img src="{{ 'black.jpg' | asset_img_url: '18x' }}" alt="Red"></a>
+          <a href="#" data-color-filter="purple" title="Rurple"><img src="{{ 'purple.jpg' | asset_img_url: '18x' }}" alt="Purple"></a>
+          <a href="#" data-color-filter="green" title="Green"><img src="{{ 'green.jpg' | asset_img_url: '18x' }}" alt="Green" /></a>
+          <a href="#" data-color-filter="yellow" title="Yellow"><img src="{{ 'yellow.jpg' | asset_img_url: '18x' }}" alt="Yellow"></a>
+          <a href="#" data-color-filter="white" title="White"><img src="{{ 'white.jpg' | asset_img_url: '18x' }}" alt="White"></a>
+          <a href="#" data-color-filter="copper" title="Copper"><img src="{{ 'copper.jpg' | asset_img_url: '18x' }}" alt="Copper" /></a>
+          <a href="#" data-color-filter="stainless-polished" title="Stainless Polished"><img src="{{ 'polished.jpg' | asset_img_url: '18x' }}" alt="Stainless polished"></a>
+          <a href="#" data-color-filter="electric-blue" title="Electric Blue"><img src="{{ 'blue2.jpg' | asset_img_url: '18x' }}" alt="Electric blue"></a>
+          <a href="#" data-color-filter="stainless-brushed" title="Stainless Brushed"><img src="{{ 'brushed.jpg' | asset_img_url: '18x' }}" alt="Stainless brushed" /></a>
+          <a href="#" data-color-filter="blue" title="Blue"><img src="{{ 'blue.jpg' | asset_img_url: '18x' }}" alt="blue"></a>
+          <a href="#" data-color-filter="matte-silver" title="Matte Silver"><img src="{{ 'silver.jpg' | asset_img_url: '18x' }}" alt="Matte silver"></a>
+          <a href="#" data-color-filter="stainless-steel" title="Stainless Steel"><img src="{{ 'steal.jpg' | asset_img_url: '18x' }}" alt="Green" /></a>
+          <a href="#" data-color-filter="brass" title="Brass"><img src="{{ 'brass.jpg' | asset_img_url: '18x' }}" alt="Brass"></a>
+          <a href="#" data-color-filter="rainbow" title="Rainbow"><img src="{{ 'rainbow.jpg' | asset_img_url: '18x' }}" alt="Rainbow"></a>
+          <a href="#" data-color-filter="gold" title="Bold"><img src="{{ 'gold.jpg' | asset_img_url: '18x' }}" alt="Gold" /></a>
+          <a href="#" data-color-filter="baby-blue" title="Baby Blue"><img src="{{ 'babyblue.jpg' | asset_img_url: '18x' }}" alt="Baby blue"></a>
+          <a href="#" data-color-filter="teal" title="Teal"><img src="{{ 'teal.jpg' | asset_img_url: '18x' }}" alt="Teal"></a>
+          <a href="#" data-color-filter="orange" title="Orange"><img src="{{ 'orange.jpg' | asset_img_url: '18x' }}" alt="Orange" /></a>
+          <a href="#" data-color-filter="eggshell-white" title="Eggshell White"><img src="{{ 'eggshell.jpg' | asset_img_url: '18x' }}" alt="Egg shell white"></a>
+        </div>
+        <h5 class="filter-bar__title">By price</h5>
+        <div class="price-filters">
+          <a href="#" data-price-filter="1500">Under $15</a>
+          <a href="#" data-price-filter="3000">Under $30</a>
+          <a href="#" data-price-filter="5000">Under $50</a>
+        </div>
+      </div>
+      {% endif %}
     </div>
     <div class="grid__item medium-up--eight-tenths">
       {% if collection.handle != 'bundles-up-to-40-off' and collection.handle != 'spinner-accessories'  %}
@@ -151,18 +190,21 @@ $('.price-filters a').on( "click", function(e) {
         }
     });
 });
+
 $('.js-mobile-filter').on( "click", function(e) {
     e.preventDefault();
     $('.no-color').remove();
     $('.js-mobile-filter').removeClass('is-active');
     $(this).addClass('is-active');
     var id = $(this).attr('data-filter-tab');
+    var check = 1;
     $(".js-mobile-content").each(function(){
         $(this).hide();
         if($(this).attr('data-filter-content') == id) {
             $(this).show();
         }
     });
+
 });
 </script>
 <br/><br/><br/><br/><br/><br/>
