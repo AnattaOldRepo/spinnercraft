@@ -99,6 +99,15 @@
         {% for collection in collections %}
         {% if collection.handle == 'fidget-spinner-full-collection' %}
           {% for product in collection.products %}
+            {% if product.handle contains "bundle"  %}
+            <div class="filter-item product-grid">
+             <div class="grid-view-item">
+               <a href="{{ product.url }}" class="no-hover-opactiy"><img src="{{ product.featured_image.src |  img_url: '345x550' }}" alt=""></a>
+               <h5 class="grid-view-item__title">{{ product.title }}</h5>
+               <div class="product-price__price"><s style="color: #bf2033">{{ product.compare_at_price | money }}</s> <span style="color: #212f64">{{ product.price | money }}</span> {% if product.available == false %} - Sold Out {% endif %}</div>
+             </div>
+            </div>
+            {% else %}
             {% for variant in product.variants %}
               <div class="filter-item product-grid" data-color="{{ variant.barcode | handleize | lowercase }}" data-price="{{ variant.price }}">
                 <div class="grid-view-item">
@@ -123,6 +132,7 @@
                 </div>
               </div>
             {% endfor %}
+            {% endif %}
           {% endfor %}
         {% endif %}
         {% endfor %}
@@ -133,11 +143,12 @@
 </div>
 
 <script>
-
   $('.color-filters a').on( "click", function(e) {
     e.preventDefault();
     $('.color-filters a').removeClass('is-active');
     $('.price-filters a').removeClass('is-active');
+    $('.no-color').remove();
+
     $(this).addClass('is-active');
     var id = $(this).attr('data-color-filter');
     $(".filter-item").each(function(){
@@ -146,12 +157,15 @@
             $(this).show();
         }
     });
+    if ( $("[data-color]:visible").length === 0) {
+      $('.filter-bar').after("<div class='no-color text-center'> <h5>This color is not available. Please choose another! </h5><div>");
+    }
 });
-
 $('.price-filters a').on( "click", function(e) {
     e.preventDefault();
     $('.price-filters a').removeClass('is-active');
     $('.color-filters a').removeClass('is-active');
+    $('.no-color').remove();
     $(this).addClass('is-active');
     var id = $(this).attr('data-price-filter');
     $(".filter-item").each(function(){
@@ -161,9 +175,9 @@ $('.price-filters a').on( "click", function(e) {
         }
     });
 });
-
 $('.js-mobile-filter').on( "click", function(e) {
     e.preventDefault();
+    $('.no-color').remove();
     $('.js-mobile-filter').removeClass('is-active');
     $(this).addClass('is-active');
     var id = $(this).attr('data-filter-tab');
@@ -174,9 +188,5 @@ $('.js-mobile-filter').on( "click", function(e) {
         }
     });
 });
-
-</script>
-
-
 </script>
 <br/><br/><br/><br/><br/><br/>
