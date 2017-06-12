@@ -265,24 +265,15 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
       }
     });
 
-
-    if (window.matchMedia('(max-width: 1024px)').matches) {
-
-        jQuery('.js-modal').on("click touchstart", function(){
-          event.preventDefault();
-          setTimeout(function() {
-            jQuery(".privy-tab").trigger( "click" );
-
-           }, 10);
-        });
-
-    } else {
-
-      jQuery('.js-modal').on("click", function(){
-        event.preventDefault();
+    // Trigger privy app modal
+    jQuery('.js-modal').on("click touchstart", function(){
+      event.preventDefault();
+      setTimeout(function() {
         jQuery(".privy-tab").trigger( "click" );
-      });
-    }
+
+       }, 10);
+    });
+
   });
 </script>
 <!--Retention email tracking end-->
