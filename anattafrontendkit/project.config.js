@@ -3,14 +3,14 @@
  *
  */
 module.exports = {
-	name: 'Project name',
-	description: 'Project description',
-	version: 'Project version',
-	author: 'Project author',
-	authorURI: 'Project author website',
+	name: 'Spinnercraft',
+	description: 'Shopify theme',
+	version: '2.0.0',
+	author: 'Anattadesign',
+	authorURI: 'spinnercraft.com',
 
     buildDirName: 'dist',
-    buildDirPath: './dist',
+    buildDirPath: '../assets/dist',
     srcDirPath: './src',
-    browserSyncProxy: 'anatta.toolkit',
+    browserSyncProxy: '',
 };

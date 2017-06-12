@@ -1,0 +1,57 @@
+/* Grid Object */
+
+/* Lost global variables */
+
+@lost gutter 20px;
+
+@lost flexbox flex;
+
+.o-grid {
+    lost-utility: clearfix;
+    lost-center: 1350px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+    .o-grid__3-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 3/12;
+        }
+    }
+
+    .o-grid__4-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 4/12;
+        }
+    }
+
+
+    .o-grid__5-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 5/12;
+        }
+    }
+
+    .o-grid__6-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 6/12;
+        }
+    }
+
+    .o-grid__7-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 7/12;
+        }
+}
+

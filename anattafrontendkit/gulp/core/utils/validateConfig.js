@@ -22,7 +22,7 @@ module.exports = function (project) {
 		gutil.log('Project Config Error:', gutil.colors.red('The \"buildDirName\" option in your project.config.js configuration cannot be empty'));
 	}
 
-    if (!project.browserSyncProxy) {
+    if (!project.browserSyncProxy && !project.browserSyncProxy == '') {
         validationFailed = true;
 
         gutil.log('Project Config Error:', gutil.colors.red('The \"browserSyncProxy\" option in your project.config.js configuration cannot be empty'));

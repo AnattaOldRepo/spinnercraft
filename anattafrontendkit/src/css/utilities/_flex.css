@@ -1,0 +1,12 @@
+/* utility of flex alignment */
+
+.u-flexCenter {
+    align-items: center;
+}
+
+.u-reverseMobile {
+
+    @media (--mobile-max) {
+        flex-direction: column-reverse
+    }
+}

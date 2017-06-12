@@ -1,0 +1,19 @@
+/* Global theme colors */
+
+/* Base colors */
+
+$black:             #000;
+$white:             #fff;
+
+/* Theme colors */
+
+
+/* Hr */
+$hr-border-color:  $black; 
+
+/* backgrounds */
+$background-body:  $white;
+
+/* Text colors */
+$color-text-base:  $black;
+$color-link-base:  $black;

@@ -1,0 +1,8 @@
+/* Declare all the font faces here */
+
+@font-face {
+	font-family: 'apercubold';
+	font-path: '../fonts/apercu-bold/apercu-bold';
+	font-weight: normal;
+	font-style: normal;
+}

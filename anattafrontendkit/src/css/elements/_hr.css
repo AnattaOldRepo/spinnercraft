@@ -1,0 +1,9 @@
+/* Hr */
+
+hr{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    height: 1px;
+    background: $hr-border-color;
+}

@@ -1,0 +1,8 @@
+/* Default Label */
+
+label{
+    color: $black;
+    font-size: $font-size-base;
+    margin-bottom: calc($spacing-base / 2);
+    display: inline-block;
+}

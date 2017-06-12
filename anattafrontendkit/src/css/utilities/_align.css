@@ -1,0 +1,13 @@
+/* utility of text alignment */
+
+.u-alignLeft {
+    text-align: left;
+}
+
+.u-alignCenter {
+    text-align: center;
+}
+
+.u-alignRight {
+    text-align: right;
+}

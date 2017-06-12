@@ -1,0 +1,6 @@
+/* utility to make block center */
+
+.u-center {
+
+    @util center-block; /* Importing from postcss-utilities. https://ismamz.github.io/postcss-utilities/docs; */
+}
