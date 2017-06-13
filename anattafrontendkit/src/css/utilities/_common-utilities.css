@@ -1,0 +1,23 @@
+.u-fullWidth{
+	max-width:100%;
+}
+
+.u-heightfull {
+	height: 100%;
+}
+
+.u-rel {
+	position: relative;
+}
+
+.u-inline{
+	display: inline-block;
+}
+
+.u-bold{
+	font-weight: 700;
+}
+
+.u-upperCase {
+	text-transform: uppercase;
+}

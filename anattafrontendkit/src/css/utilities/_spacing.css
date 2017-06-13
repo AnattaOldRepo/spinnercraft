@@ -13,3 +13,12 @@
     padding-top: 2.1875rem;
 }
 
+
+
+/* Padding Top Bottom Only */
+
+.u-ptb_10{
+	padding-top: 0.625rem;
+	padding-bottom: 0.625rem;
+}
+

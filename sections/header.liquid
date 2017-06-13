@@ -10,7 +10,48 @@
 {% endif %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
-  <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
+  
+  <div class="c-helloBar u-textCenter u-ptb_10">
+      <h3 class="c-helloBarTitle u-cream">Free shipping on orders above $40  details</p>
+  </div>
+  
+  <div class="c-header">
+    <div class="o-grid u-flexCenter u-heightfull">
+        <div class="c-headerLeft o-grid__3-12 u-flex u-flexCenter">
+            <div class="c-hamMenu u-rel">
+              <span class="c-hamMenuTile"></span>
+            </div>
+            <div class="c-logo u-flexCenterTab">
+              {% include 'icon-new-logo' %}
+
+            </div>
+        </div>
+        <div class="c-headerCenter o-grid__7-12">
+          <ul class="c-headerNav u-flex u-textCenter">
+          {% for link in linklists.new-main-menu.links %}
+            <li class="c-headerNavItem u-flexGrow_1 u-inline u-bold">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="c-headerRight o-grid__2-12 u-flex u-textCenter">
+            <div class="c-headerSearch u-flexGrow_1">
+              {% include 'icon-search-new' %}
+            </div>
+            <div class="c-headerUser u-flexGrow_1">
+              {% include 'icon-new-user' %}
+            </div>
+            <div class="c-headerCart u-flexGrow_1">
+               {% include 'icon-new-cart' %}
+            </div>
+        </div>
+      </div>
+  </div>
+
+
+
+  <nav class="mobile-nav-wrapper medium-up--hide" role="navigation" style="display: none;">
     <ul id="MobileNav" class="mobile-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}
@@ -59,7 +100,7 @@
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
 
-    <div class="site-header__row">
+    <div class="site-header__row" style="display: none;">
       <div class="grid grid--no-gutters grid--table">
         <div class="grid__item small-up--one-third">
           {% unless linklists[section.settings.main_linklist] == blank %}
@@ -143,7 +184,7 @@
       </div>
     </div>
 
-    <div class="site-header__row site-header__row--nobg site-header__row--largeVisible">
+    <div class="site-header__row site-header__row--nobg site-header__row--largeVisible" style="display: none;">
       <div class="grid grid--no-gutters grid--table">
         {% if section.settings.align_logo == 'center' %}
           <div class="grid__item small--hide medium-up--one-quarter">
@@ -161,7 +202,7 @@
       </div>
     </div>
 
-    <div class="site-header__row site-header__row--nobg site-header__row--smallVisible">
+    <div class="site-header__row site-header__row--nobg site-header__row--smallVisible" style="display: none;">
       {% if section.settings.message %}
         <div class="notification-bar notification-bar--smallVisible text-site-header__cart-count text-center">
           {% if section.settings.message %}

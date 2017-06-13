@@ -1,0 +1,8 @@
+.c-helloBar {
+	width: 100%;
+	background-color: $color-darkgrey;
+}
+	.c-helloBarTitle {
+		font-size: 14px;
+		
+	}

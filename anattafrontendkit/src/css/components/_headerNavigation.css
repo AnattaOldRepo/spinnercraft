@@ -1,0 +1,19 @@
+.c-headerNav {
+	max-width: 632px;
+}
+	.c-headerNavItem{
+		font-size: 16px;
+
+		a {
+			display: inline-block;
+			padding: 8px 10px;
+			color: $color-darkgrey;
+		}
+		&:hover {
+			a{
+				background-color: $color-light-grey;
+				border-radius: 25px;
+				opacity: 1;
+			}
+		}
+	}

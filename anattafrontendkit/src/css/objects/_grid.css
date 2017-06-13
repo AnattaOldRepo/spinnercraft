@@ -2,17 +2,24 @@
 
 /* Lost global variables */
 
-@lost gutter 20px;
+@lost gutter 15px;
 
 @lost flexbox flex;
 
 .o-grid {
     lost-utility: clearfix;
-    lost-center: 1350px;
-    padding-left: 20px;
-    padding-right: 20px;
+    lost-center: 1410px;
+    padding-left: 15px;
+    padding-right: 15px;
 
 }
+    .o-grid__2-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 2/12;
+        }
+    }
 
     .o-grid__3-12{
         lost-column: 12/12;

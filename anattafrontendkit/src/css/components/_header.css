@@ -1,0 +1,20 @@
+.c-header {
+	background-color: $color-white-smoke;
+	
+	@media (--tablet-large){
+		height: 80px;
+	}
+}
+	.c-logo {
+		margin-top: 12px;
+	}
+
+	.c-headerRight{
+		padding-left: 43px;
+	}
+
+	.c-headerSearch {
+		svg{
+			transform: rotate(280deg);
+		}
+	}

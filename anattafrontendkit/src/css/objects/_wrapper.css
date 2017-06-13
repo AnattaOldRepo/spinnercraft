@@ -2,9 +2,9 @@
 
 /* local object variables */
 
-$wrapper-size-base: 1350px;
+$wrapper-size-base: 1410px;
 
-$wrapper-gutter: 20px;
+$wrapper-gutter: 15px;
 
 
 .o-wrapper{
