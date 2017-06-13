@@ -16,7 +16,7 @@ module.exports = function (project) {
 	 * project name or
 	 * project prettyName
 	 */
-	if (!project.buildDirName) {
+	if (!project.buildDirName && !project.buildDirName == '') {
 		validationFailed = true;
 
 		gutil.log('Project Config Error:', gutil.colors.red('The \"buildDirName\" option in your project.config.js configuration cannot be empty'));

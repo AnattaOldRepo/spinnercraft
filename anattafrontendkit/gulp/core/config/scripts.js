@@ -23,8 +23,8 @@ module.exports = deepMerge({
 			assets.src + '/js/*.js',
 			'!' + assets.src + '/js/**/_*'
 		],
-		dest: assets.dest + '/js',
-		clean: assets.dest + '/js/**/*.{js,map}'
+		dest: assets.dest,
+		//clean: assets.dest + '/**/*.{js,map}'
 	},
 
 	options: {

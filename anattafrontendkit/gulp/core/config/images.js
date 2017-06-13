@@ -22,7 +22,7 @@ module.exports = deepMerge({
 			assets.src + '/img/**/*.{gif,ico,jpg,jpeg,png,webp}',
 			'!' + assets.src + '/img/sprites'
 		],
-		dest:  assets.dest + '/img',
-		clean: assets.dest + '/img/**/*.{gif,ico,jpg,jpeg,png,webp}'
+		dest:  assets.dest,
+		//clean: assets.dest + '/**/*.{gif,ico,jpg,jpeg,png,webp}'
 	}
 }, overrides);

@@ -9,8 +9,8 @@ module.exports = {
 	author: 'Anattadesign',
 	authorURI: 'spinnercraft.com',
 
-    buildDirName: 'dist',
-    buildDirPath: '../assets/dist',
+    buildDirName: '',
+    buildDirPath: '../assets/',
     srcDirPath: './src',
     browserSyncProxy: '',
 };
