@@ -26,8 +26,7 @@ gulp.task('default', [
 	 'sprite:watch',
 	 'images:watch',
 	'scripts:watch',
-	 'styles:watch',
-	'browser:sync'
+	 'styles:watch'
 ]);
 
 gulp.task('build', [

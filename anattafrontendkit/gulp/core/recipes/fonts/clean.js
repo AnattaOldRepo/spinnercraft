@@ -14,3 +14,4 @@ module.exports = function (done) {
 	del(config.paths.clean, { force: true })
 		.then(function () { done(); });
 };
+
