@@ -955,6 +955,14 @@ p {
 .c-headerNav__externalLink {
     color: #1e242b;
 }
+.c-headerNav__list {}
+@media (min-width: 1024px) {
+    .c-headerNav__list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
 .c-headerNav__item span {
     color: #ff485b;
     font-size: 14px;

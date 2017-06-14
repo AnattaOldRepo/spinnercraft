@@ -35,6 +35,12 @@
 	&__externalLink{
 		color: $color-brand-black;
 	}
+
+	&__list {
+		@media (--tablet-large){
+			display: flex;
+		}
+	}
 	
 }
 	.c-headerNav__item{

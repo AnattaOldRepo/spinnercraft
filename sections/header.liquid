@@ -41,7 +41,7 @@
               <a class="u-hideDesktop" href="/">
                 {% include 'icon-new-logo-mobile' %}
               </a>
-              <a class="u-hideMobile" href="/"
+              <a class="u-hideMobile" href="/">
                 {% include 'icon-new-logo' %}
               </a>
             </div>
@@ -51,10 +51,10 @@
             <span class="c-hamMenu__tile"></span>
           </div>
           <div class="c-headerNav">
-            <div class="c-headerNav__close u-textRight">
+            <div class="c-headerNav__close u-textRight u-hideDesktop">
                 {% include 'icon-new-close' %}
             </div>
-            <ul>
+            <ul class="c-headerNav__list">
               {% for link in linklists.new-main-menu.links %}
               {% assign child_list_handle = link.title | handle %}
               {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
