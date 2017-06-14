@@ -3,6 +3,9 @@
 .u-pt_16{
     padding-top: 16px;
 }
+.u-pt_10{
+	padding-top: 0.625rem;
+}
 .u-pt_20{
     padding-top: 1.25rem;
 }
@@ -12,6 +15,14 @@
 .u-pt_35{
     padding-top: 2.1875rem;
 }
+.u-plr_10 {
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
+.u-plr_20 {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
 
 
 
@@ -20,5 +31,22 @@
 .u-ptb_10{
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
+}
+.u-ptb_50 {
+	padding-top: 3.125rem;
+	padding-bottom: 3.125rem;
+}
+
+
+
+/* margin */
+.u-mlr_16{
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.u-mlr_20{
+	margin-left: 1.25rem;
+	margin-right: 1.25rem;
 }
 

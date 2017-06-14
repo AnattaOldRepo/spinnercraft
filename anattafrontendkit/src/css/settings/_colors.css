@@ -6,16 +6,18 @@ $black:             #000;
 $white:             #fff;
 
 /* Theme colors */
-$color-maroon: 		#ff485b;
+$color-red: 		#ff485b;
 $color-sky:			#4dc1df;
 $color-yellow:		#ffd900;
 $color-purple:		#4e008b;
 $color-mustard:		#ffa300;
-$color-darkgrey:	#1e242b;
+$color-brand-black:	#1e242b;
 $color-cream:		#d6d7d7;
 $color-white-smoke:	#f5f5f5;
 $color-light-grey:	#e3e3e3;
 
+
+$border-color:		#bbbbbb;
 
 /* Hr */
 $hr-border-color:  $black; 

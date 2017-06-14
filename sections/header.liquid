@@ -11,46 +11,139 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
   
-  <div class="c-helloBar u-textCenter u-ptb_10">
-      <h3 class="c-helloBarTitle u-cream">Free shipping on orders above $40  details</p>
+  <div class="c-helloBar">
+    <div class="o-wrapper u-flex u-heightfull u-flexCenter">
+      <ul class="c-helloBarNav u-flexGrow_1 u-hideMobile">
+        {% for link in linklists.top-bar-menu.links %}
+          <li class="c-helloBarNav__item u-cream u-font_14 u-inline">
+            <a class="c-helloBarNav__link u-cream" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% if section.settings.message %}
+          {% if section.settings.message %}
+            {% if section.settings.message_link != blank %}
+              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+                {{ section.settings.message_text | escape }}
+              </a>
+            {% else %}
+              <p class="c-helloBar__title u-cream u-font_14 ">{{ section.settings.message_text | escape }}</p>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+    </div>
   </div>
   
-  <div class="c-header">
+  <div class="c-header u-rel">
     <div class="o-grid u-flexCenter u-heightfull">
-        <div class="c-headerLeft o-grid__3-12 u-flex u-flexCenter">
-            <div class="c-hamMenu u-rel">
-              <span class="c-hamMenuTile"></span>
-            </div>
+        <div class="c-header__left u-flexGrow_1 ">
             <div class="c-logo u-flexCenterTab">
-              {% include 'icon-new-logo' %}
+              <a class="u-hideDesktop" href="/">
+                {% include 'icon-new-logo-mobile' %}
+              </a>
+              <a class="u-hideMobile" href="/"
+                {% include 'icon-new-logo' %}
+              </a>
+            </div>
+        </div>
+        <div class="c-header__center u-flexGrow_1">
+          <div class="c-hamMenu u-rel u-hideDesktop">
+            <span class="c-hamMenu__tile"></span>
+          </div>
+          <div class="c-headerNav">
+            <div class="c-headerNav__close u-textRight">
+                {% include 'icon-new-close' %}
+            </div>
+            <ul>
+              {% for link in linklists.new-main-menu.links %}
+              {% assign child_list_handle = link.title | handle %}
+              {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+              <li class="c-headerNav__item has-dropdown u-bold u-rel">
+                <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
+                <ul class="c-headerSubMenu u-textLeft">
+                  {% for child_link in linklists[child_list_handle].links %}
+                  <li class="c-headerSubMenu__item u-regular">
+                    <a class="u-black" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                  {% endfor %}        
+                </ul>
+              </li>
+              {% else %}
+              <li {% if link.title == "All Spinners" %} 
+                class="c-headerNav__border c-headerNav__item u-bold u-rel"
+                {% endif %} 
+                class="c-headerNav__item u-bold u-rel">
+                <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+            <div class="c-headerNav__external u-hideDesktop">
+              <ul>
+                <li class="c-headerNav__externalItem">
+                    {% if shop.customer_accounts_enabled %}
+                      {% if customer %}
+                        <a class="c-headerNav__externalLink" href="/account">
+                          {{ 'layout.customer.account' | t }}
+                        </a>
+                      {% else %}
+                        <a class="c-headerNav__externalLink" href="/account/login">
+                          Login
+                        </a>
+                      {% endif %}
+                    {% endif %}
+                </li>
+                {% for link in linklists.top-bar-menu.links %}
+                  <li class="c-headerNav__externalItem">
+                    <a class="c-headerNav__externalLink" href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+
+              </ul>
 
             </div>
+          </div>
         </div>
-        <div class="c-headerCenter o-grid__7-12">
-          <ul class="c-headerNav u-flex u-textCenter">
-          {% for link in linklists.new-main-menu.links %}
-            <li class="c-headerNavItem u-flexGrow_1 u-inline u-bold">
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="c-headerRight o-grid__2-12 u-flex u-textCenter">
-            <div class="c-headerSearch u-flexGrow_1">
-              {% include 'icon-search-new' %}
+        <div class="c-header__right u-flex u-flexGrow_1 u-textCenter">
+            <div class="c-header__search u-flexGrow_1 u-pt_10 js-Search u-rel">
+              <span class="c-header__search--icon">
+                {% include 'icon-search' %}
+              </span>
+                <div class="c-search js-searchBar">
+                  <form class="" action="/search" method="get" role="search">
+                    <button class="" type="submit">
+                      {% include 'icon-search' %}
+                    </button>
+                    <input class="" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+                  </form>
+                </div>
             </div>
-            <div class="c-headerUser u-flexGrow_1">
-              {% include 'icon-new-user' %}
+            <div class="c-header__user u-flexGrow_1 u-pt_10">
+              {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                  <a href="/account">
+                    {{ 'layout.customer.account' | t }}
+                  </a>
+                {% else %}
+                  <a href="/account/login" class="site-header__account">
+                    {% include 'icon-new-user' %}
+                  </a>
+                {% endif %}
+              {% endif %}
             </div>
-            <div class="c-headerCart u-flexGrow_1">
-               {% include 'icon-new-cart' %}
+            <div class="c-header__cart u-flexGrow_1">
+               <a class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+                  {% include 'icon-new-cart' %}
+                  {% if cart.item_count > 0 %}
+                    <span class="c-header__cart__count u-bold u-floatLeft">
+                      <span id="CartCount">{{ cart.item_count }}</span>
+                    </span>
+                  {% endif %}
+                </a>
             </div>
         </div>
       </div>
   </div>
-
-
-
   <nav class="mobile-nav-wrapper medium-up--hide" role="navigation" style="display: none;">
     <ul id="MobileNav" class="mobile-nav">
       {% for link in linklists[section.settings.main_linklist].links %}

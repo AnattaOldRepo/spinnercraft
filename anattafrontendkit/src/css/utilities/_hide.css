@@ -7,7 +7,7 @@
 .u-hideDesktop{
     display: block;
 
-    @media (--tablet){
+    @media (--tablet-large){
         display: none
     }
 }
@@ -15,7 +15,8 @@
 .u-hideMobile{
     display: none;
 
-    @media (--tablet){
+    @media (--tablet-large){
         display: block;
     }
 }
+

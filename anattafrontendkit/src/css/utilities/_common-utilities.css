@@ -17,7 +17,15 @@
 .u-bold{
 	font-weight: 700;
 }
+.u-regular{
+	font-weight: 500;
+}
 
 .u-upperCase {
 	text-transform: uppercase;
 }
+
+.u-font_14{
+	font-size: 0.875rem;
+}
+

@@ -3,11 +3,11 @@
     padding-left: 8px;
     top: -5px;
 }
-	.c-hamMenuTile {
+	.c-hamMenu__tile {
 		display: inline-block;
 		width: 19px;
 		height: 2px;
-		background-color: $color-darkgrey;
+		background-color: $color-brand-black;
 
 		&:before,
 		&:after {
@@ -15,7 +15,7 @@
 			position: absolute;
 			width: 27px;
 			height: 2px;
-			background-color: $color-darkgrey;
+			background-color: $color-brand-black;
 		}
 		&:before {
 			top: 7px;

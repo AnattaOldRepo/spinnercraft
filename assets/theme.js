@@ -1189,6 +1189,21 @@ theme.Search = (function() {
   };
 })();
 
+/* New Seacrh bar */
+$('.js-Search').on("click", function(){
+    $(this).addClass('is-SearchOpen')
+    $('.js-searchBar').addClass('is-hovered');
+});
+$(document).bind('click', function(e){
+    if(!$(e.target).is('.js-Search') && !$(e.target).is('.js-searchBar') && !$(e.target).is('.c-headerSearch--icon') ){
+       $('.js-searchBar').removeClass('is-hovered');
+       $('.js-Search').removeClass('is-SearchOpen');
+    }
+});
+$(".js-searchBar").click(function(e){
+   e.stopPropagation();
+}); 
+
 (function() {
   var selectors = {
     backButton: '.return-link'
