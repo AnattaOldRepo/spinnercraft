@@ -15,9 +15,13 @@ $color-brand-black:	#1e242b;
 $color-cream:		#d6d7d7;
 $color-white-smoke:	#f5f5f5;
 $color-light-grey:	#e3e3e3;
+$color-dark-grey:	#999999;
 
 
 $border-color:		#bbbbbb;
+
+$red-btn-hover:		#ff6575;
+$black-btn-hover:	#32373e;
 
 /* Hr */
 $hr-border-color:  $black; 

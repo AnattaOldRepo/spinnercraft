@@ -60,5 +60,12 @@
         @media (--tablet){
             lost-column: 7/12;
         }
-}
+    } 
+    .o-grid__8-12{
+        lost-column: 12/12;
+
+        @media (--tablet){
+            lost-column: 8/12;
+        }
+    }  
 

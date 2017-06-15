@@ -7,3 +7,7 @@ $spacing-2x:      calc(var($spacing-base) * 2); /* 32px */
 $spacing-3x:      calc(var($spacing-base) * 3); /* 48px  */
 
 $spacing-4x:      calc(var($spacing-base) * 4); /* 64px  */
+
+
+$button-top-botttom : 12px;
+$button-left-right  : 32px;

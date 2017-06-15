@@ -14,61 +14,58 @@
 %}
   {%- assign social_icons = true -%}
 {% endif %}
-
-<footer class="site-footer" role="contentinfo">
-  <div class="site-footer__row">
-    <div class="footer-width">
-      <div class="grid grid--uniform grid--view-items" style="overflow: inherit;">
-        <div class="grid__item small--one-whole medium--one-half large-up--seven-twelfths">
-            <ul class="site-footer__linklist site-footer__linklist--center">
-              <li class="site-footer__linklist-item"><h5><a href="/collections">Shop</a></h5></li>
+<footer class="c-footer" role="contentinfo">
+    <div class="c-footerWidth u-center">
+      <div class="c-footer__left">
+        <div class="c-footerNav">
+            <ul class="c-footerNav__block">
+              <li class="c-footerNav__head"><a class="c-footerNav__headLink u-bold" href="/collections">SHOP</a></li>
               {% for link in linklists.footer-shop.links %}
-                <li class="site-footer__linklist-item">
+                <li class="c-footerNav__link">
                   <a href="{{ link.url }}">{{ link.title }}</a>
                 </li>
               {% endfor %}
             </ul>
-            <ul class="site-footer__linklist site-footer__linklist--center">
-              <li class="site-footer__linklist-item"><h5><a href="/pages/about">About</a></li>
+            <ul class="c-footerNav__block">
+              <li class="c-footerNav__head"><a class="c-footerNav__headLink u-bold" href="/pages/about">ABOUT</a></li>
               {% for link in linklists.footer-about.links %}
-                <li class="site-footer__linklist-item">
+                <li class="c-footerNav__link">
                   <a href="{{ link.url }}">{{ link.title }}</a>
                 </li>
               {% endfor %}
             </ul>
-            <ul class="site-footer__linklist site-footer__linklist--center">
-              <li class="site-footer__linklist-item"><h5><a href="/pages/faqs">Support</a></h5></li>
+            <ul class="c-footerNav__block">
+              <li class="c-footerNav__head"><a class="c-footerNav__headLink u-bold" href="/pages/faqs">SUPPORT</a></li>
               {% for link in linklists.footer-support.links %}
-                <li class="site-footer__linklist-item">
+                <li class="c-footerNav__link">
                   <a href="{{ link.url }}">{{ link.title }}</a>
                 </li>
               {% endfor %}
             </ul>
         </div>
-        <div class="grid__item small--one-whole medium--one-half large-up--five-twelfths">
+        </div>
+        <div class="c-footer__right">
         {% if section.settings.footer_newsletter_enable %}
-          <div class="site-footer__newsletter">
+          <div class="c-footerLetter">
             {% form 'customer' %}
               {{ form.errors | default_errors }}
               {% if form.posted_successfully? %}
                 <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
               {% else %}
                 <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-                <div class="input-group">
+                <div class="c-footerInput u-flex">
                   <input type="hidden" name="contact[tags]" value="newsletter">
                   <input type="email"
                     name="contact[email]"
                     id="Email"
-                    class="input-group__field newsletter__input"
+                    class="c-footerInput__item"
                     value="{% if customer %}{{ customer.email }}{% endif %}"
                     placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
                     autocorrect="off"
                     autocapitalize="off">
-                  <span class="input-group__btn">
-                    <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
-                      <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                    <button type="submit" class="c-btn c-btn--black c-footerInput__btn" name="commit" id="Subscribe">
+                      Sign Up
                     </button>
-                  </span>
                 </div>
               {% endif %}
             {% endform %}
@@ -76,67 +73,67 @@
         {% endif %}
        
         {% if social_icons %}
-          <div>
-            <ul class="list--inline site-footer__social-icons social-icons">
+          <div class="c-footerSocial">
+            <ul class="c-footerSocial__icons">
               {% if settings.social_facebook_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
                     {% include 'icon-facebook' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_twitter_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
                     {% include 'icon-twitter' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_pinterest_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
                     {% include 'icon-pinterest' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_instagram_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
                     {% include 'icon-instagram' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_tumblr_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
                     {% include 'icon-tumblr' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_snapchat_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_snapchat_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_snapchat_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
                     {% include 'icon-snapchat' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_youtube_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
                     {% include 'icon-youtube' %}
                   </a>
                 </li>
               {% endif %}
               {% if settings.social_vimeo_link != blank %}
-                <li>
-                  <a class="social-icons__link" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
                     {% include 'icon-vimeo' %}
                   </a>
                 </li>
               {% endif %}
               {% if template contains 'blog' or template contains 'article' %}
-                <li>
-                  <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
+                <li class="u-inline">
+                  <a class="c-footerSocial__links" href="{{ shop.url }}{{ blog.url }}.atom">
                     {% include 'icon-rss' %}
                   </a>
                 </li>
@@ -146,21 +143,19 @@
         {% endif %}
 
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="site-footer__row site-footer__row--bgdark">
-    {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
-      <div class="site-footer__copyright--bottom">
-        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
-      </div>
-    {% endif %}
+        <div class="c-footer__copyright u-clearFix">
+        {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
+          <div class="c-footer__copyrightLeft u-floatLeft">
+            <p class="">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</p>
+          </div>
+        {% endif %}
 
-    <div class="site-footer__copyright--nav">
-      <a href="/pages/privacy">Privacy</a>
-      <a href="/pages/terms">Terms</a>
+        <div class="c-footer__copyrightRight u-floatRight">
+          <a href="/pages/privacy">Privacy</a>
+          <a href="/pages/terms">Terms</a>
+        </div>
+      </div>
     </div>
-  </div>
 </footer>
 
 {% schema %}
