@@ -10,7 +10,7 @@
 {% endif %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
-  
+
   <div class="c-helloBar u-fontAzo">
     <div class="o-wrapper u-flex u-heightfull u-flexCenter">
       <ul class="c-helloBarNav u-flexGrow_1 u-hideMobile">
@@ -31,7 +31,7 @@
         {% endif %}
     </div>
   </div>
-  
+
   <header class="c-header u-rel u-fontAzo">
     <div class="o-grid u-flexCenter u-heightfull">
         <div class="c-header__left u-flexGrow_1 ">
@@ -65,13 +65,13 @@
                   <li class="c-headerSubMenu__item u-regular">
                     <a class="u-black" href="{{ child_link.url }}">{{ child_link.title }}</a>
                   </li>
-                  {% endfor %}        
+                  {% endfor %}
                 </ul>
               </li>
               {% else %}
-              <li {% if link.title == "All Spinners" %} 
+              <li {% if link.title == "All Spinners" %}
                 class="c-headerNav__border c-headerNav__item u-bold u-rel"
-                {% endif %} 
+                {% endif %}
                 class="c-headerNav__item u-bold u-rel">
                 <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
               </li>
@@ -106,14 +106,14 @@
         </div>
         <div class="c-header__right u-flex u-flexGrow_1 u-textCenter">
             <div class="c-header__search u-flexGrow_1 js-Search u-rel">
-        
+
                   <form class="c-header__search" action="/search" method="get" role="search">
                     <button class="c-header__searchBtn" type="submit">
                       {% include 'icon-search' %}
                     </button>
                     <input class="js-searchBar c-search" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
                   </form>
-            
+
             </div>
             <div class="c-header__user u-flexGrow_1">
               {% if shop.customer_accounts_enabled %}
@@ -130,16 +130,10 @@
             </div>
             <div class="c-header__cart u-flexGrow_1">
                <a class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                  {% if cart.item_count > 0 %}
                     {% include 'icon-new-cart' %}
                     <span class="c-header__cart__count u-bold u-floatLeft">
-                      <span id="CartCount">{{ cart.item_count }}</span>
+                      <span id="CartCount"></span>
                     </span>
-                  {% else %}
-                      <span class="c-header__cartEmpty u-bold u-floatLeft">
-                        {% include 'icon-new-cart' %}
-                      </span>
-                  {% endif %}
                 </a>
             </div>
         </div>
