@@ -94,6 +94,12 @@
 			}
 		}
 
+		.c-header__cartEmpty{
+			svg{
+				margin: 0 0 0 18px;
+			}
+		}
+
 		.c-header__cart__count {
 			padding: 0 0 0 4px;
 			@media (--tablet-large){

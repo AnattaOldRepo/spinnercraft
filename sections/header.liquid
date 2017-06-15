@@ -136,9 +136,9 @@
                       <span id="CartCount">{{ cart.item_count }}</span>
                     </span>
                   {% else %}
-                      {% include 'icon-new-cart' %}<span class="c-header__cart__count u-bold u-floatLeft">
-                      <span id="CartCount">0</span>
-                    </span>
+                      <span class="c-header__cartEmpty u-bold u-floatLeft">
+                        {% include 'icon-new-cart' %}
+                      </span>
                   {% endif %}
                 </a>
             </div>
