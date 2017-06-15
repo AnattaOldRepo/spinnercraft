@@ -232,14 +232,13 @@
   </div>
   <div class="product-single__description rte" itemprop="description">
 
-    {{ product.description }}
-
-    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-
     <div class="product-single__image">
       <img src="{{ product.handle | append: '-banner' | append: '.jpg' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
     </div>
 
+    {{ product.description }}
+
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
 
 
   </div>
