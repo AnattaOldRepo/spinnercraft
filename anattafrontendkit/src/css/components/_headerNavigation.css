@@ -17,7 +17,7 @@
 		text-align:center;
 	}
 
-	@media (--desktop-small){
+	@media (--desktop-large){
 		margin-left: 40px;
 	}
 
@@ -72,6 +72,10 @@
 		}
 
 		@media (--desktop-small){
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		@media (--desktop-large){
 			margin-left: 16px;
 			margin-right: 16px;
 		}
