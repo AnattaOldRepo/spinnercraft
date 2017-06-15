@@ -1202,7 +1202,7 @@ $(document).bind('click', function(e){
 });
 $(".js-searchBar").click(function(e){
    e.stopPropagation();
-}); 
+});
 
 $('.js-drawer-open-left').on('click' , function() {
   $('.js-drawer-left').addClass('is-NavOpen');
@@ -2780,6 +2780,7 @@ $(document).ready(function() {
                if (optionCurrentValue == optionValue) {
                  jQuery('.swatch input[type="radio"]').prop('checked', false);
                  jQuery(this).prop("checked", true)
+                 jQuery(this).closest('.swatch').find('.header span').text(optionValue);
                }
              });
            }

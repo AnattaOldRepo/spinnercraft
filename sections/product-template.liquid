@@ -5,7 +5,7 @@
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: '800x' }}">
 
   <div class="breadcrumb">
-    <a href="/">Home</a><span> > </span><a href="/collections">shop</a><span> > </span> {{product.title}}
+    <a href="/">Home</a><span> > </span><a href="/collections">Shop</a><span> > </span> {{product.title}}
   </div>
 
   {% comment %}
@@ -251,14 +251,6 @@
   {% include 'related-product' %}
 </div>
 
-{% if collection %}
-  <div class="text-center return-link-wrapper">
-    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
-      {% include 'icon-arrow-left' %}
-      {{ 'products.product.back_to_collection' | t: title: collection.title }}
-    </a>
-  </div>
-{% endif %}
 
 {% unless product.empty? %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
