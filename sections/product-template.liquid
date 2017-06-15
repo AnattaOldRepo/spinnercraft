@@ -4,6 +4,10 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: '800x' }}">
 
+  <div class="breadcrumb">
+    <a href="/">Home</a><span> > </span><a href="/collections">shop</a><span> > </span> {{product.title}}
+  </div>
+
   {% comment %}
     Get first variant, or deep linked one
   {% endcomment %}
@@ -11,7 +15,7 @@
   {%- assign product_thumb_size = '160x' -%}
   {%- assign product_image_zoom_size = '1024x1024' -%}
   {%- assign enable_zoom = section.settings.enable_zoom -%}
-  {% assign customtags = 'metal, plastic' | split: ',' %}
+  {% assign customtags = 'metal, plastic, accessories' | split: ',' %}
 
   {% case section.settings.image_size %}
     {% when 'small' %}
@@ -92,12 +96,12 @@
            {% endfor %}
         </p>
 
-        <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-
 
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
         {% endif %}
+
+        <p><a href="#shopify-product-reviews" class="js-reviews reviews-link"><span class="js-review-count"></span> Reviews</a></p>
 
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -139,13 +143,11 @@
 
           </p>
 
-
-
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="shapp_qb_prod product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
             <script data-app="esc-out-of-stock" type="text/json">{{ product.variants | json }}</script>
             {% unless product.options.size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %}
               {% for option in product.options_with_values %}
-                <div class="selector-wrapper js product-form__item">
+                <div class="selector-wrapper js product-form__itemfluid">
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                     {{ option.name }}
                   </label>
@@ -173,33 +175,42 @@
               {% endfor %}
             </select>
 
+            <div class="product-form__itemfluid">
+              {% if product.available and product.variants.size > 1 %}
+               {% include 'swatch' with 'Color' %}
+              {% endif %}
+            </div>
+
             <!--Spice Product Kits Child Product Lists Starts-->
             <div id="spicegems_metafields_data_div" data-default_variant="{{product.selected_or_first_available_variant.id}}" style="display:none;visibility:hidden;">
             {{ product.metafields['spice_product_kits'] | json }}
             </div>
             <!--Spice Product Kits Child Product Lists End-->
+
+            {% if section.settings.show_quantity_selector %}
+              <div class="product-form__item product-form__item--quantity">
+                <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+              </div>
+            {% endif %}
+
+            <div class="product-form__item product-form__item--submit">
+              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if product.options.size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} product-form__cart-submit--small{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+              </button>
+            </div>
+
           </form>
 
         </div>
 
-        {% if section.settings.show_quantity_selector %}
-          <div class="product-form__item product-form__item--quantity">
-            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-            <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
-          </div>
-        {% endif %}
 
-        <div class="product-form__item product-form__item--submit">
-          <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if product.options.size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %} product-form__cart-submit--small{% endif %}">
-            <span id="AddToCartText-{{ section.id }}">
-              {% unless current_variant.available %}
-                {{ 'products.product.sold_out' | t }}
-              {% else %}
-                {{ 'products.product.add_to_cart' | t }}
-              {% endunless %}
-            </span>
-          </button>
-        </div>
 
         {% unless qb_loaded == 'true' %}
 <div class='shappify-qty-msg' style='margin: 20px 10px 0px -9px !important'>{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
@@ -212,11 +223,14 @@
 
     {{ product.description }}
 
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
     <div class="product-single__image">
       <img src="{{ product.handle | append: '-banner' | append: '.jpg' | asset_url }}" alt="{{ product.title }}" />
     </div>
 
-    
+
+
   </div>
   {% if section.settings.show_share_buttons %}
     {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
@@ -354,3 +368,15 @@ if(this.text === "1+"){ $(".single-option-selector").hide();}
     {% endfor %}
 </script>
 {% endif %}
+
+<script>
+
+$('.js-review-count').html($('meta[itemprop="reviewCount"]').attr("content"));
+
+$('.js-reviews').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
+});
+</script>
