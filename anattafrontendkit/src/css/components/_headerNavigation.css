@@ -4,10 +4,12 @@
 		position:absolute;
 		left: 0;
 		top: 0;
-		width: 90%;
+		width: 88.8%;
 		background-color:$white;
 		z-index: 9;
 		padding-left:15px;
+		left:-88.8%;
+		transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
 	}
 
 	@media (--tablet-large){
@@ -21,15 +23,20 @@
 
 	&__close{
 		border-top:1px solid $border-color;
-		padding:20px 30px 20px 0;
+		padding:19px 27px 15px 0;
 	}
-
+	&__closeIcon{
+		cursor: pointer;
+	}
 	&__pages {
 
 	}
-
+	&__external{
+		padding-top:28px;
+		padding-bottom:31px;
+	}
 	&__externalItem {
-		padding:0 20px 20px 20px;
+		padding:0 20px 14px 20px;
 		
 	}
 	&__externalLink{
@@ -41,14 +48,21 @@
 			display: flex;
 		}
 	}
-	
+
+	&.is-NavOpen {
+		@media (--tablet-small-max ){
+			left:0%;
+		}
+	}
 }
 	.c-headerNav__item{
 
 		@media (--tablet-small-max){
-			padding:20px;
+			padding:17px 20px;
 			border-top:1px solid $border-color;
-		}
+			letter-spacing: 1px;
+    		word-spacing: -3px;		
+    	}
 
 		@media (--tablet-large){
 			height: 80px;
@@ -84,12 +98,13 @@
 
 		span{
 			color: $color-red;
-			font-size: 14px;
+			font-size: 13px;
 
 			@media (--tablet-large){
 				position: absolute;
 				left: 0;
 				right: 0;
+				bottom:14px;
 			}
 		}
 
@@ -100,13 +115,13 @@
 				&:after {
 
 					content: "";
-					background: url('../up-arrow-angle.svg') no-repeat center 7px;
+					background: url('../up-arrow-angle.svg') no-repeat 9px 9px;
 					size:32px;
-					background-size:50%;
+					background-size:43%;
 					position: absolute;
 					background-color:$color-white-smoke;
-					top: 18px;
-					right: 23px;
+					top: 12px;
+					right: 12px;
 					border-radius:100%;
 				}
 			}
@@ -132,20 +147,32 @@
 		}
 
 	.c-headerNav__border {
+		@media (--tablet-small-max){
+			border-bottom:1px solid $border-color;
+		}
 
 		&:before{
-			content: "";
-			width: 1px;
-			height: 30px;
-			position: absolute;
-			background-color: $color-light-grey;
-			left: -19px;
-			top: 50%;
-			margin-top: -15px;
+			@media (--tablet-large){
+				content: "";
+				width: 1px;
+				height: 30px;
+				position: absolute;
+				background-color: $color-light-grey;
+				left: 0;
+				top: 50%;
+				margin-top: -15px;
+			}
+
+			@media (--desktop-small){
+				left:-19px;
+			}
 		}
 	}
 
 .c-headerSubMenu {
+	display: none;
+	padding-top: 20px;
+    padding-bottom: 9px;
 
 	@media (--tablet-large){
 		width: 188px;
@@ -155,8 +182,6 @@
 		top: 72px;
 		z-index: 1;
 		padding: 1.125rem;
-		display: none;
-
 	}
 }
 	.c-headerSubMenu__item{

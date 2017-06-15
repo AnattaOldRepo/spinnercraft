@@ -6,9 +6,11 @@
 	.c-helloBar__title {
 		text-align: center;
 		width: 100%;
+		font-size: 11px;
 		@media(--tablet-large){
 			text-align:left;
 			width:auto;
+			font-size:14px;
 		}
 	}
 

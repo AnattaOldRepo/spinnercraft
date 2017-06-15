@@ -1190,7 +1190,7 @@ theme.Search = (function() {
 })();
 
 /* New Seacrh bar */
-$('.js-Search').on("click", function(){
+$('.js-Search').on("mouseenter mouseleave", function(){
     $(this).addClass('is-SearchOpen')
     $('.js-searchBar').addClass('is-hovered');
 });
@@ -1203,6 +1203,20 @@ $(document).bind('click', function(e){
 $(".js-searchBar").click(function(e){
    e.stopPropagation();
 }); 
+
+$('.js-drawer-open-left').on('click' , function() {
+  $('.js-drawer-left').addClass('is-NavOpen');
+})
+$('.js-drawer-close-left').on('click' , function() {
+  $('.js-drawer-left').removeClass('is-NavOpen');
+})
+
+$('.js-mSubNavOpen').on('click', function (e) {
+  if (window.innerWidth < 1023 ) {
+    e.preventDefault();
+    $(this).toggleClass('is-open').children().next().slideToggle();
+  }
+});
 
 (function() {
   var selectors = {

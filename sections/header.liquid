@@ -21,20 +21,18 @@
         {% endfor %}
       </ul>
       {% if section.settings.message %}
-          {% if section.settings.message %}
             {% if section.settings.message_link != blank %}
               <a href="{{ section.settings.message_link }}" class="notification-bar__message">
                 {{ section.settings.message_text | escape }}
               </a>
             {% else %}
-              <p class="c-helloBar__title u-cream u-font_14 ">{{ section.settings.message_text | escape }}</p>
+              <p class="c-helloBar__title u-cream">{{ section.settings.message_text | escape }}</p>
             {% endif %}
-          {% endif %}
         {% endif %}
     </div>
   </div>
   
-  <div class="c-header u-rel">
+  <header class="c-header u-rel">
     <div class="o-grid u-flexCenter u-heightfull">
         <div class="c-header__left u-flexGrow_1 ">
             <div class="c-logo u-flexCenterTab">
@@ -47,20 +45,22 @@
             </div>
         </div>
         <div class="c-header__center u-flexGrow_1">
-          <div class="c-hamMenu u-rel u-hideDesktop">
-            <span class="c-hamMenu__tile"></span>
+          <div class="c-hamMenu u-hideDesktop js-drawer-open-left">
+            <span class="c-hamMenu__tile u-rel"></span>
           </div>
-          <div class="c-headerNav">
+          <div class="c-headerNav js-drawer-left">
             <div class="c-headerNav__close u-textRight u-hideDesktop">
+              <span class="c-headerNav__closeIcon js-drawer-close-left">
                 {% include 'icon-new-close' %}
+              </span>
             </div>
             <ul class="c-headerNav__list">
               {% for link in linklists.new-main-menu.links %}
               {% assign child_list_handle = link.title | handle %}
               {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-              <li class="c-headerNav__item has-dropdown u-bold u-rel">
+              <li class="c-headerNav__item has-dropdown js-mSubNavOpen u-bold u-rel">
                 <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
-                <ul class="c-headerSubMenu u-textLeft">
+                <ul class="c-headerSubMenu u-textLeft js-mSubNav">
                   {% for child_link in linklists[child_list_handle].links %}
                   <li class="c-headerSubMenu__item u-regular">
                     <a class="u-black" href="{{ child_link.url }}">{{ child_link.title }}</a>
@@ -105,27 +105,24 @@
           </div>
         </div>
         <div class="c-header__right u-flex u-flexGrow_1 u-textCenter">
-            <div class="c-header__search u-flexGrow_1 u-pt_10 js-Search u-rel">
-              <span class="c-header__search--icon">
-                {% include 'icon-search' %}
-              </span>
-                <div class="c-search js-searchBar">
-                  <form class="" action="/search" method="get" role="search">
-                    <button class="" type="submit">
+            <div class="c-header__search u-flexGrow_1 js-Search u-rel">
+        
+                  <form class="c-header__search" action="/search" method="get" role="search">
+                    <button class="c-header__searchBtn" type="submit">
                       {% include 'icon-search' %}
                     </button>
-                    <input class="" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+                    <input class="js-searchBar c-search" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
                   </form>
-                </div>
+            
             </div>
-            <div class="c-header__user u-flexGrow_1 u-pt_10">
+            <div class="c-header__user u-flexGrow_1">
               {% if shop.customer_accounts_enabled %}
                 {% if customer %}
                   <a href="/account">
                     {{ 'layout.customer.account' | t }}
                   </a>
                 {% else %}
-                  <a href="/account/login" class="site-header__account">
+                  <a href="/account/login" class="">
                     {% include 'icon-new-user' %}
                   </a>
                 {% endif %}
@@ -143,174 +140,6 @@
             </div>
         </div>
       </div>
-  </div>
-  <nav class="mobile-nav-wrapper medium-up--hide" role="navigation" style="display: none;">
-    <ul id="MobileNav" class="mobile-nav">
-      {% for link in linklists[section.settings.main_linklist].links %}
-        {%- assign child_list_handle = link.title | handleize -%}
-
-        <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
-          {% if linklists[child_list_handle].links != blank %}
-            <button type="button" class="btn--link js-toggle-submenu mobile-nav__link" data-target="{{ child_list_handle }}" data-level="1">
-              {{ link.title }}
-              <div class="mobile-nav__icon">
-                {% include 'icon-chevron-right' %}
-              </div>
-            </button>
-            <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
-              <li class="mobile-nav__item border-bottom">
-                <div class="mobile-nav__table">
-                  <div class="mobile-nav__table-cell mobile-nav__return">
-                    <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button">
-                      {% include 'icon-chevron-left' %}
-                      <span class="icon__fallback-text">{{ 'layout.navigation.collapse' | t }}</span>
-                    </button>
-                  </div>
-                  <a href="{{ link.url }}" class="mobile-nav__sublist-link mobile-nav__sublist-header">
-                    {{ link.title }}
-                  </a>
-                </div>
-              </li>
-
-              {% for childlink in linklists[child_list_handle].links %}
-                <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
-                  <a href="{{ childlink.url }}" class="mobile-nav__sublist-link">
-                    {{ childlink.title | escape }}
-                  </a>
-                </li>
-              {% endfor %}
-
-            </ul>
-          {% else %}
-            <a href="{{ link.url }}" class="mobile-nav__link">
-              {{ link.title }}
-            </a>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
-
-    <div class="site-header__row" style="display: none;">
-      <div class="grid grid--no-gutters grid--table">
-        <div class="grid__item small-up--one-third">
-          {% unless linklists[section.settings.main_linklist] == blank %}
-            <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
-              {% include 'icon-hamburger' %}
-              {% include 'icon-close' %}
-            </button>
-          {% endunless %}
-          {% if section.settings.message %}
-            <div class="notification-bar">
-              {% if section.settings.message %}
-                {% if section.settings.message_link != blank %}
-                  <a href="{{ section.settings.message_link }}" class="notification-bar__message">
-                    {{ section.settings.message_text | escape }}
-                  </a>
-                {% else %}
-                  <span class="notification-bar__message">{{ section.settings.message_text | escape }}</span>
-                {% endif %}
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-
-        <div class="grid__item small-up--one-third grid__item--logo text-center">
-          <div>
-            {% comment %}
-              Use the uploaded logo from theme settings if enabled.
-              Site name gets precedence with H1 tag on homepage, div on other pages.
-            {% endcomment %}
-            {% if template == 'index' %}
-              <h1 class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-              {% if section.settings.logo %}
-                <a href="/" itemprop="url" class="site-header__logo-image">
-                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-                  <img src="{{ section.settings.logo | img_url: image_size }}"
-                       srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                       alt="{{ section.settings.logo.alt | default: shop.name }}"
-                       itemprop="logo">
-                </a>
-              {% else %}
-                <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
-              {% endif %}
-            {% if template == 'index' %}
-              </h1>
-            {% else %}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="grid__item small-up--one-third text-right">
-          <button type="button" class="btn--link site-header__search-toggle js-drawer-open-top">
-            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-          </button>
-
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="/account" class="site-header__account">
-                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-              </a>
-            {% else %}
-              <a href="/account/login" class="site-header__account">
-                <span class="icon__fallback-text">Login</span>
-              </a>
-            {% endif %}
-          {% endif %}
-
-          <a class="site-header__cart js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-            {% include 'icon-cart' %}
-            <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
-            {% if cart.item_count > 0 %}
-              <div class="site-header__cart-count">
-                <span id="CartCount">{{ cart.item_count }}</span>
-              </div>
-            {% endif %}
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-header__row site-header__row--nobg site-header__row--largeVisible" style="display: none;">
-      <div class="grid grid--no-gutters grid--table">
-        {% if section.settings.align_logo == 'center' %}
-          <div class="grid__item small--hide medium-up--one-quarter">
-            <div class="site-header__search">
-              {% include 'search-form' %}
-            </div>
-          </div>
-        {% endif %}
-
-        {% if section.settings.align_logo == 'left' %}
-          <nav class="grid__item small--hide" id="AccessibleNav" role="navigation">
-            {% include 'site-nav' %}
-          </nav>
-        {% endif %}
-      </div>
-    </div>
-
-    <div class="site-header__row site-header__row--nobg site-header__row--smallVisible" style="display: none;">
-      {% if section.settings.message %}
-        <div class="notification-bar notification-bar--smallVisible text-site-header__cart-count text-center">
-          {% if section.settings.message %}
-            {% if section.settings.message_link != blank %}
-              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
-                {{ section.settings.message_text | escape }}
-              </a>
-            {% else %}
-              <span class="notification-bar__message">{{ section.settings.message_text | escape }}</span>
-            {% endif %}
-          {% endif %}
-        </div>
-      {% endif %}
-    </div>
-
   </header>
 
   {% if section.settings.align_logo == 'center' %}
