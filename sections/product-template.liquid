@@ -175,11 +175,22 @@
               {% endfor %}
             </select>
 
+            {% for variant in product.variants %}
+              {% unless variant.title contains 'Default Title' %}
+                {% assign is_title = true %}
+              {% endunless %}
+            {% endfor %}
+
             <div class="product-form__itemfluid">
-              {% if product.available and product.variants.size > 1 %}
-               {% include 'swatch' with 'Color' %}
+              {% if is_title %}
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %}
               {% endif %}
             </div>
+
+
+            <script> console.log( {{ product | json }}) </script>
 
             <!--Spice Product Kits Child Product Lists Starts-->
             <div id="spicegems_metafields_data_div" data-default_variant="{{product.selected_or_first_available_variant.id}}" style="display:none;visibility:hidden;">
@@ -226,7 +237,7 @@
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
 
     <div class="product-single__image">
-      <img src="{{ product.handle | append: '-banner' | append: '.jpg' | asset_url }}" alt="{{ product.title }}" />
+      <img src="{{ product.handle | append: '-banner' | append: '.jpg' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
     </div>
 
 
@@ -370,11 +381,23 @@ if(this.text === "1+"){ $(".single-option-selector").hide();}
 {% endif %}
 
 <script>
-
-$('.js-review-count').html($('meta[itemprop="reviewCount"]').attr("content"));
-
-$('.js-reviews').click(function(){
-    $('html, body').animate({
+jQuery( document ).ready(function() {
+  jQuery('.swatch input[type="radio"]:checked').each(function(key, ele){
+    var optionValue = $(ele).val();
+    jQuery(this).closest('.swatch').find('.header span').text(optionValue);
+  });
+});
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
+    jQuery(this).closest('.swatch').find('.header span').text(optionValue);
+  });
+});
+jQuery('.js-review-count').html($('meta[itemprop="reviewCount"]').attr("content"));
+jQuery('.js-reviews').click(function(){
+    jQuery('html, body').animate({
         scrollTop: $( $(this).attr('href') ).offset().top
     }, 500);
     return false;

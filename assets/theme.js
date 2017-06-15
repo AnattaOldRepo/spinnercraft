@@ -2746,6 +2746,13 @@ $(document).ready(function() {
            optionValue = variantImages[strNewImage]['option-'+i];
            if (optionValue !== null && $('.single-option-selector:eq('+i+') option').filter(function() { return $(this).text() === optionValue }).length) {
              $('.single-option-selector:eq('+i+')').val(optionValue).trigger('change');
+             jQuery('.swatch input[type="radio"]').each(function(key, ele){
+               var optionCurrentValue = $(ele).val();
+               if (optionCurrentValue == optionValue) {
+                 jQuery('.swatch input[type="radio"]').prop('checked', false);
+                 jQuery(this).prop("checked", true)
+               }
+             });
            }
         });
       }

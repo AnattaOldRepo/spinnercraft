@@ -281,20 +281,5 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 <!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END --><script src="//www.codeblackbelt.com/js/modules/shipping-rates-calculator-plus/main.min.js?shop=spinnercraft.myshopify.com"></script>
 <script src="//www.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=spinnercraft.myshopify.com"></script>
 
-<script>
-jQuery(function() {
-  jQuery('.swatch :radio').change(function() {
-    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-    var optionValue = jQuery(this).val();
-    jQuery(this)
-      .closest('form')
-      .find('.single-option-selector')
-      .eq(optionIndex)
-      .val(optionValue)
-      .trigger('change');
-  });
-});
-</script>
-
 </body>
 </html>
