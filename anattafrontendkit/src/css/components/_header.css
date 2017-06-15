@@ -4,6 +4,13 @@
 	@media (--tablet-large){
 		height: 80px;
 	}
+
+	a {
+		opacity: 1;
+		&:hover{
+			opacity: 1;
+		}
+	}
 }
 	.c-logo {
 		text-align: center;
@@ -81,7 +88,7 @@
 				float: left;
 				width: 21px;
 				@media (--tablet-large){
-					margin:4px 0 0 9px;
+					margin:2px 0 0 9px;
 					width:30px;
 				}
 			}
@@ -90,7 +97,7 @@
 		.c-header__cart__count {
 			padding: 0 0 0 4px;
 			@media (--tablet-large){
-				padding: 4px 0 0 10px;
+				padding: 0 0 0 10px;
 				font-size:18px;
 			}
 		}

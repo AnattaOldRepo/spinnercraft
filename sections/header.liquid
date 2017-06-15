@@ -11,7 +11,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
   
-  <div class="c-helloBar">
+  <div class="c-helloBar u-fontAzo">
     <div class="o-wrapper u-flex u-heightfull u-flexCenter">
       <ul class="c-helloBarNav u-flexGrow_1 u-hideMobile">
         {% for link in linklists.top-bar-menu.links %}
@@ -22,7 +22,7 @@
       </ul>
       {% if section.settings.message %}
             {% if section.settings.message_link != blank %}
-              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+              <a class="c-helloBar__title u-cream" href="{{ section.settings.message_link }}" class="notification-bar__message">
                 {{ section.settings.message_text | escape }}
               </a>
             {% else %}
@@ -32,7 +32,7 @@
     </div>
   </div>
   
-  <header class="c-header u-rel">
+  <header class="c-header u-rel u-fontAzo">
     <div class="o-grid u-flexCenter u-heightfull">
         <div class="c-header__left u-flexGrow_1 ">
             <div class="c-logo u-flexCenterTab">

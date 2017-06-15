@@ -2,6 +2,13 @@
 	width: 100%;
 	background-color: $color-brand-black;
 	height: 34px;
+
+	a {
+		opacity: 1;
+		&:hover{
+			opacity: 1;
+		}
+	}
 }
 	.c-helloBar__title {
 		text-align: center;
@@ -10,17 +17,21 @@
 		@media(--tablet-large){
 			text-align:left;
 			width:auto;
-			font-size:14px;
+			font-size:12px;
+		}
+
+		&:hover {
+			color: $color-cream;
 		}
 	}
 
 
 
 .c-helloBarNav{
-
+	margin-top: -5px;
 }
 	.c-helloBarNav__item{
-		margin-right: 15px;
+		margin-right: 10px;
 	}
 
 	.c-helloBarNav__link {
