@@ -21,8 +21,3 @@
 
 /* --- Trumps ----------- */
 @import "trumps/index";
-
-
-body{
- background: red;
-}

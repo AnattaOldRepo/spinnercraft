@@ -1,12 +1,18 @@
 /* Default anchor */
 
 a{
+	/*
     color: $color-link-base;
+    */
     text-decoration: none;
 
     &:--enter{
+    	/*
         color: $color-link-base;
+        */
         outline: none;
+        opacity: 1;
+        color: inherit;
     }
 }
 

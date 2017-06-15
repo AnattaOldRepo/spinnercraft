@@ -1,0 +1,28 @@
+.c-helloBar {
+	width: 100%;
+	background-color: $color-brand-black;
+	height: 34px;
+}
+	.c-helloBar__title {
+		text-align: center;
+		width: 100%;
+		font-size: 11px;
+		@media(--tablet-large){
+			text-align:left;
+			width:auto;
+			font-size:14px;
+		}
+	}
+
+
+
+.c-helloBarNav{
+
+}
+	.c-helloBarNav__item{
+		margin-right: 15px;
+	}
+
+	.c-helloBarNav__link {
+		letter-spacing: 0.8px;
+	}

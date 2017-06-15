@@ -1,13 +1,13 @@
 /* utility of text alignment */
 
-.u-alignLeft {
+.u-textLeft {
     text-align: left;
 }
 
-.u-alignCenter {
+.u-textCenter {
     text-align: center;
 }
 
-.u-alignRight {
+.u-textRight {
     text-align: right;
 }
