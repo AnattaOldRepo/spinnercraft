@@ -875,6 +875,7 @@ p {
         border-radius: 25px;
         max-width: 80px;
         padding: 6px 0;
+        cursor: pointer;
     }
 }
 @media (min-width: 1024px) {
