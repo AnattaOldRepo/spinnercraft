@@ -1,0 +1,21 @@
+/* utility to make content hide */
+
+.u-hide {
+    display: none;
+}
+
+.u-hideDesktop{
+    display: block;
+
+    @media (--tablet){
+        display: none
+    }
+}
+
+.u-hideMobile{
+    display: none;
+
+    @media (--tablet){
+        display: block;
+    }
+}

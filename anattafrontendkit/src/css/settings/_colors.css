@@ -1,0 +1,25 @@
+/* Global theme colors */
+
+/* Base colors */
+
+$black:             #000;
+$white:             #fff;
+
+/* Theme colors */
+$color-maroon: 		#ff485b;
+$color-sky:			#4dc1df;
+$color-yellow:		#ffd900;
+$color-purple:		#4e008b;
+$color-mustard:		#ffa300;
+$color-darkgrey:	#1e242b;
+
+
+/* Hr */
+$hr-border-color:  $black; 
+
+/* backgrounds */
+$background-body:  $white;
+
+/* Text colors */
+$color-text-base:  $black;
+$color-link-base:  $black;

@@ -1,0 +1,21 @@
+/* Global breakpoints */
+
+@custom-media --mobile (min-width: 640px);
+
+@custom-media --mobile-max (max-width: 767px);
+
+@custom-media --tablet (min-width: 768px);
+
+@custom-media --tablet-small-max (max-width: 1023px);
+
+@custom-media --tablet-large (min-width: 1024px); /* Tablet landscape */
+
+@custom-media --tablet-large-max (min-width: 1169px); /* Tablet landscape */
+
+@custom-media --desktop-small (min-width: 1170px); /* Desktop small */
+
+@custom-media --desktop-small-max (max-width: 1439px);
+
+@custom-media --desktop-large (min-width: 1440px); /* Desktop */
+
+@custom-media --desktop-larger (min-width: 100em); /* Desktop large */
