@@ -856,7 +856,7 @@ p {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        padding-top: 13px;
+        padding-top: 11px;
     }
 }
 .c-header__cart {

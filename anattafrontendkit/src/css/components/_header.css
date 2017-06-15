@@ -69,7 +69,7 @@
 			display: none;
 			@media (--tablet-large){
 				display:flex;
-				padding-top:13px;
+				padding-top:11px;
 			}
 		}
 		.c-header__cart {
