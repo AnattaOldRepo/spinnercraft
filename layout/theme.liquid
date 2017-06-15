@@ -32,8 +32,8 @@
 
   {% include 'social-meta-tags' %}
 
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'app.css' | asset_url | stylesheet_tag }}
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
 
@@ -153,7 +153,7 @@ window.supported_currencies = "{{ settings.supported_currencies }}";
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  <div class="full-page u-fullWidth">
+  <div class="full-page">
 
     <div id="SearchDrawer" class="search-bar drawer drawer--top">
       <div class="search-bar__table">
