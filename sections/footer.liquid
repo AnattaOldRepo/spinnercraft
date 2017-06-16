@@ -14,7 +14,7 @@
 %}
   {%- assign social_icons = true -%}
 {% endif %}
-<footer class="c-footer" role="contentinfo">
+<footer class="c-footer u-fontPrimary u-noOpacity" role="contentinfo">
     <div class="c-footerWidth u-center">
       <div class="c-footer__left">
         <div class="c-footerNav">
@@ -143,16 +143,16 @@
         {% endif %}
 
         </div>
-        <div class="c-footer__copyright u-clearFix">
+        <div class="c-footer__own u-clearFix">
         {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
-          <div class="c-footer__copyrightLeft u-floatLeft">
+          <div class="c-footer__ownName u-floatLeft">
             <p class="">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</p>
           </div>
         {% endif %}
 
-        <div class="c-footer__copyrightRight u-floatRight">
-          <a href="/pages/privacy">Privacy</a>
-          <a href="/pages/terms">Terms</a>
+        <div class="c-footer__ownTerms u-floatRight">
+          <a class="c-footer__ownTermsLink" href="/pages/privacy">Privacy</a>
+          <a class="c-footer__ownTermsLink" href="/pages/terms">Terms</a>
         </div>
       </div>
     </div>
