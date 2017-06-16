@@ -50,7 +50,7 @@
             {% form 'customer' %}
               {{ form.errors | default_errors }}
               {% if form.posted_successfully? %}
-                <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
               {% else %}
                 <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
                 <div class="c-footerInput u-flex">

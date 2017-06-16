@@ -1262,6 +1262,7 @@ p {
     padding: 20px 0;
     font-size: 12px;
     color: #e3e3e3;
+    clear: both;
 }
 .c-footer__ownTermsLink {
     margin: 0 5px;

@@ -61,6 +61,7 @@
 		padding: 20px 0;
 		font-size: 12px;
 		color: $color-light-grey;
+		clear: both;
 	}
 
 		.c-footer__ownTermsLink{
