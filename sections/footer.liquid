@@ -15,8 +15,9 @@
   {%- assign social_icons = true -%}
 {% endif %}
 <footer class="c-footer u-fontPrimary u-noOpacity" role="contentinfo">
-    <div class="c-footerWidth u-center">
-      <div class="c-footer__left">
+    <div class="c-footerBg">
+      <div class="o-grid c-footerWidth">
+        <div class="c-footer__left o-grid__7-12">
         <div class="c-footerNav">
             <ul class="c-footerNav__block">
               <li class="c-footerNav__head"><a class="c-footerNav__headLink u-bold" href="/collections">SHOP</a></li>
@@ -44,7 +45,7 @@
             </ul>
         </div>
         </div>
-        <div class="c-footer__right">
+        <div class="c-footer__right o-grid__5-12">
         {% if section.settings.footer_newsletter_enable %}
           <div class="c-footerLetter">
             {% form 'customer' %}
@@ -141,9 +142,9 @@
             </ul>
           </div>
         {% endif %}
-
-        </div>
-        <div class="c-footer__own u-clearFix">
+      </div>
+    </div>
+        <div class="o-wrapper c-footer__own u-clearFix">
         {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
           <div class="c-footer__ownName u-floatLeft">
             <p class="">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</p>

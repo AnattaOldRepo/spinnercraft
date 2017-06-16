@@ -644,7 +644,7 @@ p {
     margin-right: 0;
     margin-left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .o-grid__5-12 {
         flex: 0 0 auto;
         width: calc(99.9% * 5/12 - (15px - 15px * 5/12));
@@ -708,7 +708,7 @@ p {
     margin-right: 0;
     margin-left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .o-grid__7-12 {
         flex: 0 0 auto;
         width: calc(99.9% * 7/12 - (15px - 15px * 7/12));
@@ -1197,17 +1197,13 @@ p {
 }
 .c-footer__left {
     text-align: center;
-    overflow: hidden;
 }
 @media (min-width: 1024px) {
     .c-footer__left {
-        width: 60%;
-        float: left;
         text-align: left;
     }
 }
 .c-footer__right {
-    overflow: hidden;
     text-align: center;
 }
 @media (min-width: 768px) {
@@ -1221,7 +1217,6 @@ p {
 }
 @media (min-width: 1024px) {
     .c-footer__right {
-        width: 40%;
         padding: 0;
     }
 }
@@ -1239,6 +1234,7 @@ p {
 .c-footerLetter__label {
     text-transform: uppercase;
     font-size: 14px;
+    margin-bottom: 14px;
 }
 .c-footerSocial {
     padding-top: 30px;
@@ -1263,7 +1259,8 @@ p {
 .c-footer__own {
     border-top: 1px solid #bbbbbb;
     margin-top: 24px;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 12px;
     color: #e3e3e3;
     clear: both;
@@ -1276,17 +1273,20 @@ p {
         margin: 0 20px;
     }
 }
-.c-footerWidth {
-    max-width: 1024px;
-    padding-top: 22px;
-    padding-left: 30px;
-    padding-right: 30px;
+.c-footerBg {
     background: url('footer-bg.png') no-repeat top right;
+}
+@media (max-width: 767px) {
+    .c-footerBg {
+        background-size: 38%;
+    }
+}
+.c-footerWidth {
+    padding-top: 22px;
+    border-top: 1px solid #bbbbbb;
 }
 @media (min-width: 768px) {
     .c-footerWidth {
-        padding-left: 70px;
-        padding-right: 70px;
         padding-top: 45px;
     }
 }
@@ -1313,7 +1313,7 @@ p {
     padding-bottom: 7px;
 }
 .c-footerInput {
-    max-width: 355px;
+    max-width: 430px;
 }
 @media (max-width: 767px) {
     .c-footerInput {
@@ -1336,6 +1336,11 @@ p {
 @media (min-width: 768px) {
     .c-footerInput__item {
         width: 231px;
+    }
+}
+@media (min-width: 1024px) {
+    .c-footerInput__item {
+        width: auto;
     }
 }
 .c-footerInput__btn {

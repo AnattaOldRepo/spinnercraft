@@ -3,15 +3,11 @@
 }
 	.c-footer__left{
 		text-align: center;
-		overflow: hidden;
 		@media (--tablet-large){
-			width: 60%;
-			float: left;
 			text-align:left;
 		}
 	}
 	.c-footer__right{
-		overflow: hidden;
 		text-align:center;
 		@media (--tablet){
 			padding:25px 60px;
@@ -20,7 +16,6 @@
 		}
 
 		@media (--tablet-large){
-			width: 40%;
 			padding: 0;
 		}
 	}
@@ -37,6 +32,7 @@
 		.c-footerLetter__label{
 			text-transform: uppercase;
 			font-size: 14px;
+			margin-bottom: 14px;
 		}
 
 
@@ -62,7 +58,8 @@
 	.c-footer__own {
 		border-top: 1px solid $border-color;
 		margin-top: 24px;
-		padding: 20px 0;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		font-size: 12px;
 		color: $color-light-grey;
 		clear: both;
@@ -75,16 +72,17 @@
 			}
 		}
 
-	.c-footerWidth{
-		max-width: 1024px;
-		padding-top: 22px;
-		padding-left: 30px;
-		padding-right: 30px;
+	.c-footerBg{
 		background: url('../footer-bg.png') no-repeat top right;
-
+		@media (--mobile-max){
+			background-size: 38%;
+		}
+	}
+	
+	.c-footerWidth{
+		padding-top: 22px;
+		border-top: 1px solid $border-color;
 		@media (--tablet){
-			padding-left: 70px;
-			padding-right: 70px;
 			padding-top: 45px;
 		}
 	}
@@ -115,7 +113,7 @@
 
 
 .c-footerInput {
-	max-width: 355px;
+	max-width: 430px;
 	@media (--mobile-max){
 		@util center-block;
 		max-width: 280px;
@@ -131,6 +129,10 @@
 
 		@media (--tablet){
 			width:231px;
+		}
+
+		@media (--tablet-large){
+			width:auto;
 		}
 	}
 

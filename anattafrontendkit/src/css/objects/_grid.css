@@ -41,7 +41,7 @@
     .o-grid__5-12{
         lost-column: 12/12;
 
-        @media (--tablet){
+        @media (--tablet-large){
             lost-column: 5/12;
         }
     }
@@ -57,7 +57,7 @@
     .o-grid__7-12{
         lost-column: 12/12;
 
-        @media (--tablet){
+        @media (--tablet-large){
             lost-column: 7/12;
         }
     } 
