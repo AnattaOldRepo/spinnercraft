@@ -52,7 +52,7 @@
               {% if form.posted_successfully? %}
                 <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
               {% else %}
-                <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+                <label for="Email" class="c-footerLetter__label u-bold">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
                 <div class="c-footerInput u-flex">
                   <input type="hidden" name="contact[tags]" value="newsletter">
                   <input type="email"

@@ -1236,6 +1236,10 @@ p {
         float: none;
     }
 }
+.c-footerLetter__label {
+    text-transform: uppercase;
+    font-size: 14px;
+}
 .c-footerSocial {
     padding-top: 30px;
     float: none;
