@@ -11,134 +11,146 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
 
-  <div class="c-helloBar u-fontAzo">
-    <div class="o-wrapper u-flex u-heightfull u-flexCenter">
-      <ul class="c-helloBarNav u-flexGrow_1 u-hideMobile">
-        {% for link in linklists.top-bar-menu.links %}
-          <li class="c-helloBarNav__item u-cream u-font_14 u-inline">
-            <a class="c-helloBarNav__link u-cream" href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-      {% if section.settings.message %}
-            {% if section.settings.message_link != blank %}
-              <a class="c-helloBar__title u-cream" href="{{ section.settings.message_link }}" class="notification-bar__message">
-                {{ section.settings.message_text | escape }}
-              </a>
-            {% else %}
-              <p class="c-helloBar__title u-cream">{{ section.settings.message_text | escape }}</p>
-            {% endif %}
-        {% endif %}
-    </div>
-  </div>
+<header class="c-header">
+    <div class="c-headerBar u-clearFix">
+        <div class="o-wrapper">
 
-  <header class="c-header u-rel u-fontAzo">
-    <div class="o-grid u-flexCenter u-heightfull">
-        <div class="c-header__left u-flexGrow_1 ">
-            <div class="c-logo u-flexCenterTab">
-              <a class="u-hideDesktop" href="/">
-                {% include 'icon-new-logo-mobile' %}
-              </a>
-              <a class="u-hideMobile" href="/">
-                {% include 'icon-new-logo' %}
-              </a>
-            </div>
-        </div>
-        <div class="c-header__center u-flexGrow_1">
-          <div class="c-hamMenu u-hideDesktop js-drawer-open-left">
-            <span class="c-hamMenu__tile u-rel"></span>
-          </div>
-          <div class="c-headerNav js-drawer-left">
-            <div class="c-headerNav__close u-textRight u-hideDesktop">
-              <span class="c-headerNav__closeIcon js-drawer-close-left">
-                {% include 'icon-new-close' %}
-              </span>
-            </div>
-            <ul class="c-headerNav__list">
-              {% for link in linklists.new-main-menu.links %}
-              {% assign child_list_handle = link.title | handle %}
-              {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-              <li class="c-headerNav__item has-dropdown  u-bold u-rel">
-                <a class="c-headerNav__link js-mSubNavOpen u-block" href="{{ link.url }}">{{ link.title }}</a>
-                <ul class="c-headerSubMenu u-textLeft js-mSubNav">
-                  {% for child_link in linklists[child_list_handle].links %}
-                  <li class="c-headerSubMenu__item u-regular">
-                    <a class="u-black" href="{{ child_link.url }}">{{ child_link.title }}</a>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </li>
-              {% else %}
-              <li {% if link.title == "All Spinners" %}
-                class="c-headerNav__border c-headerNav__item u-bold u-rel"
-                {% endif %}
-                class="c-headerNav__item u-bold u-rel">
-                <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-            <div class="c-headerNav__external u-hideDesktop">
-              <ul>
-                <li class="c-headerNav__externalItem">
-                    {% if shop.customer_accounts_enabled %}
-                      {% if customer %}
-                        <a class="c-headerNav__externalLink" href="/account">
-                          {{ 'layout.customer.account' | t }}
-                        </a>
-                      {% else %}
-                        <a class="c-headerNav__externalLink" href="/account/login">
-                          Login
-                        </a>
-                      {% endif %}
-                    {% endif %}
-                </li>
+            <ul class="c-topNav u-hideMobile u-floatLeft">
                 {% for link in linklists.top-bar-menu.links %}
-                  <li class="c-headerNav__externalItem">
-                    <a class="c-headerNav__externalLink" href="{{ link.url }}">{{ link.title }}</a>
-                  </li>
+                <li class="c-topNav__item">
+                    <a class="c-topNav__link" href="{{ link.url }}">{{ link.title }}</a>
+                </li>
                 {% endfor %}
+            </ul>
 
-              </ul>
+            {% if section.settings.message %}
+                {% if section.settings.message_link != blank %}
+                    <a class="c-headerBar__message" href="{{ section.settings.message_link }}" class="notification-bar__message">
+                    {{ section.settings.message_text | escape }}
+                    </a>
+                {% else %}
+                <p class="c-headerBar__message u-floatRight">{{ section.settings.message_text | escape }}</p>
+                {% endif %}
+            {% endif %}
 
-            </div>
-          </div>
         </div>
-        <div class="c-header__right u-flex u-flexGrow_1 u-textCenter">
-            <div class="c-header__search u-flexGrow_1 js-Search u-rel">
+    </div>
 
-                  <form class="c-header__search" action="/search" method="get" role="search">
-                    <button class="c-header__searchBtn" type="submit">
-                      {% include 'icon-search' %}
+    <div class="c-headerMain">
+    <div class="o-wrapper u-flex u-flexCenter u-heightfull">
+        
+        <div class="c-headerMain__left u-flexGrow_1 ">
+            <div class="c-logo u-flexCenterTab">
+                <a class="u-hideDesktop" href="/">
+                    {% include 'icon-new-logo-mobile' %}
+                </a>
+                <a class="u-hideMobile" href="/">
+                    {% include 'icon-new-logo' %}
+                </a>
+            </div>
+        </div>
+
+        <div class="c-headerMain__center u-flexGrow_1">
+            
+            <div class="c-hamMenu u-hideDesktop js-drawer-open-left">
+                <span class="c-hamMenu__tile u-rel"></span>
+            </div>
+            
+            <div class="c-headerNav js-drawer-left">
+                
+                <div class="c-headerNav__close u-textRight u-hideDesktop">
+                    <span class="c-headerNav__closeIcon js-drawer-close-left">
+                        {% include 'icon-new-close' %}
+                    </span>
+                </div>
+
+                <ul class="c-headerNav__list">
+                    {% for link in linklists.new-main-menu.links %}
+                    {% assign child_list_handle = link.title | handle %}
+                    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                    <li class="c-headerNav__item has-dropdown  u-bold u-rel">
+                        <a class="c-headerNav__link js-mSubNavOpen u-block" href="{{ link.url }}">{{ link.title }}</a>
+                        
+                        <ul class="c-headerSubMenu u-textLeft js-mSubNav">
+                        {% for child_link in linklists[child_list_handle].links %}
+                            <li class="c-headerSubMenu__item u-regular">
+                                <a class="u-black" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li {% if link.title == "All Spinners" %}
+                        class="c-headerNav__border c-headerNav__item u-bold u-rel"
+                        {% endif %}
+                        class="c-headerNav__item u-bold u-rel">
+                        <a class="c-headerNav__link" href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+                
+                <div class="c-headerNav__external u-hideDesktop">
+                    <ul>
+                        <li class="c-headerNav__externalItem">
+                            {% if shop.customer_accounts_enabled %}
+                            {% if customer %}
+                            <a class="c-headerNav__externalLink" href="/account">
+                                {{ 'layout.customer.account' | t }}
+                            </a>
+                            {% else %}
+                            <a class="c-headerNav__externalLink" href="/account/login">
+                                Login
+                            </a>
+                            {% endif %}
+                            {% endif %}
+                        </li>
+                    {% for link in linklists.top-bar-menu.links %}
+                        <li class="c-headerNav__externalItem">
+                            <a class="c-headerNav__externalLink" href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-headerMain__right u-flex u-flexGrow_1 u-textCenter">
+
+            <div class="c-headerMain__search u-flexGrow_1 js-Search u-rel">
+                <form class="c-headerMain__search" action="/search" method="get" role="search">
+                    <button class="c-headerMain__searchBtn" type="submit">
+                        {% include 'icon-search' %}
                     </button>
                     <input class="js-searchBar c-search" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
-                  </form>
+                </form>
+            </div>
 
-            </div>
-            <div class="c-header__user u-flexGrow_1">
-              {% if shop.customer_accounts_enabled %}
+            <div class="c-headerMain__user u-flexGrow_1">
+                {% if shop.customer_accounts_enabled %}
                 {% if customer %}
-                  <a href="/account">
+                <a href="/account">
                     {{ 'layout.customer.account' | t }}
-                  </a>
+                </a>
                 {% else %}
-                  <a href="/account/login" class="">
+                <a href="/account/login" class="">
                     {% include 'icon-new-user' %}
-                  </a>
+                </a>
                 {% endif %}
-              {% endif %}
+                {% endif %}
             </div>
-            <div class="c-header__cart u-flexGrow_1">
-               <a class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+
+            <div class="c-headerMain__cart u-flexGrow_1">
+                <a class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
                     {% include 'icon-new-cart' %}
                     <span class="c-header__cart__count u-bold u-floatLeft">
-                      <span id="CartCount">{{ cart.item_count }}</span>
+                        <span id="CartCount">{{ cart.item_count }}</span>
                     </span>
                 </a>
             </div>
         </div>
-      </div>
-  </header>
+    </div>
+</header>
 
   {% if section.settings.align_logo == 'center' %}
   <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">

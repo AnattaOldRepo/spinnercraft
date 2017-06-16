@@ -4,11 +4,10 @@
 
 @lost gutter 15px;
 
-@lost flexbox flex;
-
 .o-grid {
     lost-utility: clearfix;
     lost-center: 1410px;
+    @lost flexbox no-flex;
     padding-left: 15px;
     padding-right: 15px;
 
