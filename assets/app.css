@@ -1208,49 +1208,53 @@ p {
 }
 .c-footer__right {
     overflow: hidden;
+    text-align: center;
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
     .c-footer__right {
-        text-align: center;
-        padding: 0;
-    }
-}
-@media(max-width: 1023px) {
-    .c-footer__right {
-        padding: 0 60px;
+        padding: 25px 60px;
         display: block;
         margin-left: auto;
         margin-right: auto;
+        text-align: left;
     }
 }
 @media (min-width: 1024px) {
     .c-footer__right {
         width: 40%;
+        padding: 0;
     }
 }
 .c-footerLetter {}
-@media (max-width: 767px) {
-    .c-footerLetter {
-        width: 100%;
-        float: none;
-    }
-}
-@media (max-width: 1023px) {
+@media (min-width: 768px) {
     .c-footerLetter {
         float: left;
     }
 }
-.c-footerSocial {}
-@media (max-width: 767px) {
-    .c-footerSocial {
+@media (min-width: 1024px) {
+    .c-footerLetter {
         float: none;
-        width: 100%;
     }
 }
-@media (max-width: 1023px) {
+.c-footerSocial {
+    padding-top: 30px;
+    float: none;
+}
+@media (min-width: 768px) {
     .c-footerSocial {
         float: right;
+        padding-top: 35px;
     }
+}
+@media (min-width: 1024px) {
+    .c-footerSocial {
+        padding-top: 20px;
+        float: none;
+    }
+}
+.c-footerSocial__links {
+    margin-right: 20px;
+    color: #999999;
 }
 .c-footer__own {
     border-top: 1px solid #bbbbbb;
@@ -1269,7 +1273,7 @@ p {
 }
 .c-footerWidth {
     max-width: 1024px;
-    padding-top: 45px;
+    padding-top: 22px;
     padding-left: 30px;
     padding-right: 30px;
     background: url('footer-bg.png') no-repeat top right;
@@ -1278,15 +1282,18 @@ p {
     .c-footerWidth {
         padding-left: 70px;
         padding-right: 70px;
+        padding-top: 45px;
     }
 }
 .c-footerNav__block {
     font-size: 14px;
+    margin-bottom: 10px;
 }
 @media (min-width: 768px) {
     .c-footerNav__block {
         width: 33%;
         float: left;
+        margin-bottom: 0;
     }
 }
 .c-footerNav__head {
@@ -1308,6 +1315,7 @@ p {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        max-width: 280px;
     }
 }
 .c-footerInput__item {
@@ -1338,13 +1346,6 @@ p {
 }
 .c-footerInput__btn:hover {
     border: 1px solid #32373e;
-}
-.c-footerSocial {
-    padding-top: 20px;
-}
-.c-footerSocial__links {
-    margin-right: 20px;
-    color: #999999;
 }
 /* --- Utilities ----------- */
 /* utility of text alignment */
