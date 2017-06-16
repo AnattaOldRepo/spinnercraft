@@ -37,3 +37,17 @@
 	font-family: azo-sans-web, sans-serif;
 }
 
+.u-fontPrimary{
+	font-family: $azo-font;
+}
+
+.u-noOpacity{
+
+	a{
+		opacity: 1;
+		&:hover{
+			opacity: 1;
+			color: initial;
+		}
+	}
+}
