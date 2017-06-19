@@ -82,7 +82,7 @@
 		&:hover {
 			@media (--tablet-large){
 				.c-headerSubMenu {
-					display: block;
+
 				}
 				a {
 					background-color: $color-light-grey;
@@ -141,6 +141,18 @@
 				}
 			}
 		}
+
+		&.is-active{
+			.c-headerSubMenu {
+				z-index: 99;
+				background-color: $white;
+				height: 242px;
+				opacity: 1;
+			}
+			.c-headerSubMenu__item img{
+				opacity: 1;
+			}
+		}
 	}
 		.c-headerNav__link {
 			color: $color-brand-black;
@@ -173,31 +185,5 @@
 			@media (--desktop-small){
 				left:-19px;
 			}
-		}
-	}
-
-.c-headerSubMenu {
-	display: none;
-	padding-top: 20px;
-    padding-bottom: 9px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-	@media (--tablet-large){
-		width: 188px;
-		position: absolute;
-		background-color: $white;
-		left: -7px;
-		top: 72px;
-		z-index: 1;
-		padding: 1.125rem;
-	}
-}
-	.c-headerSubMenu__item{
-		font-size: 15px;
-		margin-bottom: 1rem;
-
-		&:last-of-type{
-			margin-bottom: 0;
 		}
 	}

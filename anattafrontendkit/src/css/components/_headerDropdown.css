@@ -1,0 +1,43 @@
+.c-headerSubMenu {
+
+	padding-top: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+	@media (--tablet-large){
+		width: 100%;
+		position: absolute;
+		background-color: $white;
+		left: 0;
+		top: 100%;
+		z-index: -1;
+		max-width:100%;
+		display: block;
+		height:0;
+		opacity:0;
+		transition: all 0.2s ease-out;
+		text-align:center;
+		padding:0 64px;
+		border-top:7px solid $color-light-grey;
+
+	}
+}
+	.c-headerSubMenu__item{
+		font-size: 15px;
+		border-left: 1px solid $border-color;
+		flex-grow: 1;
+		padding: 32px;
+		font-family: $font-azosans;
+		&:last-of-type {
+			border-right: 1px solid $border-color;
+		}
+
+		img {
+			max-width: 150px;
+			display: block;
+			margin: auto;
+			opacity: 0;
+			transition: all 0.60s ease-out;
+		}
+	}
