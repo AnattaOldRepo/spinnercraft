@@ -1189,6 +1189,35 @@ theme.Search = (function() {
   };
 })();
 
+/* New Seacrh bar */
+$('.js-Search').on("mouseenter mouseleave", function(){
+    $(this).addClass('is-SearchOpen')
+    $('.js-searchBar').addClass('is-hovered');
+});
+$(document).bind('click', function(e){
+    if(!$(e.target).is('.js-Search') && !$(e.target).is('.js-searchBar') && !$(e.target).is('.c-headerSearch--icon') ){
+       $('.js-searchBar').removeClass('is-hovered');
+       $('.js-Search').removeClass('is-SearchOpen');
+    }
+});
+$(".js-searchBar").click(function(e){
+   e.stopPropagation();
+});
+
+$('.js-drawer-open-left').on('click' , function() {
+  $('.js-drawer-left').addClass('is-NavOpen');
+})
+$('.js-drawer-close-left').on('click' , function() {
+  $('.js-drawer-left').removeClass('is-NavOpen');
+})
+
+$('.js-mSubNavOpen').on('click', function (e) {
+  if (window.innerWidth < 1023 ) {
+    e.preventDefault();
+    $(this).parent().toggleClass('is-open').find('.js-mSubNav').slideToggle();
+  }
+});
+
 (function() {
   var selectors = {
     backButton: '.return-link'
@@ -2732,3 +2761,31 @@ theme.init = function() {
 };
 
 $(theme.init);
+
+$(document).ready(function() {
+  thumbnails = $('img[src*="/products/"]').not(':first');
+  if (thumbnails.length) {
+    thumbnails.bind('click', function() {
+      var arrImage = $(this).attr('src').split('?')[0].split('.');
+      var strExtention = arrImage.pop();
+      var strRemaining = arrImage.pop().replace(/_[a-zA-Z0-9@]+$/,'');
+      var strNewImage = arrImage.join('.')+"."+strRemaining+"."+strExtention;
+      if (typeof variantImages[strNewImage] !== 'undefined') {
+          productOptions.forEach(function (value, i) {
+           optionValue = variantImages[strNewImage]['option-'+i];
+           if (optionValue !== null && $('.single-option-selector:eq('+i+') option').filter(function() { return $(this).text() === optionValue }).length) {
+             $('.single-option-selector:eq('+i+')').val(optionValue).trigger('change');
+             jQuery('.swatch input[type="radio"]').each(function(key, ele){
+               var optionCurrentValue = $(ele).val();
+               if (optionCurrentValue == optionValue) {
+                 jQuery('.swatch input[type="radio"]').prop('checked', false);
+                 jQuery(this).prop("checked", true)
+                 jQuery(this).closest('.swatch').find('.header span').text(optionValue);
+               }
+             });
+           }
+        });
+      }
+    });
+  }
+});

@@ -1,0 +1,33 @@
+/* Button Component */
+.c-btn {
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: $button-top-botttom $button-left-right;
+  background-color: $color-red;
+  color: $white;
+  font-family: $font-family-base;
+  letter-spacing: 0.08em;
+  white-space: normal;
+  font-size: 15px;
+
+  &:hover,
+  &:focus {
+    background-color: $red-btn-hover;
+    outline: none;
+  }
+
+  &--black{
+  	background-color: $black;
+
+  	&:hover {
+  		background-color: $black-btn-hover;
+  	}
+  }
+
+}
+

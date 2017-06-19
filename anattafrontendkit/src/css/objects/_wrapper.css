@@ -1,0 +1,14 @@
+/* Wrapper Object */
+
+/* local object variables */
+
+$wrapper-size-base: 1410px;
+
+$wrapper-gutter: 15px;
+
+
+.o-wrapper{
+    max-width: $wrapper-size-base;
+    padding: * $wrapper-gutter;
+    margin: 0px auto;
+}

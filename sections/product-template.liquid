@@ -4,6 +4,10 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: '800x' }}">
 
+  <div class="breadcrumb">
+    <a href="/">Home</a><span> > </span><a href="/collections">Shop</a><span> > </span> {{product.title}}
+  </div>
+
   {% comment %}
     Get first variant, or deep linked one
   {% endcomment %}
@@ -11,6 +15,7 @@
   {%- assign product_thumb_size = '160x' -%}
   {%- assign product_image_zoom_size = '1024x1024' -%}
   {%- assign enable_zoom = section.settings.enable_zoom -%}
+  {% assign customtags = 'metal, plastic, accessories' | split: ',' %}
 
   {% case section.settings.image_size %}
     {% when 'small' %}
@@ -57,7 +62,7 @@
           {% endif %}
           <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
             {% for image in product.images %}
-              <li class="grid__item {{ product_thumbnail_width }} product-single__thumbnails-item">
+              <li class="grid__item medium-up--one-sixth product-single__thumbnails-item">
                 <a
                   href="{{ image.src | img_url: product_image_size }}"
                     class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
@@ -81,16 +86,29 @@
 
         <h1 itemprop="name" class="product-single__title">{{ product.title }}</h1>
 
+        <p class="product-single__category">
+          {% for t in customtags %}
+           {% assign tag = t | strip %}
+           {% assign tagName = t | strip | replace: '-', ' ' %}
+             {% if product.tags contains tag %}
+             {{ tagName | capitalize }}
+             {% endif %}
+           {% endfor %}
+        </p>
+
+
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
         {% endif %}
+
+        <p><a href="#shopify-product-reviews" class="js-reviews reviews-link"><span class="js-review-count"></span> Reviews</a></p>
 
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
           <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-         
+
           <p class="product-single__price product-single__price-{{ section.id }}{% unless current_variant.available %} product-price--sold-out{% endunless %}">
             {% include 'saw_compute_discount' with product %}
 			{% include 'saw_variant' with current_variant %}
@@ -98,6 +116,7 @@
            {% if saw_has_discount == false or saw_product_price >= saw_product_compare_at_price %}
             <!-- original prices here -->
            		 {% if current_variant.compare_at_price > current_variant.price %}
+                      Price:
                       <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
                       <s id="ComparePrice-{{ section.id }}">{{ current_variant.compare_at_price | money }}</s>
                       <span class="product-price__price product-price__price-{{ section.id }} product-price__sale product-price__sale--single">
@@ -105,6 +124,7 @@
                         <span class="product-price__sale-label product-price__sale-label-{{ section.id }}">{{ 'products.product.on_sale' | t }}</span>
                       </span>
                   {% else %}
+                  Price:
                     <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
                     <s id="ComparePrice-{{ section.id }}" class="hide">{{ current_variant.compare_at_price | money }}</s>
                     <span class="product-price__price product-price__price-{{ section.id }}">
@@ -112,23 +132,22 @@
                       <span class="product-price__sale-label product-price__sale-label-{{ section.id }} hide">{{ 'products.product.on_sale' | t }}</span>
                     </span>
                   {% endif %}
-          {% else %}
+                {% else %}
+                  Price:
                       <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
                       <s id="ComparePrice-{{ section.id }}">{{ saw_variant_compare_at_price | money }}</s>
                       <span class="product-price__price product-price__price-{{ section.id }} product-price__sale product-price__sale--single">
                         <span id="ProductPrice-{{ section.id }}">{{ saw_variant_price | money }}</span>
                       </span>
           {% endif %}
-                  
+
           </p>
-
-
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="shapp_qb_prod product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
             <script data-app="esc-out-of-stock" type="text/json">{{ product.variants | json }}</script>
             {% unless product.options.size == 1 and bold_selected_or_first_available_variant.title contains 'Default Title' %}
               {% for option in product.options_with_values %}
-                <div class="selector-wrapper js product-form__item">
+                <div class="selector-wrapper js product-form__itemfluid">
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                     {{ option.name }}
                   </label>
@@ -156,8 +175,28 @@
               {% endfor %}
             </select>
 
+            {% for variant in product.variants %}
+              {% unless variant.title contains 'Default Title' %}
+                {% assign is_title = true %}
+              {% endunless %}
+            {% endfor %}
+
+            <div class="product-form__itemfluid">
+              {% if is_title %}
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %}
+              {% endif %}
+            </div>
 
 
+            <script> console.log( {{ product | json }}) </script>
+
+            <!--Spice Product Kits Child Product Lists Starts-->
+            <div id="spicegems_metafields_data_div" data-default_variant="{{product.selected_or_first_available_variant.id}}" style="display:none;visibility:hidden;">
+            {{ product.metafields['spice_product_kits'] | json }}
+            </div>
+            <!--Spice Product Kits Child Product Lists End-->
 
             {% if section.settings.show_quantity_selector %}
               <div class="product-form__item product-form__item--quantity">
@@ -177,45 +216,45 @@
                 </span>
               </button>
             </div>
-            <!--Spice Product Kits Child Product Lists Starts-->
-            <div id="spicegems_metafields_data_div" data-default_variant="{{product.selected_or_first_available_variant.id}}" style="display:none;visibility:hidden;">
-            {{ product.metafields['spice_product_kits'] | json }}
-            </div>
-            <!--Spice Product Kits Child Product Lists End-->
+
           </form>
 
         </div>
+
+
 
         {% unless qb_loaded == 'true' %}
 <div class='shappify-qty-msg' style='margin: 20px 10px 0px -9px !important'>{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
 {% assign qb_loaded = 'true' %}
 {% endunless %}
-        
-        <div class="product-single__description rte" itemprop="description">
-          {{ product.description }}
-        </div>
-<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-        {% if section.settings.show_share_buttons %}
-          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-        {% endif %}
       </div>
     </div>
   </div>
+  <div class="product-single__description rte" itemprop="description">
+
+    <div class="product-single__image">
+      <img src="{{ product.handle | append: '-banner' | append: '.jpg' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
+    </div>
+
+    {{ product.description }}
+
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
+
+  </div>
+  {% if section.settings.show_share_buttons %}
+    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+  {% endif %}
   <div id="cbb-also-bought-box"></div>
 </div>
+<div class="page-width">
+  {% include 'related-product' %}
+</div>
 
-{% if collection %}
-  <div class="text-center return-link-wrapper">
-    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
-      {% include 'icon-arrow-left' %}
-      {{ 'products.product.back_to_collection' | t: title: collection.title }}
-    </a>
-  </div>
-{% endif %}
 
 {% unless product.empty? %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
-    
+
 {%- include 'saw_product_json' with product -%}
 {{- saw_json -}}
   </script>
@@ -300,3 +339,61 @@ if(this.text === "1+"){ $(".single-option-selector").hide();}
        }, 100);
 
      </script>
+
+{% if product.variants.size > 1 %}
+<script>
+  var variantImages = {},
+    thumbnails,
+    variant,
+    variantImage,
+    optionValue,
+    productOptions = [];
+    {% for variant in product.variants %}
+       variant = {{ variant | json }};
+       if ( typeof variant.featured_image !== 'undefined' && variant.featured_image !== null ) {
+         variantImage =  variant.featured_image.src.split('?')[0].replace(/http(s)?:/,'');
+         variantImages[variantImage] = variantImages[variantImage] || {};
+         {% for option in product.options %}
+
+           {% assign option_value = variant.options[forloop.index0] %}
+           {% assign option_key = 'option-' | append: forloop.index0 %}
+
+           if (typeof variantImages[variantImage][{{ option_key | json }}] === 'undefined') {
+             variantImages[variantImage][{{ option_key | json }}] = {{ option_value | json }};
+           }
+           else {
+             var oldValue = variantImages[variantImage][{{ option_key | json }}];
+             if ( oldValue !== null && oldValue !== {{ option_value | json }} )  {
+               variantImages[variantImage][{{ option_key | json }}] = null;
+             }
+           }
+         {% endfor %}
+       }
+       productOptions.push(variant);
+    {% endfor %}
+</script>
+{% endif %}
+
+<script>
+jQuery( document ).ready(function() {
+  jQuery('.swatch input[type="radio"]:checked').each(function(key, ele){
+    var optionValue = $(ele).val();
+    jQuery(this).closest('.swatch').find('.header span').text(optionValue);
+  });
+});
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
+    jQuery(this).closest('.swatch').find('.header span').text(optionValue);
+  });
+});
+jQuery('.js-review-count').html($('meta[itemprop="reviewCount"]').attr("content"));
+jQuery('.js-reviews').click(function(){
+    jQuery('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
+});
+</script>

@@ -1,0 +1,24 @@
+.c-hamMenu {
+ 
+}
+	.c-hamMenu__tile {
+		display: inline-block;
+		width: 17px;
+		height: 2px;
+		background-color: $color-brand-black;
+		top: -6px;
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 23px;
+			height: 2px;
+			background-color: $color-brand-black;
+		}
+		&:before {
+			top: -7px;
+		}
+		&:after {
+			bottom: -7px;
+		}
+	}

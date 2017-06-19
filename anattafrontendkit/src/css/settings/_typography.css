@@ -1,0 +1,25 @@
+/* Global typography variables */
+
+$font-size-base:            1rem;
+
+$line-height-base:          1.5;
+
+$font-family-base:          azo-sans-web, sans-serif;
+
+$font-family-primary:       'Gotham', sans-serif;
+
+$font-weight-base:          normal;
+
+$font-weight-heading:       medium;
+
+$font-heading-level-1:      2.125rem;
+
+$font-heading-level-2:      1.5rem;
+
+$font-heading-level-3:      16px;
+
+$font-copy-base:            16px;
+
+
+
+$azo-font: azo-sans-web, sans-serif;

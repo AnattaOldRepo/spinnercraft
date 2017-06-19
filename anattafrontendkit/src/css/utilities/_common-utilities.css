@@ -1,0 +1,53 @@
+.u-fullWidth{
+	max-width:100%;
+}
+
+.u-heightfull {
+	height: 100%;
+}
+
+.u-rel {
+	position: relative;
+}
+
+.u-inline{
+	display: inline-block;
+}
+
+.u-block{
+	display: block;
+}
+
+.u-bold{
+	font-weight: 700;
+}
+.u-regular{
+	font-weight: 500;
+}
+
+.u-upperCase {
+	text-transform: uppercase;
+}
+
+.u-font_14{
+	font-size: 0.875rem;
+}
+
+.u-fontAzo {
+	font-family: azo-sans-web, sans-serif;
+}
+
+.u-fontPrimary{
+	font-family: $azo-font;
+}
+
+.u-noOpacity{
+
+	a{
+		opacity: 1;
+		&:hover{
+			opacity: 1;
+			color: initial;
+		}
+	}
+}

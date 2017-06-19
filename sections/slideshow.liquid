@@ -16,7 +16,7 @@
         </span>
       </button>
 
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }} feature-slider" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+      <div class="slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
 
           {% for block in section.blocks %}
             {%- assign is_background_video = false -%}
