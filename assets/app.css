@@ -841,6 +841,10 @@ p {
     font-size: 14px;
     padding: 7px 0;
 }
+.c-headerBar a {}
+.c-headerBar a:hover {
+    color: #d6d7d7;
+}
 .c-headerBar__message {
     width: 100%;
     font-size: 12px;

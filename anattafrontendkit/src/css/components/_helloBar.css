@@ -4,6 +4,12 @@
 	font-family: $font-azosans;
 	font-size: 14px;
 	padding: 7px 0;
+	
+	a {
+		&:hover {
+			color: $color-cream;
+		}
+	}
 }
 	.c-headerBar__message {
 		width: 100%;
