@@ -1,23 +1,20 @@
-.c-helloBar {
+.c-headerBar {
 	width: 100%;
 	background-color: $color-brand-black;
-	height: 34px;
-
-	a {
-		opacity: 1;
-		&:hover{
-			opacity: 1;
-		}
-	}
+	font-family: $font-azosans;
+	font-size: 14px;
+	padding: 7px 0;
 }
-	.c-helloBar__title {
-		text-align: center;
+	.c-headerBar__message {
 		width: 100%;
-		font-size: 11px;
+		font-size: 12px;
+		float: none;	
+		color: $color-cream;
+		
 		@media(--tablet-large){
-			text-align:left;
 			width:auto;
-			font-size:12px;
+			font-size:14px;
+			float:right;
 		}
 
 		&:hover {
@@ -27,13 +24,15 @@
 
 
 
-.c-helloBarNav{
-	margin-top: -5px;
+.c-topNav {
+	
 }
-	.c-helloBarNav__item{
+	.c-topNav__item {
 		margin-right: 10px;
+		display: inline-block;
 	}
 
-	.c-helloBarNav__link {
+	.c-topNav__link {
 		letter-spacing: 0.8px;
+		color: $color-cream;
 	}
