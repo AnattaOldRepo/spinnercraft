@@ -1213,9 +1213,9 @@ $('.js-drawer-close-left').on('click' , function() {
 
 $('.js-subNavOpen').on('click', function (e) {
   if (window.innerWidth < 1023 ) {
-    e.preventDefault();
-    $(this).parent().toggleClass('is-open').find('.js-subNav').slideToggle();
-  }
+      e.preventDefault();
+      $(this).parent().toggleClass('is-open').find('.js-subNav').slideToggle();
+    }
 });
 
 

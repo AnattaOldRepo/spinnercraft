@@ -10,6 +10,7 @@
 		padding-left:15px;
 		left:-88.8%;
 		transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
+		box-shadow:2px 3px 7px -2px $black;
 	}
 
 	@media (--tablet-large){
@@ -78,6 +79,26 @@
 		@media (--desktop-large){
 			margin-left: 16px;
 			margin-right: 16px;
+		}
+
+		&:nth-of-type(3){
+			.c-headerSubMenu__item {
+				&:nth-of-type(7){
+					@media (--tablet){
+						border-top: 1px solid $color-white-smoke;
+					}
+				}
+			}
+		}
+
+		&:nth-of-type(4){
+			.c-headerSubMenu__item {
+				&:nth-of-type(5){
+					@media (--mobile-max){
+						border-bottom: 0;
+					}
+				}
+			}
 		}
 		&:hover {
 			@media (--tablet-large){
