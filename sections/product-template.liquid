@@ -46,7 +46,7 @@
       {%- assign featured_img_src = current_variant.featured_image.src | default: product.featured_image.src -%}
       {%- assign featured_img_alt = current_variant.featured_image.alt | default: product.featured_image.alt -%}
       <div id="FeaturedImageZoom-{{ section.id }}" class="product-single__photo{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}" {% if enable_zoom %}data-zoom="{{ featured_img_src | img_url: product_image_zoom_size }}"{% endif %}>
-        <img src="{{ featured_img_src | img_url: product_image_size }}" alt="{{ featured_img_alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img{% if enable_zoom %} js-zoom-enabled{% endif %}">
+        <img src="{{ featured_img_src | img_url: product_image_zoom_size }}" alt="{{ featured_img_alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img{% if enable_zoom %} js-zoom-enabled{% endif %}">
       </div>
 
       {% if product.images.size > 1 %}
@@ -64,7 +64,7 @@
             {% for image in product.images %}
               <li class="grid__item medium-up--one-sixth product-single__thumbnails-item">
                 <a
-                  href="{{ image.src | img_url: product_image_size }}"
+                  href="{{ image.src | img_url: product_image_zoom_size }}"
                     class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                     {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size }}"{% endif %}>
                     <img class="product-single__thumbnail-image" src="{{ image.src | img_url: product_thumb_size }}" alt="{{ image.alt | escape }}">
