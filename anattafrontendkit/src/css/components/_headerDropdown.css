@@ -1,0 +1,122 @@
+.c-headerSubMenu {
+
+	padding-top: 20px;
+    padding-bottom: 9px;
+    padding-left: 20px;
+    padding-right: 20px;
+	display: none;
+	overflow: hidden;
+	@media (--tablet-large){
+		display:flex;
+		width: 100%;
+		position: absolute;
+		background-color: $white;
+		left: 0;
+		top: 100%;
+		z-index: -1;
+		max-width:100%;
+		height: 242px;
+		opacity:0;
+		transition: all 0.2s ease-out;
+		text-align:center;
+		padding:0 64px;
+		border-top:7px solid $color-light-grey;
+		box-shadow:0 3px 7px -2px $black;
+
+	}
+}
+	.c-headerSubMenu__item{
+		font-size: 12px;
+		font-family: $font-azosans;
+		padding: 8px 0;
+		cursor: pointer;
+		width: calc(99.9% * 1/2 - (10px - 10px * 1/2));
+		text-align:center;
+		float:left;
+		border-bottom: 1px solid $color-white-smoke;
+		@media (--tablet){
+			width: calc(99.9% * 1/3 - (10px - 10px * 1/3));
+			min-height:auto;
+			font-size:15px;
+			border-right: 1px solid $color-white-smoke;
+			border-bottom: 0;
+		}
+
+		@media (--tablet-large){
+			padding: 32px;
+			border-left: 1px solid $border-color;
+			position:relative;
+			flex-grow: 1;
+			float:none;
+
+		}
+	
+		&:nth-of-type(odd){
+			@media (--mobile-max){
+				border-right: 1px solid $color-white-smoke;
+			}
+		}
+
+		&:nth-of-type(3n){
+			@media (--tablet){
+				border-right:0;
+			}
+		}
+
+		&:last-of-type {
+			border-bottom: 0;
+			@media (--tablet-large){
+				border-right: 1px solid $border-color;
+			}
+		}
+
+
+		&:nth-of-type(1),
+		&:nth-of-type(2),
+		&:nth-of-type(3){
+			border-bottom: 1px solid $color-white-smoke;
+		}
+
+
+		&:nth-of-type()
+
+		&:nth-of-type(even){
+
+		}
+
+		img {
+			margin: 0 auto;
+			max-width: 70px;
+			display: block;
+			@media (--tablet-large){
+				margin-bottom:16px;
+				max-width: 122px;
+				transition: all 0.60s ease-out;
+				opacity: 0;
+				margin: 0 auto 16px;
+			}
+		}
+		&:hover {
+			img{
+				@media (--tablet-large){
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+		.c-newSpinner {
+				@media (--tablet-large){
+					background-image: url('../new-tag.png');
+					position: absolute;
+					background-size: 100%;
+					width: 38px;
+					height: 38px;
+					right: 20%;
+					top: 16%;
+				}
+			}
+
+			#privy-container {
+				display: none !important;
+			}
