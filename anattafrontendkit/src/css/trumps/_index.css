@@ -1,1 +1,10 @@
 /* high specificity selectors */
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-left:hover {
+	width:160px !important;
+	height: 160px !important;
+}
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-left {
+	font-size: 12px;
+	margin-top: -90px !important;
+    margin-left: -90px !important;
+}

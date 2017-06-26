@@ -862,6 +862,21 @@ p {
     color: #d6d7d7;
 }
 .c-topNav {}
+@media (min-width: 1024px) {
+    .c-topNav {
+        margin-left: 70px;
+    }
+}
+@media (min-width: 1440px) {
+    .c-topNav {
+        margin-left: 44px;
+    }
+}
+@media (min-width: 1550px) {
+    .c-topNav {
+        margin-left: 0;
+    }
+}
 .c-topNav__item {
     margin-right: 10px;
     display: inline-block;
@@ -882,10 +897,21 @@ p {
 .c-logo {
     text-align: center;
 }
+.c-logo svg {}
 @media (min-width: 1024px) {
     .c-logo {
         margin-top: 12px;
-        text-align: left;
+        text-align: right;
+    }
+}
+@media (min-width: 1024px) {
+    .c-logo svg {
+        width: 180px;
+    }
+}
+@media (min-width: 1440px) {
+    .c-logo svg {
+        width: 198px;
     }
 }
 .c-headerMain {}
@@ -1778,5 +1804,14 @@ p {
 }
 /* --- Trumps ----------- */
 /* high specificity selectors */
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-left:hover {
+    width: 160px !important;
+    height: 160px !important;
+}
+#privy-container #privy-inner-container div.privy-tab.privy-corner.privy-top.privy-left {
+    font-size: 12px;
+    margin-top: -90px !important;
+    margin-left: -90px !important;
+}
 
 /*# sourceMappingURL=app.css.map */

@@ -13,7 +13,17 @@
 		text-align: center;
 		@media (--tablet-large){
 			margin-top: 12px;
-			text-align:left;
+			text-align:right;
+		}
+
+		svg {
+			@media (--tablet-large){
+				width:180px;
+			}
+
+			@media (--desktop-large){
+				width:198px;
+			}	
 		}
 	}
 
