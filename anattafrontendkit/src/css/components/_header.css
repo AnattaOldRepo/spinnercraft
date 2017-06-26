@@ -121,17 +121,23 @@
 	opacity: 0;
 	width: 0;
 	padding: 0 10px;
-	right: 23px;
+	right: 15px;
     max-width: 200px;
     top: 9px;
     transition: width .30s ease-in-out;
     z-index: 1;
     border-radius: 0;
+    @media (--desktop-small){
+		right: 23px;
+    }
     &.is-hovered{
     	opacity: 1;
-    	width: 170px;
-
+    	width: 97px;
     	@media (--desktop-small){
+    		width: 125px;
+    	}
+
+    	@media (--desktop-large){
     		width: 200px;
     	}
     }

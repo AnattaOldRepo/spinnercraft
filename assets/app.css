@@ -1015,7 +1015,7 @@ p {
     opacity: 0;
     width: 0;
     padding: 0 10px;
-    right: 23px;
+    right: 15px;
     max-width: 200px;
     top: 9px;
     transition: width .30s ease-in-out;
@@ -1028,11 +1028,21 @@ p {
     height: 28px;
     border: 0;
 }
+@media (min-width: 1170px) {
+    .c-search {
+        right: 23px;
+    }
+}
 .c-search.is-hovered {
     opacity: 1;
-    width: 170px;
+    width: 97px;
 }
 @media (min-width: 1170px) {
+    .c-search.is-hovered {
+        width: 125px;
+    }
+}
+@media (min-width: 1440px) {
     .c-search.is-hovered {
         width: 200px;
     }
@@ -1753,7 +1763,7 @@ p {
     font-size: 0.875rem;
 }
 .u-fontAzo {
-    font-family: azo-sans-web, sans-serif;
+    font-family: 'azo-sans-web', sans-serif;
 }
 .u-fontPrimary {
     font-family: $azo-font;
