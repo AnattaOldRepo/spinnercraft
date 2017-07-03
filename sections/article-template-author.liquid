@@ -1,0 +1,55 @@
+<div class="c-blogAuthor">
+  <div class="c-blogAuthor__skew">
+  </div>
+    <div class="o-wrapper--blog">
+      <div class="c-blogAuthor__container">
+        <div class="c-blogAuthor__head">
+            <div class="c-blogAuthor__headMedia">
+                <img src="{{ article.image.src | img_url: 'large' }}">
+
+            </div>
+            {% if section.settings.show_share_buttons %}
+                {% include 'social-sharing-author', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            {% endif %}
+            <div class="c-blogAuthor__headContent">
+                <h1 class="c-blogAuthorTitle">{{ article.title }}</h1>
+                {% for tag in article.tags %}
+                  <span class="c-blogAuthor__headTags">| {{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="c-blogAuthor__content c-dc">
+            {{ article.content }}
+        </div>
+      </div>
+
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Posts",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,35 @@
+.c-blogAuthor{
+	position: relative;
+	transform: translate3d(0, 0, 0);
+	overflow: hidden;
+}
+
+	.c-blogAuthor__skew {
+		position: relative;
+		z-index: -1;
+
+		&:before{
+			content: "";
+			background-color: $color-red;
+			height: 500px;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			border-bottom: 494px solid $color-sky-blue;
+    		border-left: 1798px solid transparent;
+		}
+
+		&:after {
+			content: "";
+			background-color: #3ac1e1;
+			height: 700px;
+			position: absolute;
+			top: 500px;
+			width: 100%;
+		}
+	}
+
+	.c-blogAuthor__container {
+		background-color: $white;
+		margin: 10rem 0;
+	}

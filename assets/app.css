@@ -1761,6 +1761,39 @@ p {
     font-weight: 700;
     padding: 6px 23px;
 }
+.c-blogAuthor {
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    overflow: hidden;
+}
+.c-blogAuthor__skew {
+    position: relative;
+    z-index: -1;
+}
+.c-blogAuthor__skew:before {
+    content: "";
+    background-color: #ff485b;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 494px solid #3ac1e1;
+    border-left: 1798px solid transparent;
+}
+.c-blogAuthor__skew:after {
+    content: "";
+    background-color: #3ac1e1;
+    height: 700px;
+    position: absolute;
+    top: 500px;
+    width: 100%;
+}
+.c-blogAuthor__container {
+    background-color: #fff;
+    margin: 160px 0;
+    margin: 10rem 0;
+}
 .c-footer {
     background-color: #fff;
 }
