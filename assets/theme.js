@@ -1265,14 +1265,6 @@ header.find('.js-dropdown').on('mouseenter', function () {
 });
 
 
-
-
-
-
-
-
-
-
 (function() {
   var selectors = {
     backButton: '.return-link'

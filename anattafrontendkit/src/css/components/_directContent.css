@@ -1,0 +1,53 @@
+.c-dc {
+
+	h1,h2,h3 {
+		font-size: 18px;
+		font-weight: 500;
+		font-family: $font-azosans;
+		margin-bottom: 1rem;
+		letter-spacing: -1px;
+		text-align: center;
+		padding-left: 20px;
+		padding-right: 20px;
+		
+		@media (--tablet){
+			padding-right: 0;
+			padding-left: 0;
+		}
+		
+		@media (--tablet-large) {
+			width:69%;
+			margin-bottom: 2rem;
+			font-size: 26px;
+			text-align: left;
+
+		}
+	}
+
+	p {
+		font-size: 14px;
+		font-weight: 500;
+		font-family: $font-azosans;
+		line-height: 1.4;
+		padding-left: 20px;
+		padding-right: 20px;
+		@media (--tablet){
+			font-size: 16px;
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		@media (--tablet-large) {
+			width:69%;
+		}
+	}
+
+	.video-wrapper {
+		@media (--tablet){
+			margin:0 0 1.5rem 0;
+		}
+		@media (--tablet-large){
+			margin:0 0 6.5rem 0;
+		}
+	}
+}

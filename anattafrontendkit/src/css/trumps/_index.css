@@ -8,3 +8,13 @@
 	margin-top: -90px !important;
     margin-left: -90px !important;
 }
+
+.template-article {
+	.main-content {
+		padding-top: 0;
+	}
+
+	.page-container {
+		transform: none;
+	}
+}

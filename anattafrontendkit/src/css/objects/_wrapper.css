@@ -6,9 +6,22 @@ $wrapper-size-base: 1410px;
 
 $wrapper-gutter: 15px;
 
+$wrapper-gutter-small: 140px;
+
 
 .o-wrapper{
     max-width: $wrapper-size-base;
     padding: * $wrapper-gutter;
     margin: 0px auto;
+}
+
+.o-wrapper--blog{
+
+	@media (--tablet){
+		padding: 0 100px;
+	}
+
+	@media (--tablet-large){
+		padding:0 140px;
+	}
 }

@@ -29,5 +29,11 @@
   	}
   }
 
+  &--yellow {
+    background-color: $color-yellow;
+    border: 1px solid $color-yellow;
+    color: $black;
+  }
+
 }
 

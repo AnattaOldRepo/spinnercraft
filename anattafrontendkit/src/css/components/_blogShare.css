@@ -1,0 +1,57 @@
+.c-blogShare {
+	position: fixed;
+	background-color:$color-sky-blue;
+	bottom:0;
+	width: 100%;
+	@media (--tablet-large){
+		padding: 15px;
+		top:30%;
+		bottom: auto;
+		width: auto;
+	}
+}
+
+	.c-blogShare__btn {
+		display: inline-block;
+		padding:15px 20px 10px;
+		@media (--tablet-large){
+			display: block;
+			margin-bottom: 20px;
+			padding: 0;
+		}
+		@media (--desktop-small){
+			margin-bottom:28px;
+		}
+
+		&:last-of-type {
+			margin-bottom:0;
+		}
+	}
+
+	.c-blogShare__count {
+		color: $white;
+		display: block;
+	    font-size: 14px;
+	   	line-height: 8px;
+
+	    @media (--tablet-large){
+	    	font-size: 20px;
+	    	 line-height: 1;
+	    }
+
+	    @media (--desktop-small){
+	    	font-size:22px;
+	    }
+	}
+
+	.c-blogShare--icon {
+		size: 20px;
+
+		@media (--tablet-large){
+			size: 28px;
+		}
+
+		@media (--desktop-small){
+			size:36px;
+		}
+	}
