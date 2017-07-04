@@ -20,4 +20,10 @@
 
 @import "blogAuthor";
 
+@import "blogAuthorSocial";
+
+@import "slickSlider";
+
+@import "blogAuthorRecomend";
+
 @import "footer";

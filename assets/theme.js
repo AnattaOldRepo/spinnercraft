@@ -1264,6 +1264,25 @@ header.find('.js-dropdown').on('mouseenter', function () {
   }
 });
 
+$('.js-blogSlider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerPadding: '40px',
+    dots: false,
+    arrows: true,
+    centerMode: true, 
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      }
+     
+    ]
+});
 
 (function() {
   var selectors = {

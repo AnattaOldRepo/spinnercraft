@@ -1,0 +1,60 @@
+.c-blogAuthor__recomend,
+.c-blogAuthor__myTricks {
+
+	padding:30px 15px;
+
+	@media (--tablet){
+		padding: 4rem 0;
+	}
+
+	@media (--tablet-large){
+		padding:6rem 0;
+	}
+
+	@media (--desktop-small){
+		padding: 8rem 0 11rem;
+	}
+}
+
+	.c-blogAuthor__subTitle {
+		font-size: 16px;
+		font-weight: 700;
+		font-family:  $font-azosans;
+		color: $black;
+		letter-spacing: 0.8px;
+		margin-bottom: 50px;
+
+		@media (--tablet){
+			padding-left: 10px;
+			font-size: 18px;
+		}
+	}
+
+		.c-blogAuthor__subTitle--icon {
+		    display: none;
+		    @media (--tablet){
+		    	display: inline-block;
+		    	padding-right: 11px;
+			    position: relative;
+			    top: 7px;
+		    }
+
+		    svg {
+		    	width:25px;
+		    	height: 25px;
+		    }
+		}
+
+
+		.c-blogAuthor__subTitle--slider  {
+			color: #666666;
+			margin:0 0 17.5px;
+			padding:25px 0 0 0;
+		}
+
+		.c-blogAuthor__subTitle--video{
+			font-size: 16px;
+			padding:15px 0 0 0;
+			color: #666666;
+		}
+	

@@ -20,8 +20,21 @@ $wrapper-gutter-small: 140px;
 	@media (--tablet){
 		padding: 0 100px;
 	}
+}
+
+
+.o-wrapper--author {
 
 	@media (--tablet-large){
-		padding:0 140px;
+			padding:0 50px;
+	}
+
+	@media (--desktop-small){
+
+		padding:0 6rem;
+	}
+
+	@media (--desktop-large){
+		padding:0 8.125rem;
 	}
 }

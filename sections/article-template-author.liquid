@@ -1,29 +1,111 @@
 <div class="c-blogAuthor">
-  <div class="c-blogAuthor__skew">
-  </div>
-    <div class="o-wrapper--blog">
-      <div class="c-blogAuthor__container">
-        <div class="c-blogAuthor__head">
-            <div class="c-blogAuthor__headMedia">
-                <img src="{{ article.image.src | img_url: 'large' }}">
-
+    <div class="c-blogAuthor__skew u-hideMobile">
+    </div>
+    <div class="o-wrapper--author">
+        <div class="c-blogAuthor__container">
+            <div class="c-blogAuthor__head o-grid">
+                <div class="c-blogAuthor__headMedia o-grid__4-12">
+                    <div class="c-blogAuthor__headSkew u-hideDesktop">
+                    </div>
+                    <h1 class="c-blogAuthorTitle u-hideDesktop">{{ article.title }}</h1>
+                    <div class="c-blogAuthor__headMediaChild">
+                        <img src="{{ article.image.src | img_url: 'large' }}">
+                            {% if section.settings.show_share_buttons %}
+                                {% include 'social-sharing-author', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+                            {% endif %}
+                    </div>
+                </div>
+                <div class="c-blogAuthor__headTitle o-grid__4-12">
+                    <h1 class="c-blogAuthorTitle u-hideMobile">{{ article.title }}</h1>
+                    {% for tag in article.tags %}
+                        <h4 class="c-blogAuthor__headTags u-fontAzo"><span class="c-blogAuthor__headTags--color">{{ tag }}</span></h4>
+                    {% endfor %}
+                </div>
+                <div class="c-blogAuthor__headContent c-dc o-grid__4-12">
+                    {{ article.content }}
+                </div>
             </div>
-            {% if section.settings.show_share_buttons %}
-                {% include 'social-sharing-author', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-            {% endif %}
-            <div class="c-blogAuthor__headContent">
-                <h1 class="c-blogAuthorTitle">{{ article.title }}</h1>
-                {% for tag in article.tags %}
-                  <span class="c-blogAuthor__headTags">| {{ tag }}</span>
-                {% endfor %}
+
+        <div class="c-blogAuthor__recomend">
+            <h3 class="c-blogAuthor__subTitle">
+                <span class="c-blogAuthor__subTitle--icon"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve" width="512px" height="512px">
+                    <g>
+                    <path d="M52.8,311.3c-12.8-12.8-12.8-33.4,0-46.2c6.4-6.4,14.7-9.6,23.1-9.6s16.7,3.2,23.1,9.6l113.4,113.4V32.7   c0-18,14.6-32.7,32.7-32.7c18,0,32.7,14.6,32.7,32.7v345.8L391,265.1c12.8-12.8,33.4-12.8,46.2,0c12.8,12.8,12.8,33.4,0,46.2   L268.1,480.4c-6.1,6.1-14.4,9.6-23.1,9.6c-8.7,0-17-3.4-23.1-9.6L52.8,311.3z" fill="#fda408"/>
+                    </g>
+                    </svg>
+                </span>
+
+            Recommended fidget spinners </h3>
+            {{ product.metafields.c_f.one }}
+            {{ blog.metafields.c_f.two }}
+            
+            <div class="c-blogAuthor__recomendSpinner js-blogSlider u-textCenter">
+                <!--
+                <div class="c-blogAuthor__recomendBlock">
+                    <img src="{{ product.metafields.c_f.slider_image }}">
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ product.metafields.c_f.slider_name }}</h3>
+                </div>
+                -->
+
+                <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Secret service Spinner</h3>
+                </div>
+                 <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Pro Fidget Spinner</h3>
+                </div>
+                 <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Secret service Spinner</h3>
+                </div>
+                 <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Secret service Spinner</h3>
+                </div>
+                 <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Secret service Spinner</h3>
+                </div>
+                <div class="c-blogAuthor__recomendBlock">
+                    {{ 'slick-fidget.jpg' | asset_url | img_tag }}
+                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">Secret service Spinner</h3>
+                </div>
+            </div>
+        </div> 
+
+        <div class="c-blogAuthor__myTricks">
+            <h3 class="c-blogAuthor__subTitle">
+                <span class="c-blogAuthor__subTitle--icon"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve" width="512px" height="512px">
+                    <g>
+                    <path d="M52.8,311.3c-12.8-12.8-12.8-33.4,0-46.2c6.4-6.4,14.7-9.6,23.1-9.6s16.7,3.2,23.1,9.6l113.4,113.4V32.7   c0-18,14.6-32.7,32.7-32.7c18,0,32.7,14.6,32.7,32.7v345.8L391,265.1c12.8-12.8,33.4-12.8,46.2,0c12.8,12.8,12.8,33.4,0,46.2   L268.1,480.4c-6.1,6.1-14.4,9.6-23.1,9.6c-8.7,0-17-3.4-23.1-9.6L52.8,311.3z" fill="#fda408"/>
+                    </g>
+                    </svg>
+                </span>
+            Recommended fidget spinners </h3>
+            <div class="o-grid">
+                <div class="o-grid__4-12">
+                    <a href="">
+                        {{ 'video-thumb.jpg' | asset_url | img_tag }}
+                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">Executive spinner tricks</h3>
+                    </a>
+                </div>
+                 <div class="o-grid__4-12">
+                    <a href="">
+                        {{ 'video-thumb.jpg' | asset_url | img_tag }}
+                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">Executive spinner tricks</h3>
+                    </a>
+                </div>
+                 <div class="o-grid__4-12">
+                    <a href="">
+                        {{ 'video-thumb.jpg' | asset_url | img_tag }}
+                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">Executive spinner tricks</h3>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <div class="c-blogAuthor__content c-dc">
-            {{ article.content }}
-        </div>
-      </div>
-
     </div>
 </div>
 

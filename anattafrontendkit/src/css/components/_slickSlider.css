@@ -1,0 +1,26 @@
+.c-blogAuthor {
+
+	.slick-prev,.slick-next  {
+		&:before {
+			background: url('../back.png') center center no-repeat;
+			background-size: 100%;
+		}
+	}
+	.slick-prev  {
+		left:0;
+	}
+
+	.slick-next{
+		right: 0;
+	}
+
+
+	.slick-slide {
+		opacity: 0.4;
+
+		&.slick-center{
+			opacity: 1;
+		}
+	}
+}
+

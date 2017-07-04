@@ -17,4 +17,8 @@
 	.page-container {
 		transform: none;
 	}
+
+	.full-page {
+		max-width: 1640px;
+	}
 }
