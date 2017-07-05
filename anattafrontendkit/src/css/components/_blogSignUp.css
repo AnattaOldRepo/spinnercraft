@@ -5,9 +5,10 @@
 	display: flex;
     align-items: center;
 	text-align: center;
-
+	padding:0 20px;
 	@media (--tablet){
 		height: 500px;
+		padding:0;
 	}
     @media (--tablet-large) {
 		justify-content: flex-end;
@@ -32,11 +33,13 @@
 		}
 
 		@media (--tablet-large){
-			padding: 0 100px;
+			padding: 0 50px;
+			max-width: 50%;
 		}
 
 		@media (--desktop-small) {
 			max-width: 50%;
+			padding: 0 100px;
     	}
 
     	@media (--desktop-large){
@@ -73,13 +76,17 @@
 	}
 
 	.c-blogsignUp__input {
-		width: 100%;
+		width: 68%;
     	max-width: 273px;
     	padding: 0;
     	font-weight: 600;
     	padding:0 10px;
     	font-size: 14px;
     	border-radius: 0;
+
+    	@media (--tablet){
+    		width: 100%;
+    	}
 	}
 	.c-blogsignUp__btn {
 		font-size: 14px;

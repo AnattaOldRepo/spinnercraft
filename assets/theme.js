@@ -1270,13 +1270,16 @@ $('.js-blogSlider').slick({
     centerPadding: '40px',
     dots: false,
     arrows: true,
-    centerMode: true, 
+    centerMode: true,
+    variableWidth: false,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 1,
+          centerPadding: '30px',
           slidesToScroll: 1,
+          variableWidth: false,
           arrows: true
         }
       }

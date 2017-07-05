@@ -3,14 +3,7 @@
         
         <div class="c-blogtrick__head">
             <div class="c-blogtrick__headMedia">
-                {% if article.author == 'Bold Apps' %}
-                {{ 'bold_apps.png' | asset_url | img_tag }}
-                {% elsif article.author == 'Caroline' %}
-                {{ 'wonder_woman.png' | asset_url | img_tag }}
-                {% elsif article.author == 'Tetsuro' %}
-                {{ 'tetsuro.png' | asset_url | img_tag }}
-                {% endif %}
-
+                <img class="c-blogtrick__headMediaImg" src="{{ article.image.src | img_url: 'large' }}">
             </div>
             <div class="c-blogtrick__headContent">
                 <h1 class="c-blogtrickTitle">{{ article.title }}</h1>
@@ -26,7 +19,16 @@
         <div class="c-blogtrick__content c-dc">
             {{ article.content }}
         </div>
-
+        <div class="c-blogtrick__product">
+            <div class="c-blogtrick__productImg">
+                <img class="c-blogtrick__productImg--item" src="{{ article.metafields.c_f.product_img }}">
+            </div>
+            <div class="c-blogtrick__productContent">
+                <h4 class="c-blogtrick__productTag">{{ article.metafields.c_f.product_tag }}</h4>
+                <h3 class="c-blogtrick__productName u-fontAzo">{{ article.metafields.c_f.product_name }}</h3>
+                <a href="{{ article.metafields.c_f.product_link }}" class="c-btn c-btn--blog">Shop Now</a>
+            </div>
+        </div>
     </div>
 
     <div class="c-blogsignUp">

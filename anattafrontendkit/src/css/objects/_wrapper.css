@@ -20,6 +20,10 @@ $wrapper-gutter-small: 140px;
 	@media (--tablet){
 		padding: 0 100px;
 	}
+
+	@media (--desktop-small){
+		padding:0 160px;
+	}
 }
 
 

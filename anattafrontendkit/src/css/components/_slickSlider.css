@@ -2,17 +2,39 @@
 
 	.slick-prev,.slick-next  {
 		&:before {
-			background: url('../back.png') center center no-repeat;
+			background: url('../little-thin-left-arrow.png') center center no-repeat;
 			background-size: 100%;
+			background-color: $color-red;
+			border-radius: 100%;
+			padding: 10px;
+			size:30px;
+			background-size:60%;
+			position: absolute;
+			
+			@media (--tablet){
+				size:50px;
+			}
 		}
 	}
 	.slick-prev  {
-		left:0;
+		left:5px;
 	}
 
 	.slick-next{
-		right: 0;
+		right: 12px;
+		@media (--tablet){
+			right: 35px;
+		}
 	}
+
+	.slick-next,
+	.slick-prev {
+		margin-top: -15px;
+		@media (--tablet){
+			margin-top: -25px;
+		}
+	}
+
 
 
 	.slick-slide {
@@ -21,6 +43,10 @@
 		&.slick-center{
 			opacity: 1;
 		}
+	}
+
+	.slick-slide img{
+		margin:auto;
 	}
 }
 
