@@ -1192,9 +1192,11 @@ html {
 .main-content {
   display: block;
   padding-top: $section-spacing-small;
+  padding-bottom:$section-spacing-small;
 
   @include media-query($medium-up) {
     padding-top: $section-spacing;
+    padding-bottom: $section-spacing;
   }
 
   .template-index & {
@@ -6233,10 +6235,21 @@ $toolbar-height-small: 46px;
     -ms-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: 75%;
+  }
+
+  @media (min-width:1024px){
     width: 450px;
   }
   h3{
     color: #fff;
+    @media (min-width:768px){
+      font-size:26px;
+    }
+
+    @media (min-width:1024px){
+      font-size:1.66667em;
+    }
   }
   p, a{
     font-size: 15px;
