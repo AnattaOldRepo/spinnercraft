@@ -9,8 +9,6 @@
 			padding: 10px;
 			size:30px;
 			background-size:60%;
-			position: absolute;
-			
 			@media (--tablet){
 				size:50px;
 			}
@@ -30,8 +28,10 @@
 	.slick-next,
 	.slick-prev {
 		margin-top: -15px;
+		size:30px;
 		@media (--tablet){
 			margin-top: -25px;
+			size:50px;
 		}
 	}
 

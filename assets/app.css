@@ -2261,7 +2261,6 @@ p {
     width: 30px;
     height: 30px;
     background-size: 60%;
-    position: absolute;
 }
 .c-blogAuthor .slick-prev {
     left: 5px;
@@ -2271,6 +2270,8 @@ p {
 }
 .c-blogAuthor .slick-next, .c-blogAuthor .slick-prev {
     margin-top: -15px;
+    width: 30px;
+    height: 30px;
 }
 .c-blogAuthor .slick-slide {
     opacity: 0.4;
@@ -2295,6 +2296,8 @@ p {
 @media (min-width: 768px) {
     .c-blogAuthor .slick-next, .c-blogAuthor .slick-prev {
         margin-top: -25px;
+        width: 50px;
+        height: 50px;
     }
 }
 .c-blogAuthor__recomend, .c-blogAuthor__myTricks {
