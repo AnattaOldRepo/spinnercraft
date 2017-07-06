@@ -1813,5 +1813,24 @@ p {
     margin-top: -90px !important;
     margin-left: -90px !important;
 }
+.main-content {
+    padding-bottom: 35px;
+}
+.shopify-section.index-section.index-section--no-top-padd .two-column .two-column-content h3 {}
+@media (min-width:750px) {
+    .shopify-section.index-section.index-section--no-top-padd .two-column .two-column-content {
+        width: 75%;
+    }
+}
+@media (min-width: 750px) {
+    .shopify-section.index-section.index-section--no-top-padd .two-column .two-column-content h3 {
+        font-size: 26px;
+    }
+}
+@media (min-width: 1024px) {
+    .shopify-section.index-section.index-section--no-top-padd .two-column .two-column-content h3 {
+        font-size: 1.66667em;
+    }
+}
 
 /*# sourceMappingURL=app.css.map */

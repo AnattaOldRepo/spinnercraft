@@ -8,3 +8,26 @@
 	margin-top: -90px !important;
     margin-left: -90px !important;
 }
+
+
+.main-content {
+	padding-bottom: 35px;
+}
+
+.shopify-section.index-section.index-section--no-top-padd .two-column {
+	.two-column-content {
+		@media (min-width:750px){
+			width: 75%;
+		}
+
+		h3 {
+			@media (min-width: 750px){
+				font-size: 26px;
+			}
+
+			@media (min-width: 1024px){
+				font-size:1.66667em;
+			}
+		}
+	}
+}
