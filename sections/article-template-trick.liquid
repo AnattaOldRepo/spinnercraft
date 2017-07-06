@@ -1,0 +1,93 @@
+<div class="c-blogtrick">
+    <div class="o-wrapper--blog c-blogtrick__container">
+        
+        <div class="c-blogtrick__head">
+            <div class="c-blogtrick__headMedia">
+                <img class="c-blogtrick__headMediaImg" src="{{ article.image.src | img_url: 'large' }}">
+            </div>
+            <div class="c-blogtrick__headContent">
+                <h1 class="c-blogtrickTitle">{{ article.title }}</h1>
+                {% if section.settings.blog_show_author %}
+                    <span class="c-blogtrick__headAuthor">By <span class="c-blogtrick__headAuthor--name">{{ article.author }}</span></span>
+                {% endif %}
+                {% for tag in article.tags %}
+                  <span class="c-blogtrick__headTags">| {{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="c-blogtrick__content c-dc">
+            {{ article.content }}
+        </div>
+        <div class="c-blogtrick__product">
+            <div class="c-blogtrick__productImg">
+                <img class="c-blogtrick__productImg--item" src="{{ article.metafields.c_f.product_img }}">
+            </div>
+            <div class="c-blogtrick__productContent">
+                <h4 class="c-blogtrick__productTag">{{ article.metafields.c_f.product_tag }}</h4>
+                <h3 class="c-blogtrick__productName u-fontAzo">{{ article.metafields.c_f.product_name }}</h3>
+                <a href="{{ article.metafields.c_f.product_link }}" class="c-btn c-btn--blog">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-blogsignUp">
+        <div class="c-blogsignUp__form">
+            {% form 'customer' %}
+              {{ form.errors | default_errors }}
+              {% if form.posted_successfully? %}
+                <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
+              {% else %}
+                <h2 class="c-blogsignUp__head">Want to get access to 50+ tricks just like this?</h2>
+                <div class="c-blogsignUp__list u-flex">
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <input type="email"
+                    name="contact[email]"
+                    id="Email"
+                    class="c-blogsignUp__input"
+                    value="{% if customer %}{{ customer.email }}{% endif %}"
+                    placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                    autocorrect="off"
+                    autocapitalize="off">
+                    <button type="submit" class="c-btn c-btn--yellow c-blogsignUp__btn" name="commit" id="Subscribe">
+                      Sign Up
+                    </button>
+                </div>
+                <p class="c-blogsignUp__info">Sign up today and you'll get daily tricks sent right to your inbox. And you'll be entered into our free giveaways!"</p>
+              {% endif %}
+            {% endform %}
+        </div>
+    </div>
+
+</div>
+
+{% if section.settings.show_share_buttons %}
+    {% include 'social-sharing-blog', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Posts",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

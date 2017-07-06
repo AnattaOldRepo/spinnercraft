@@ -10,4 +10,20 @@
 
 @import "headerDropdown";
 
+@import "tricksBlog";
+
+@import "directContent";
+
+@import "blogShare";
+
+@import "blogSignUp";
+
+@import "blogAuthor";
+
+@import "blogAuthorSocial";
+
+@import "slickSlider";
+
+@import "blogAuthorRecomend";
+
 @import "footer";

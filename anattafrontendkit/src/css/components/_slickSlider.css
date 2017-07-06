@@ -1,0 +1,52 @@
+.c-blogAuthor {
+
+	.slick-prev,.slick-next  {
+		&:before {
+			background: url('../little-thin-left-arrow.png') center center no-repeat;
+			background-size: 100%;
+			background-color: $color-red;
+			border-radius: 100%;
+			padding: 10px;
+			size:30px;
+			background-size:60%;
+			@media (--tablet){
+				size:50px;
+			}
+		}
+	}
+	.slick-prev  {
+		left:5px;
+	}
+
+	.slick-next{
+		right: 12px;
+		@media (--tablet){
+			right: 35px;
+		}
+	}
+
+	.slick-next,
+	.slick-prev {
+		margin-top: -15px;
+		size:30px;
+		@media (--tablet){
+			margin-top: -25px;
+			size:50px;
+		}
+	}
+
+
+
+	.slick-slide {
+		opacity: 0.4;
+
+		&.slick-center{
+			opacity: 1;
+		}
+	}
+
+	.slick-slide img{
+		margin:auto;
+	}
+}
+

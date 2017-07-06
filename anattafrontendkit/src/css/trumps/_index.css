@@ -9,7 +9,6 @@
     margin-left: -90px !important;
 }
 
-
 .main-content {
 	padding-bottom: 35px;
 }
@@ -34,4 +33,18 @@
 
 #shopify-section-1496854090611 .grid {
 	margin-left: 0;
+}
+
+.template-article {
+	.main-content {
+		padding-top: 0;
+	}
+
+	.page-container {
+		transform: none;
+	}
+
+	.full-page {
+		max-width: 1640px;
+	}
 }

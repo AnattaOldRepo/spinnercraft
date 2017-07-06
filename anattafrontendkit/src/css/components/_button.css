@@ -28,6 +28,30 @@
   		background-color: $black-btn-hover;
   	}
   }
+
+  &--yellow {
+    background-color: $color-yellow;
+    border: 1px solid $color-yellow;
+    color: $black;
+  }
+
+  &--blog {
+    background-color: #333333;
+    color: $white;
+    font-size: 14px;
+    padding:7px 15px;
+
+    @media (--tablet){
+      font-size: 22px;
+      padding:12px 15px 14px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #333333;
+      color: $white;
+      opacity: 1;
+    }
+  }
 }
 
-.text{}
