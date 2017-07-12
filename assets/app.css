@@ -623,7 +623,7 @@ p {
 .o-grid__3-12:nth-child(12n + 1) {
     clear: both;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .o-grid__3-12 {
         width: calc(99.9% * 3/12 - (15px - 15px * 3/12));
     }
@@ -2851,6 +2851,9 @@ p {
             transform: none;
 }
 .template-article .full-page {
+    max-width: 1640px;
+}
+.marketing .full-page {
     max-width: 1640px;
 }
 

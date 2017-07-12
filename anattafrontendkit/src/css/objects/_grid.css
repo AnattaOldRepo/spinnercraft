@@ -23,7 +23,7 @@
     .o-grid__3-12{
         lost-column: 12/12;
 
-        @media (--tablet){
+        @media (--tablet-large){
             lost-column: 3/12;
         }
     }
