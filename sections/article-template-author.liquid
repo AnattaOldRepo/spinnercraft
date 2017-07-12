@@ -25,6 +25,22 @@
                     {{ article.content }}
                 </div>
             </div>
+         
+             {% assign currentTitle = article.title %}
+
+             {{ currentTitle }}
+                
+                {% for product in collections.fidget-spinner-full-collection.products %}
+
+                    {% if product.tags contains currentTitle %}
+
+                            <img src="{{ product.featured_image | img_url: 'large' }}">
+
+                            {{ product.title }}
+
+                    {% endif %} 
+
+             {% endfor %} 
 
         <div class="c-blogAuthor__recomend ">
             <div class="c-blogAuthor__recomendSkew">
@@ -40,6 +56,8 @@
                 </span>
 
             Recommended fidget spinners </h3>
+
+    
             
             <div class="c-blogAuthor__recomendSpinner js-blogSlider u-textCenter">
                 <!--
@@ -48,6 +66,8 @@
                     <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ product.metafields.c_f.slider_name }}</h3>
                 </div>
                 -->
+        
+
                 {% if article.metafields.slider.link1 %}
                 <div class="c-blogAuthor__recomendBlock">
                     <a href="{{ article.metafields.slider.link1 }}">
