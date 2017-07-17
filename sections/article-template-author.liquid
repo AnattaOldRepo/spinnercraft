@@ -10,9 +10,8 @@
                     <h1 class="c-blogAuthorTitle u-hideDesktop">{{ article.title }}</h1>
                     <div class="c-blogAuthor__headMediaChild">
                         <img src="{{ article.image.src | img_url: 'large' }}">
-                            {% if section.settings.show_share_buttons %}
-                                {% include 'social-sharing-author', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-                            {% endif %}
+                            {% include 'social-sharing-author' %}
+                            
                     </div>
                 </div>
                 <div class="c-blogAuthor__headTitle o-grid__4-12">
@@ -25,24 +24,8 @@
                     {{ article.content }}
                 </div>
             </div>
-         
-             {% assign currentTitle = article.title %}
-
-             {{ currentTitle }}
-                
-                {% for product in collections.fidget-spinner-full-collection.products %}
-
-                    {% if product.tags contains currentTitle %}
-
-                            <img src="{{ product.featured_image | img_url: 'large' }}">
-
-                            {{ product.title }}
-
-                    {% endif %} 
-
-             {% endfor %} 
-
-        <div class="c-blogAuthor__recomend ">
+        
+        <div class="c-blogAuthor__recomend">
             <div class="c-blogAuthor__recomendSkew">
 
             </div>
@@ -60,56 +43,27 @@
     
             
             <div class="c-blogAuthor__recomendSpinner js-blogSlider u-textCenter">
-                <!--
-                <div class="c-blogAuthor__recomendBlock">
-                    <img src="{{ product.metafields.c_f.slider_image }}">
-                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ product.metafields.c_f.slider_name }}</h3>
-                </div>
-                -->
-        
 
-                {% if article.metafields.slider.link1 %}
-                <div class="c-blogAuthor__recomendBlock">
-                    <a href="{{ article.metafields.slider.link1 }}">
-                        <img src="{{ article.metafields.slider.img1 }}">
-                    </a>
-                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ article.metafields.slider.title1 }}</h3>
-                </div>
-                {% endif %}
-                {% if article.metafields.slider.link2 %}
-                 <div class="c-blogAuthor__recomendBlock">
-                    <a href="{{ article.metafields.slider.link2 }}">
-                        <img src="{{ article.metafields.slider.img2 }}">
-                    </a>
-                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ article.metafields.slider.title2 }}</h3>
-                </div>
-                {% endif %}
-                {% if article.metafields.slider.link3 %}
-                 <div class="c-blogAuthor__recomendBlock">
-                    <a href="{{ article.metafields.slider.link3 }}">
-                        <img src="{{ article.metafields.slider.img3 }}">
-                    </a>
-                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ article.metafields.slider.title3 }}</h3>
-                </div>
-                {% endif %}
-                {% if article.metafields.slider.link4 %}
-                 <div class="c-blogAuthor__recomendBlock">
-                    <a href="{{ article.metafields.slider.link4 }}">
-                        <img src="{{ article.metafields.slider.img4 }}">
-                    </a>
-                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ article.metafields.slider.title4 }}</h3>
-                </div>
-                {% endif %}
-                {% if article.metafields.slider.link5 %}
-                 <div class="c-blogAuthor__recomendBlock">
-                 <a href="{{ article.metafields.slider.link5 }}">
-                    <img src="{{ article.metafields.slider.img5 }}">
-                    <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ article.metafields.slider.title5 }}</h3>
-                </a>
-                </div>
-                {% endif %}
-            </div>
-        </div> 
+                  
+                    {% assign currentTitle = article.title %}
+                
+                        {% for product in collections.fidget-spinner-full-collection.products %}
+
+                            {% if product.tags contains currentTitle %}
+                                <div class="c-blogAuthor__recomendBlock">
+                                    <a href="{{ product.url }}">
+                                        <img src="{{ product.handle | append: '.png' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
+
+                                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ product.title }}</h3>
+                                    </a>
+                                </div> 
+                        {% endif %} 
+
+                    {% endfor %}
+
+             
+            </div> 
+        </div>
 
         <div class="c-blogAuthor__myTricks">
             <h3 class="c-blogAuthor__subTitle">
@@ -127,8 +81,9 @@
                     <a href="{{ article.metafields.video.link1 }}" target="_blank">
                         <img src="{{ article.metafields.video.img1 }}">
                     </a>
+                    <a href="{{ article.metafields.trick.link1 }}">
                         <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">{{ article.metafields.video.title1 }}</h3>
-                   
+                    </a>
                 </div>
              
            
@@ -136,8 +91,9 @@
                     <a href="{{ article.metafields.video.link2 }}" target="_blank">
                         <img src="{{ article.metafields.video.img2 }}">
                     </a>
+                    <a href="{{ article.metafields.trick.link1 }}">
                         <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">{{ article.metafields.video.title2 }}</h3>
-                   
+                    </a>
                 </div>
         
                
@@ -145,8 +101,9 @@
                     <a href="{{ article.metafields.video.link3 }}" target="_blank">
                         <img src="{{ article.metafields.video.img3 }}">
                     </a>
+                    <a href="{{ article.metafields.trick.link1 }}">
                         <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--video">{{ article.metafields.video.title3 }}</h3>
-                    
+                    </a>
                 </div>
               
             </div>
