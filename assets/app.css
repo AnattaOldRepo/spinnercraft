@@ -883,6 +883,14 @@ p {
     color: #fff;
     opacity: 1;
 }
+.c-btn--cap {
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 500px;
+    padding: 10px 20px;
+    font-weight: 800;
+    color: #fff;
+}
 .c-headerBar {
     width: 100%;
     background-color: #1e242b;
@@ -2424,6 +2432,61 @@ p {
         max-width: 50%;
         float: left;
     }
+}
+.c-marketingHero {
+    background: url('hero-marketing-banner.jpg') center center no-repeat;
+    height: 800px;
+    background-size: cover;
+}
+.c-marketingHero__left {
+    max-width: 70%;
+}
+.c-marketingHero__tag {
+    font-size: 16px;
+    font-family: 'azo-sans-web',sans-serif;
+    color: #fff;
+}
+.c-marketingHero__title {
+    font-size: 75px;
+    font-family: 'azo-sans-web',sans-serif;
+    font-weight: 800;
+    color: #fff;
+}
+.c-marketingHero__subTitle {
+    font-size: 24px;
+    font-family: 'azo-sans-web',sans-serif;
+    color: #ff485b;
+}
+.c-marketing__secTitle {
+    font-size: 24px;
+    border-bottom: 2px solid;
+    display: inline-block;
+}
+.c-marketingSignUp__title {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'azo-sans-web',sans-serif;
+}
+.c-marketingPro__name {
+    font-size: 18px;
+}
+.c-marketingPro__copy {
+    font-size: 14px;
+}
+.c-marketingPro__tag {
+    font-size: 12px;
+}
+.c-marketingPro__productName {
+    font-size: 16px;
+}
+.c-marketingPro__productContent {
+    float: left;
+}
+.c-marketingPro__productImg {
+    float: right;
+}
+.c-marketingPro__productImg img {
+    max-width: 60px;
 }
 .c-footer {
     background-color: #fff;

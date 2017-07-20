@@ -4,30 +4,74 @@
     
     <div class="c-marketingHero">
         <div class="o-wrapper">
-            <h3 class="c-marketingHero__tag">From beginners to expert, step by step</h3>
-            <h2 class="c-marketingHero__title">Your how to guide on fidget spinner tricks.</h2>
-            <h4 class="c-marketingHero__subTitle">Learn the tricks from our Spinnercraft pro team</h4>
-            <a class="c-marketingHero__btn" href="/">Sign up for free</a>
+            <div class="c-marketingHero__left">
+                <h3 class="c-marketingHero__tag">From beginners to expert, step by step</h3>
+                <h2 class="c-marketingHero__title">Your how to guide on fidget spinner tricks.</h2>
+                <h4 class="c-marketingHero__subTitle">Learn the tricks from our Spinnercraft pro team</h4>
+                <a class="c-marketingHero__btn c-btn c-btn--cap" href="/">Sign up for free</a>
+            </div>
         </div>
     </div>
 
     <div class="c-marketingSpiner">
         <div class="o-wrapper">
-            <h2 class="c-marketing__secTitle">Recommended Spinners</h2>
+            <h2 class="c-marketing__secTitle">Recommended<br/>Spinners</h2>
             <div class="c-marketingSpiner__slider">
-            
+
+
+                 <div class="js-blogSlider u-textCenter">
+                    
+                        {% for product in collections.fidget-spinner-full-collection.products %}
+
+                            {% if product.tags contains 'Jack Hazard' %}
+                                <div class="c-blogAuthor__recomendBlock">
+                                    <a href="{{ product.url }}">
+                                        <img src="{{ product.handle | append: '.png' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
+
+                                        <h3 class="c-blogAuthor__subTitle c-blogAuthor__subTitle--slider">{{ product.price | money }}</h3>
+                                    </a>
+                                </div> 
+                            {% endif %} 
+
+                        {% endfor %}
+                      
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="c-marketingSignUp">
+    <div class="c-marketingSignUp u-textCenter">
         <div class="o-wrapper">
             <h2 class="c-marketingSignUp__title">Fidget trick spinning is a sport.</h2>
-            <p class="c-marketingSignUp__copy">It takes a lot of focus, patience, and skill to do these tricks. Instead of spending 30-40 hours trying to figure it out on your own - let our guides help you figure it out faster!  </p>
+            <p class="c-marketingSignUp__copy">It takes a lot of focus, patience, and skill to do these<br/> tricks. Instead of spending 30-40 hours trying to figure it<br/> out on your own </p>
+            <p><strong>- let our guides help you figure it out faster!</strong></p>
 
             <form class="c-marketingSignUp__form">
-
-                
+                <div class="c-footerLetter">
+                {% form 'customer' %}
+                  {{ form.errors | default_errors }}
+                  {% if form.posted_successfully? %}
+                    <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                  {% else %}
+                    <div class="c-footerInput u-flex">
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <input type="email"
+                        name="contact[email]"
+                        id="Email"
+                        class="c-footerInput__item"
+                        value="{% if customer %}{{ customer.email }}{% endif %}"
+                        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                        autocorrect="off"
+                        autocapitalize="off">
+                        <button type="submit" class="c-btn c-btn--black c-footerInput__btn" name="commit" id="Subscribe">
+                          Sign Up
+                        </button>
+                    </div>
+                  {% endif %}
+                {% endform %}
+              </div>
+                pro-placeholder.jpg
 
             </form>
             <h4 class="c-marketingSignUp__tag">Sign up to get the complete collection of tricks </h4>
@@ -40,65 +84,82 @@
             <div class="o-grid">
                 <div class="o-grid__3-12">
                     <div class="c-marketingPro__media">
+
+                           {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
                     </div>
                     <div class="c-marketingPro__content">
                         <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
                         <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
                     </div>
                     <div class="c-marketingPro__product">
-                        <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                        <h3 class="c-marketingPro__productName">
-                            Beatz Bluetooth LED Spinner
-                        </h3>
+                        <div class="c-marketingPro__productContent">
+                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                            <h3 class="c-marketingPro__productName">
+                                Beatz Bluetooth LED Spinner
+                            </h3>
+                        </div>
                         <div class="c-marketingPro__productImg">
+                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
                         </div>
                     </div>
                 </div>
                 <div class="o-grid__3-12">
                     <div class="c-marketingPro__media">
+                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
                     </div>
                     <div class="c-marketingPro__content">
                         <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
                         <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
                     </div>
                     <div class="c-marketingPro__product">
-                        <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                        <h3 class="c-marketingPro__productName">
-                            Beatz Bluetooth LED Spinner
-                        </h3>
+                         <div class="c-marketingPro__productContent">
+                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                            <h3 class="c-marketingPro__productName">
+                                Beatz Bluetooth LED Spinner
+                            </h3>
+                        </div>
                         <div class="c-marketingPro__productImg">
+                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
                         </div>
                     </div>
                 </div>
                 <div class="o-grid__3-12">
                     <div class="c-marketingPro__media">
+                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
                     </div>
                     <div class="c-marketingPro__content">
                         <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
                         <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
                     </div>
                     <div class="c-marketingPro__product">
-                        <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                        <h3 class="c-marketingPro__productName">
-                            Beatz Bluetooth LED Spinner
-                        </h3>
+                         <div class="c-marketingPro__productContent">
+                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                            <h3 class="c-marketingPro__productName">
+                                Beatz Bluetooth LED Spinner
+                            </h3>
+                        </div>
                         <div class="c-marketingPro__productImg">
+                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
                         </div>
                     </div>
                 </div>
                 <div class="o-grid__3-12">
                     <div class="c-marketingPro__media">
+                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
                     </div>
                     <div class="c-marketingPro__content">
                         <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
                         <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
                     </div>
                     <div class="c-marketingPro__product">
-                        <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                        <h3 class="c-marketingPro__productName">
-                            Beatz Bluetooth LED Spinner
-                        </h3>
+                        <div class="c-marketingPro__productContent">
+                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                            <h3 class="c-marketingPro__productName">
+                                Beatz Bluetooth LED Spinner
+                            </h3>
+                        </div>
                         <div class="c-marketingPro__productImg">
+                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
                         </div>
                     </div>
                 </div>

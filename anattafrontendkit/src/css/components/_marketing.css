@@ -1,0 +1,71 @@
+
+
+
+.c-marketingHero {
+	background: url('../hero-marketing-banner.jpg') center center no-repeat;
+	height: 800px;
+	background-size: cover;
+}
+	.c-marketingHero__left {
+		max-width: 70%;
+	}
+	.c-marketingHero__tag {
+		font-size: 16px;
+		font-family: $primary-font;
+		color: $white;
+	}
+
+	.c-marketingHero__title {
+		font-size: 75px;
+		font-family: $primary-font;
+		font-weight: 800;
+		color: $white;
+	}
+
+	.c-marketingHero__subTitle {
+		font-size: 24px;
+		font-family: $primary-font;
+		color: $color-red;
+	}
+
+
+.c-marketing__secTitle {
+	font-size: 24px;
+	border-bottom: 2px solid;
+	display: inline-block;
+}
+
+.c-marketingSignUp__title {
+	font-size: 50px;
+	font-weight: 700;
+	font-family: $primary-font;
+}
+
+
+
+.c-marketingPro__name {
+	font-size: 18px;
+}
+
+.c-marketingPro__copy {
+	font-size: 14px;
+}
+
+.c-marketingPro__tag {
+	font-size: 12px;
+}
+
+.c-marketingPro__productName {
+	font-size: 16px;
+}
+
+.c-marketingPro__productContent {
+	float: left;
+}
+.c-marketingPro__productImg {
+	float: right;
+
+	img {
+		max-width: 60px;
+	}
+}
