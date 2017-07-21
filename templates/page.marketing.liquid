@@ -83,83 +83,110 @@
             <div class="o-grid c-marketingPro__grid">
                 <div class="o-grid__3-12 c-marketingPro__gridItem">
                     <div class="c-marketingPro__media">
+                        <img src="{{ page.metafields.team.img1 }}" />
+                    </div>
+                    <div class="c-marketingPro__content">
+                        <h3 class="c-marketingPro__name">{{ page.metafields.team.name1 }}</h3>
+                        <p class="c-marketingPro__copy">{{ page.metafields.team.content1 }}</p>
+                    </div>
+                    <div class="c-marketingPro__product  u-clearFix">
+                    {% for product in collections.fidget-spinner-full-collection.products %}
+                        {% if product.tags contains 'proteam1' %}
+                         <div class="c-marketingPro__productContent">
+                            <a href="{{ product.url }}">
+                                <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                                <h3 class="c-marketingPro__productName">
+                                    {{ product.title }}
+                                </h3>
+                            </a>
+                        </div>
+                        <div class="c-marketingPro__productImg">
+                            <img src="{{ product.featured_image | img_url: 'small' }}"> 
+                        </div>
+                          {% endif %} 
 
-                           {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
-                    </div>
-                    <div class="c-marketingPro__content">
-                        <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
-                        <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
-                    </div>
-                    <div class="c-marketingPro__product  u-clearFix">
-                        <div class="c-marketingPro__productContent">
-                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                            <h3 class="c-marketingPro__productName">
-                                Beatz Bluetooth LED Spinner
-                            </h3>
-                        </div>
-                        <div class="c-marketingPro__productImg">
-                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
-                        </div>
+                    {% endfor %}
                     </div>
                 </div>
                 <div class="o-grid__3-12 c-marketingPro__gridItem">
                     <div class="c-marketingPro__media">
-                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
+                        <img src="{{ page.metafields.team.img2 }}" />
                     </div>
                     <div class="c-marketingPro__content">
-                        <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
-                        <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
+                        <h3 class="c-marketingPro__name">{{ page.metafields.team.name2 }}</h3>
+                        <p class="c-marketingPro__copy">{{ page.metafields.team.content2 }}</p>
                     </div>
                     <div class="c-marketingPro__product  u-clearFix">
+                    {% for product in collections.fidget-spinner-full-collection.products %}
+                        {% if product.tags contains 'proteam2' %}
                          <div class="c-marketingPro__productContent">
-                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                            <h3 class="c-marketingPro__productName">
-                                Beatz Bluetooth LED Spinner
-                            </h3>
+                            <a href="{{ product.url }}">
+                                <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                                <h3 class="c-marketingPro__productName">
+                                    {{ product.title }}
+                                </h3>
+                            </a>
                         </div>
                         <div class="c-marketingPro__productImg">
-                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
+                            <img src="{{ product.featured_image | img_url: 'small' }}"> 
                         </div>
+                          {% endif %} 
+
+                    {% endfor %}
                     </div>
                 </div>
                 <div class="o-grid__3-12 c-marketingPro__gridItem">
                     <div class="c-marketingPro__media">
-                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
+                        <img src="{{ page.metafields.team.img3 }}" />
                     </div>
                     <div class="c-marketingPro__content">
-                        <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
-                        <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
+                        <h3 class="c-marketingPro__name">{{ page.metafields.team.name3 }}</h3>
+                        <p class="c-marketingPro__copy">{{ page.metafields.team.content3 }}</p>
                     </div>
                     <div class="c-marketingPro__product  u-clearFix">
+                    {% for product in collections.fidget-spinner-full-collection.products %}
+                        {% if product.tags contains 'proteam3' %}
                          <div class="c-marketingPro__productContent">
-                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                            <h3 class="c-marketingPro__productName">
-                                Beatz Bluetooth LED Spinner
-                            </h3>
+                            <a href="{{ product.url }}">
+                                <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                                <h3 class="c-marketingPro__productName">
+                                    {{ product.title }}
+                                </h3>
+                            </a>
                         </div>
                         <div class="c-marketingPro__productImg">
-                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
+                            <img src="{{ product.featured_image | img_url: 'small' }}"> 
                         </div>
+                          {% endif %} 
+
+                    {% endfor %}
                     </div>
                 </div>
                 <div class="o-grid__3-12 c-marketingPro__gridItem">
                     <div class="c-marketingPro__media">
-                         {{ 'pro-placeholder.jpg' | asset_url | img_tag }}
+                        <img src="{{ page.metafields.team.img4 }}" />
                     </div>
                     <div class="c-marketingPro__content">
-                        <h3 class="c-marketingPro__name">Keresnyei Vince, CA</h3>
-                        <p class="c-marketingPro__copy">Everyone's doing quads but I've landed the first quint drop kick.</p>
+                        <h3 class="c-marketingPro__name">{{ page.metafields.team.name4 }}</h3>
+                        <p class="c-marketingPro__copy">{{ page.metafields.team.content4 }}</p>
                     </div>
                     <div class="c-marketingPro__product  u-clearFix">
-                        <div class="c-marketingPro__productContent">
-                            <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
-                            <h3 class="c-marketingPro__productName">
-                                Beatz Bluetooth LED Spinner
-                            </h3>
+                    {% for product in collections.fidget-spinner-full-collection.products %}
+                        {% if product.tags contains 'proteam4' %}
+                         <div class="c-marketingPro__productContent">
+                            <a href="{{ product.url }}">
+                                <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                                <h3 class="c-marketingPro__productName">
+                                    {{ product.title }}
+                                </h3>
+                            </a>
                         </div>
                         <div class="c-marketingPro__productImg">
-                            {{ 'product-placeholder.jpg' | asset_url | img_tag }}
+                            <img src="{{ product.featured_image | img_url: 'small' }}"> 
                         </div>
+                          {% endif %} 
+
+                    {% endfor %}
                     </div>
                 </div>
             </div>
