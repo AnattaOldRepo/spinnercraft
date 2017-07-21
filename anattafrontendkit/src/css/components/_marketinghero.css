@@ -1,0 +1,77 @@
+.c-marketingHero {
+	background: url('../hero-marketing-banner.jpg') top center no-repeat;
+	height: 400px;
+	background-size: cover;
+	position: relative;
+	margin-bottom: -75px;
+	@media (--tablet-large){
+		height: 865px;
+		background: url('../hero-marketing-banner.jpg') center center no-repeat;
+		background-size: cover;
+		margin-bottom: 0;
+	}
+
+}
+
+
+.c-marketingHero__left {
+		text-align: center;
+		padding: 50px 0;
+
+    	@media (--tablet-large){
+			max-width: 60%;
+    		padding: 10% 0 0 0;
+    		padding-left: 60px;
+    		text-align: left;
+    	}
+
+    	@media (--desktop-small){
+    		padding-top: 10%;
+    		padding-left: 120px;
+    	}
+	}
+	.c-marketingHero__tag {
+		font-size: 16px;
+		font-family: $primary-font;
+		color: $white;
+		margin-bottom: 0;
+		display: none;
+
+		@media (--tablet){
+			display: block;
+		}
+
+	}
+
+	.c-marketingHero__title {
+		font-size: 32px;
+		font-family: $primary-font;
+		font-weight: 800;
+		color: $white;
+		text-transform: none;
+    	letter-spacing: 0px;
+    	margin-bottom: 13px;
+
+    	@media (--tablet){
+			font-size: 45px;
+    	}
+    	@media (--tablet-large){
+    		font-size:60px;
+    	}
+
+    	@media (--desktop-small){
+    		font-size: 75px;
+    	}
+	}
+
+	.c-marketingHero__subTitle {
+		font-size: 18px;
+		font-family: $primary-font;
+		color: $color-orange;
+		font-weight: 500;
+		margin-bottom: 3.75rem;
+
+		@media (--tablet){
+			font-size: 24px;
+		}
+	}

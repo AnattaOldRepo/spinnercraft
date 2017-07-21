@@ -53,4 +53,7 @@
 	.full-page {
 		max-width: 1640px;
 	}
+	.page-container {
+		display: none;
+	}
 }
