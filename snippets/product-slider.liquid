@@ -1,0 +1,22 @@
+<div class="o-wrapper">
+    <h2 class="c-marketing__secTitle u-re">Recommended<br/>Spinners</h2>
+</div>
+
+<div class="c-marketingSpiner__slider">
+    <div class="o-wrapper--small">
+        <div class="js-marketSlider c-marketingSpiner__block u-textCenter">
+            {% for product in collections.fidget-spinner-full-collection.products %}
+                {% if product.tags contains 'Jack Hazard' %}
+                    <div class="c-marketing__SliderBlock">
+                        <a href="{{ product.url }}">
+                            <img src="{{ product.handle | append: '.png' | asset_url }}" alt="{{ product.title }}" onError="style.display = 'none';" />
+                            <h3 class="c-marketingSpiner__title">{{ product.title }}</h3>
+                            <h4 class="c-marketingSpiner__price ">{{ product.price | money }}</h4>
+                        </a>
+                    </div> 
+                {% endif %} 
+
+            {% endfor %}
+        </div>
+    </div>
+</div>

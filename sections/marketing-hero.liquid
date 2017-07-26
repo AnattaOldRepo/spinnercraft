@@ -1,0 +1,31 @@
+<h3 class="c-marketingHero__tag">{{ section.settings.marketing_hero_tag }}</h3>
+<h2 class="c-marketingHero__title">{{ section.settings.marketing_hero_heading }}</h2>
+<h4 class="c-marketingHero__subTitle">{{ section.settings.marketing_hero_subheading }}</h4>
+<a class="c-marketingHero__btn c-btn c-btn--cap js-modal" href="/">Sign up for free</a>
+
+{% schema %}
+  {
+    "name": "Marketing Hero Content",
+    "settings": [
+      {
+        "content": "Hero Content",
+        "type": "paragraph"
+      },
+      {
+        "id": "marketing_hero_tag",
+        "label": "Top tag line",
+        "type": "text"
+      },
+       {
+        "id": "marketing_hero_heading",
+        "label": "Heading",
+        "type": "text"
+      },
+       {
+        "id": "marketing_hero_subheading",
+        "label": "Sub Heading",
+        "type": "text"
+      }
+    ]
+  }
+ {% endschema %}

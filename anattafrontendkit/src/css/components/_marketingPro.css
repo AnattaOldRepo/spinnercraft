@@ -11,7 +11,7 @@
 	}
 
 	.c-marketingPro__content {
-		padding: 9px 10px 0 18px;
+		padding: 9px 10px 9px 18px;
 		background:$white;
 		border-bottom: 1px solid $border-color;
 	}
