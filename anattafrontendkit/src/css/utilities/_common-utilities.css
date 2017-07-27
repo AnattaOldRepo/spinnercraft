@@ -38,7 +38,7 @@
 }
 
 .u-fontPrimary{
-	font-family: $azo-font;
+	font-family: 'azo-sans-web', sans-serif;
 }
 
 .u-noOpacity{
