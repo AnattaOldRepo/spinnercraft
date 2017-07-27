@@ -14,7 +14,7 @@
 %}
   {%- assign social_icons = true -%}
 {% endif %}
-<footer class="c-footer u-fontPrimary u-noOpacity" role="contentinfo">
+<footer class="c-footer u-fontPrimary" role="contentinfo">
     <div class="c-footerBg">
         <div class="o-grid c-footerWidth">
             <div class="c-footer__left o-grid__6-12">
@@ -47,6 +47,7 @@
            
                 {% if social_icons %}
                   <div class="c-footerSocial">
+                  <p class="c-footerLetter__label u-bold c-footerSocial__tag">Follow</p>
                     <ul class="c-footerSocial__icons">
                       {% if settings.social_facebook_link != blank %}
                         <li class="u-inline">
@@ -145,18 +146,18 @@
             </div>
             
         </div>
-        <div class="o-wrapper c-footer__own u-clearFix">
-        {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
-          <div class="c-footer__ownName">
-            <p class="">&copy; {{ 'now' | date: "%Y" }}</p> 
-            <p>{{ shop.name | link_to: '/' }}</p>
+        <div class="o-wrapper c-footer__own">
+          <div class="u-clearFix">
+           <div class="c-footer__ownTerms">
+            <a class="c-footer__ownTermsLink" href="/pages/privacy">Privacy</a>
+            <a class="c-footer__ownTermsLink" href="/pages/terms">Terms</a>
           </div>
-        {% endif %}
-
-        <div class="c-footer__ownTerms">
-          <a class="c-footer__ownTermsLink" href="/pages/privacy">Privacy</a>
-          <a class="c-footer__ownTermsLink" href="/pages/terms">Terms</a>
-        </div>
+          {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
+            <div class="c-footer__ownName">
+              <p class="c-footer__ownItem">&copy; {{ 'now' | date: "%Y" }} , {{ shop.name | link_to: '/' }}</p>
+            </div>
+          {% endif %}
+          </div>
       </div>
     </div>
 </footer>
