@@ -17,11 +17,9 @@
 	.c-footer__right{
 		text-align:center;
 		@media (--tablet){
-			padding:25px 60px;
 			@util center-block;
 			text-align:left;
 		}
-
 		@media (--tablet-large){
 			padding: 0;
 		}
@@ -31,7 +29,7 @@
 
 	}
 		.c-footerLetter__label{
-			font-size: 14px;
+			font-size: 16px;
 			margin-bottom: 14px;
 		}
 
@@ -168,6 +166,8 @@
 	}
 	.c-footerNav__headLink{
 		color: $black;
+		font-size: 16px;
+		letter-spacing: 1px;
 	}
 
 	.c-footerNav__link {
