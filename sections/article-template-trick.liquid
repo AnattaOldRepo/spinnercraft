@@ -7,9 +7,7 @@
             </div>
             <div class="c-blogtrick__headContent">
                 <h1 class="c-blogtrickTitle">{{ article.title }}</h1>
-                {% if section.settings.blog_show_author %}
-                    <span class="c-blogtrick__headAuthor">By <span class="c-blogtrick__headAuthor--name">{{ article.author }}</span></span>
-                {% endif %}
+                <span class="c-blogtrick__headAuthor">By <span class="c-blogtrick__headAuthor--name">{{ article.metafields.c_f.author_name }}</span></span>
                 {% for tag in article.tags %}
                   <span class="c-blogtrick__headTags">| {{ tag }}</span>
                 {% endfor %}
