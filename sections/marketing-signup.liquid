@@ -1,0 +1,69 @@
+<h2 class="c-marketingSignUp__title">{{ section.settings.marketing_signup_title }}</h2>
+    
+<p class="c-marketingSignUp__copy">{{ section.settings.marketing_signup_copyOne }}</p>
+    
+<p class="c-marketingSignUp__copy"><strong>{{ section.settings.marketing_signup_copyTwo }}</strong></p>
+
+<form class="c-marketingSignUp__form">
+    <div class="c-marketing__input u-center">
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
+            <div class="c-marketing__inputContent">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email"
+                name="contact[email]"
+                id="Email"
+                class="c-marketing__inputItem"
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                autocorrect="off"
+                autocapitalize="off">
+                <button type="submit" class="c-btn c-btn--black" name="commit" id="Subscribe">
+                  Sign Up
+                </button>
+            </div>
+          {% endif %}
+        {% endform %}
+    </div>
+                
+
+</form>
+
+<h4 class="c-marketingSignUp__tag">{{ section.settings.marketing_signup__tag }}</h4>
+
+
+
+{% schema %}
+  {
+    "name": "Marketing Sign Up ",
+    "settings": [
+      {
+        "content": "Sign-Up Content",
+        "type": "paragraph"
+      },
+      {
+        "id": "marketing_signup_title",
+        "label": "Title",
+        "type": "text"
+      },
+       {
+        "id": "marketing_signup_copyOne",
+        "label": "Paragraph - Regular",
+        "type": "text"
+      },
+      {
+        "id": "marketing_signup_copyTwo",
+        "label": "Paragraph - Bold",
+        "type": "text"
+      },
+       {
+        "id": "marketing_signup__tag",
+        "label": "SignUp Tag",
+        "type": "text"
+      }
+    ]
+  }
+ {% endschema %}

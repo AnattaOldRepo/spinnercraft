@@ -26,4 +26,16 @@
 
 @import "blogAuthorRecomend";
 
+@import "marketinghero";
+
+@import "marketingSlider";
+
+@import "marketingSignUp";
+
+@import "marketingPro";
+
+@import "marketingGiveAway";
+
+@import "marketing";
+
 @import "footer";

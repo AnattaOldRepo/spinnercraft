@@ -48,3 +48,12 @@
 		max-width: 1640px;
 	}
 }
+
+.marketing {
+	.full-page {
+		max-width: 1640px;
+	}
+	.page-container {
+		display: none;
+	}
+}

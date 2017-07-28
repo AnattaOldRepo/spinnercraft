@@ -10,7 +10,7 @@
 
 @custom-media --tablet-large (min-width: 1024px); /* Tablet landscape */
 
-@custom-media --tablet-large-max (min-width: 1169px); /* Tablet landscape */
+@custom-media --tablet-large-max (max-width: 1169px); /* Tablet landscape */
 
 @custom-media --desktop-small (min-width: 1170px); /* Desktop small */
 

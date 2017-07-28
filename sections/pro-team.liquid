@@ -1,0 +1,188 @@
+<h2 class="c-marketing__secTitle">{{ section.settings.marketing_team_title }}</h2>
+<div class="o-grid c-marketingPro__grid">
+    <div class="o-grid__3-12 c-marketingPro__gridItem">
+        <div class="c-marketingPro__media">
+           <img src=" {{ section.settings.pro_team_1_img | img_url: 'master'}}" />
+        </div>
+        <div class="c-marketingPro__content">
+            <h3 class="c-marketingPro__name">{{ section.settings.pro_team_1_name }}</h3>
+            <p class="c-marketingPro__copy">{{ section.settings.pro_team_1_content  }}</p>
+        </div>
+        <div class="c-marketingPro__product  u-clearFix">
+        {% for product in collections.fidget-spinner-full-collection.products %}
+            {% if product.tags contains 'proteam1' %}
+             <div class="c-marketingPro__productContent">
+                <a href="{{ product.url }}">
+                    <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                    <h3 class="c-marketingPro__productName">
+                        {{ product.title }}
+                    </h3>
+                </a>
+            </div>
+            <div class="c-marketingPro__productImg">
+                <img src="{{ product.featured_image | img_url: 'small' }}"> 
+            </div>
+              {% endif %} 
+
+        {% endfor %}
+        </div>
+    </div>
+    <div class="o-grid__3-12 c-marketingPro__gridItem">
+        <div class="c-marketingPro__media">
+             <img src=" {{ section.settings.pro_team_2_img | img_url: 'master'}}" />
+        </div>
+        <div class="c-marketingPro__content">
+            <h3 class="c-marketingPro__name">{{ section.settings.pro_team_2_name  }}</h3>
+            <p class="c-marketingPro__copy">{{ section.settings.pro_team_2_content  }}</p>
+        </div>
+        <div class="c-marketingPro__product  u-clearFix">
+        {% for product in collections.fidget-spinner-full-collection.products %}
+            {% if product.tags contains 'proteam2' %}
+             <div class="c-marketingPro__productContent">
+                <a href="{{ product.url }}">
+                    <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                    <h3 class="c-marketingPro__productName">
+                        {{ product.title }}
+                    </h3>
+                </a>
+            </div>
+            <div class="c-marketingPro__productImg">
+                <img src="{{ product.featured_image | img_url: 'small' }}"> 
+            </div>
+              {% endif %} 
+
+        {% endfor %}
+        </div>
+    </div>
+    <div class="o-grid__3-12 c-marketingPro__gridItem">
+        <div class="c-marketingPro__media">
+             <img src=" {{ section.settings.pro_team_3_img | img_url: 'master'}}" />
+        </div>
+        <div class="c-marketingPro__content">
+            <h3 class="c-marketingPro__name">{{ section.settings.pro_team_3_name  }}</h3>
+            <p class="c-marketingPro__copy">{{ section.settings.pro_team_3_content  }}</p>
+        </div>
+        <div class="c-marketingPro__product  u-clearFix">
+        {% for product in collections.fidget-spinner-full-collection.products %}
+            {% if product.tags contains 'proteam3' %}
+             <div class="c-marketingPro__productContent">
+                <a href="{{ product.url }}">
+                    <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                    <h3 class="c-marketingPro__productName">
+                        {{ product.title }}
+                    </h3>
+                </a>
+            </div>
+            <div class="c-marketingPro__productImg">
+                <img src="{{ product.featured_image | img_url: 'small' }}"> 
+            </div>
+              {% endif %} 
+
+        {% endfor %}
+        </div>
+    </div>
+    <div class="o-grid__3-12 c-marketingPro__gridItem">
+        <div class="c-marketingPro__media">
+             <img src=" {{ section.settings.pro_team_4_img | img_url: 'master'}}" />
+        </div>
+        <div class="c-marketingPro__content">
+            <h3 class="c-marketingPro__name">{{ section.settings.pro_team_4_name  }}</h3>
+            <p class="c-marketingPro__copy">{{ section.settings.pro_team_4_content  }}</p>
+        </div>
+        <div class="c-marketingPro__product  u-clearFix">
+        {% for product in collections.fidget-spinner-full-collection.products %}
+            {% if product.tags contains 'proteam4' %}
+             <div class="c-marketingPro__productContent">
+                <a href="{{ product.url }}">
+                    <h4 class="c-marketingPro__tag">My favorite Spinner</h4>
+                    <h3 class="c-marketingPro__productName">
+                        {{ product.title }}
+                    </h3>
+                </a>
+            </div>
+            <div class="c-marketingPro__productImg">
+                <img src="{{ product.featured_image | img_url: 'small' }}"> 
+            </div>
+              {% endif %} 
+
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Marketing Pro Team",
+    "settings": [
+      {
+        "content": "Pro Team",
+        "type": "paragraph"
+      },
+      {
+        "id": "marketing_team_title",
+        "label": "Title",
+        "type": "text"
+      },
+        { 
+        "id" : "pro_team_1_img",
+        "label" : "Team Image",
+        "type"  : "image_picker"
+        },
+        { 
+        "id" : "pro_team_1_name",
+        "label" : "Name",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_1_content",
+        "label" : "Desc",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_2_img",
+        "label" : "Team Image",
+        "type"  : "image_picker"
+        },
+        { 
+        "id" : "pro_team_2_name",
+        "label" : "Name",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_2_content",
+        "label" : "Desc",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_3_img",
+        "label" : "Team Image",
+        "type"  : "image_picker"
+        },
+        { 
+        "id" : "pro_team_3_name",
+        "label" : "Name",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_3_content",
+        "label" : "Desc",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_4_img",
+        "label" : "Team Image",
+        "type"  : "image_picker"
+        },
+        { 
+        "id" : "pro_team_4_name",
+        "label" : "Name",
+        "type"  : "text"
+        },
+        { 
+        "id" : "pro_team_4_content",
+        "label" : "Desc",
+        "type"  : "text"
+        }
+    ]
+  }
+ {% endschema %}

@@ -1,0 +1,21 @@
+<div class="c-marketingSubmit__flex">
+    <h2 class="c-marketingSubmit__title">{{ section.settings.marketing_submit_title }}</h2>
+    <a class="c-marketingSubmit__btn c-btn c-btn--cap js-modal" href="/">Submit here</a>
+</div>
+
+{% schema %}
+  {
+    "name": "Marketing Submit section ",
+    "settings": [
+        {
+            "content": "Submit ",
+            "type": "paragraph"
+        },
+        {
+            "id": "marketing_submit_title",
+            "label": "Title",
+            "type": "text"
+        }
+    ]
+  }
+ {% endschema %}
