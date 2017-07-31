@@ -2461,18 +2461,14 @@ p {
 .c-footerLetter {}
 .c-footerLetter__label {
     font-size: 16px;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 0.4px;
 }
 .c-footerSocial__tag {
     color: #000;
 }
-@media(min-width: 768px) {
-    .c-footerSocial__tag {
-        display: none;
-    }
-}
 .c-footerSocial {
-    padding-top: 30px;
+    padding-top: 15px;
     float: none;
 }
 .c-footerSocial li {
@@ -2481,13 +2477,13 @@ p {
     width: 30px;
     height: 30px;
     border-radius: 100%;
+    margin-right: 10px;
 }
 .c-footerSocial .icon {
     width: 15px;
     height: 15px;
 }
 .c-footerSocial__links {
-    margin-right: 20px;
     color: #fff;
 }
 .c-footerSocial__links:hover {
@@ -2504,6 +2500,10 @@ p {
     padding-bottom: 20px;
     padding-top: 100px;
     text-align: center;
+}
+.c-footer__own a {}
+.c-footer__own a:hover {
+    color: #3d4246;
 }
 @media (min-width: 768px) {
     .c-footer__own {
@@ -2540,6 +2540,7 @@ p {
 @media (min-width: 768px) {
     .c-footer__ownItem {
         display: inline-block;
+        margin-right: 20px;
     }
 }
 .c-footer__ownTerms {}

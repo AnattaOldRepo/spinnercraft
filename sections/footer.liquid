@@ -25,7 +25,7 @@
                       {% if form.posted_successfully? %}
                         <p class="u-bold u-black">{{ 'general.newsletter_form.confirmation' | t }}</p>
                       {% else %}
-                        <label for="Email" class="c-footerLetter__label u-bold">Join the worldwide spinnercraft community</label>
+                        <label for="Email" class="c-footerLetter__label u-bold">Join the worldwide Spinnercraft community</label>
                         <div class="c-footerInput">
                           <input type="hidden" name="contact[tags]" value="newsletter">
                           <input type="email"
@@ -47,66 +47,66 @@
            
                 {% if social_icons %}
                   <div class="c-footerSocial">
-                  <p class="c-footerLetter__label u-bold c-footerSocial__tag">Follow</p>
+                  <p class="c-footerLetter__label u-bold c-footerSocial__tag">follow</p>
                     <ul class="c-footerSocial__icons">
                       {% if settings.social_facebook_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
                             {% include 'icon-facebook-new' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_twitter_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
                             {% include 'icon-twitter' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_pinterest_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
                             {% include 'icon-pinterest' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_instagram_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
                             {% include 'icon-instagram' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_tumblr_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
                             {% include 'icon-tumblr' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_snapchat_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_snapchat_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
                             {% include 'icon-snapchat' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_youtube_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
                             {% include 'icon-youtube' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if settings.social_vimeo_link != blank %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
                             {% include 'icon-vimeo' %}
                           </a>
                         </li>
                       {% endif %}
                       {% if template contains 'blog' or template contains 'article' %}
-                        <li class="u-inline">
+                        <li class="c-footerSocial__li u-inline">
                           <a class="c-footerSocial__links" href="{{ shop.url }}{{ blog.url }}.atom">
                             {% include 'icon-rss' %}
                           </a>
@@ -154,7 +154,7 @@
           </div>
           {% if social_icons and section.settings.footer_newsletter_enable and section.settings.show_payment_icons %}
             <div class="c-footer__ownName">
-              <p class="c-footer__ownItem">&copy; {{ 'now' | date: "%Y" }} , {{ shop.name | link_to: '/' }}</p>
+              <a class="c-footer__ownItem">&copy; {{ 'now' | date: "%Y" }}  {{ shop.name | link_to: '/' }}</a>
             </div>
           {% endif %}
           </div>

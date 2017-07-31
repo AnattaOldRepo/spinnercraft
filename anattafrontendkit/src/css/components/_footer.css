@@ -30,19 +30,17 @@
 	}
 		.c-footerLetter__label{
 			font-size: 16px;
-			margin-bottom: 14px;
-		}
+			margin-bottom: 8px;
+    		letter-spacing: 0.4px;		
+    	}
 
 		.c-footerSocial__tag {
 			color: $black;
-			@media(--tablet){
-				display: none;
-			}
 		}
 
 
 	.c-footerSocial {
-		padding-top: 30px;
+		padding-top: 15px;
 		float:none;
 
 		li {
@@ -51,10 +49,11 @@
 		    width: 30px;
 		    height: 30px;
 		    border-radius: 100%;
+		    margin-right: 10px;
 		}
 		
 		&__links{
-			margin-right: 20px;
+			
 			color: $white;
 
 			&:hover {
@@ -103,6 +102,12 @@
 			}
 		}
 
+		a {
+			&:hover {
+				color:#3d4246;
+			}
+		}
+
 	}
 
 		.c-footer__ownName {
@@ -115,6 +120,7 @@
 		.c-footer__ownItem {
 			@media (--tablet){
 				display: inline-block;
+				margin-right: 20px;
 			}
 		}
 
