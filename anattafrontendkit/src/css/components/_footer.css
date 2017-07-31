@@ -43,7 +43,7 @@
 		padding-top: 15px;
 		float:none;
 
-		li {
+		&__li {
 			background: #000;
 		    text-align: center;
 		    width: 30px;
@@ -103,6 +103,14 @@
 		}
 
 		a {
+			margin: 0 5px;
+		    display: block;
+			
+			@media (--tablet){
+				margin: 0 10px;
+				display: inline-block;
+			}
+
 			&:hover {
 				color:#3d4246;
 			}
@@ -132,12 +140,7 @@
 		}
 
 		.c-footer__ownTermsLink{
-			margin: 0 5px;
-			display: block;
-			@media (--tablet){
-				margin: 0 20px;
-				display: inline-block;
-			}
+			
 		}
 
 	.c-footerBg{

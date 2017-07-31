@@ -2471,17 +2471,17 @@ p {
     padding-top: 15px;
     float: none;
 }
-.c-footerSocial li {
+.c-footerSocial .icon {
+    width: 15px;
+    height: 15px;
+}
+.c-footerSocial__li {
     background: #000;
     text-align: center;
     width: 30px;
     height: 30px;
     border-radius: 100%;
     margin-right: 10px;
-}
-.c-footerSocial .icon {
-    width: 15px;
-    height: 15px;
 }
 .c-footerSocial__links {
     color: #fff;
@@ -2501,7 +2501,10 @@ p {
     padding-top: 100px;
     text-align: center;
 }
-.c-footer__own a {}
+.c-footer__own a {
+    margin: 0 5px;
+    display: block;
+}
 .c-footer__own a:hover {
     color: #3d4246;
 }
@@ -2530,6 +2533,12 @@ p {
         height: 90px;
     }
 }
+@media (min-width: 768px) {
+    .c-footer__own a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+}
 .c-footer__ownName {}
 @media (min-width: 768px) {
     .c-footer__ownName {
@@ -2549,16 +2558,7 @@ p {
         float: right;
     }
 }
-.c-footer__ownTermsLink {
-    margin: 0 5px;
-    display: block;
-}
-@media (min-width: 768px) {
-    .c-footer__ownTermsLink {
-        margin: 0 20px;
-        display: inline-block;
-    }
-}
+.c-footer__ownTermsLink {}
 .c-footerBg {
     background: url('footer-border.jpg') no-repeat top center;
     background-size: 100%;
